@@ -1,0 +1,17 @@
+package task2_3;
+
+public class buildPartOne implements ILineStep{
+	private String name;
+	
+	public buildPartOne(String n){
+		this.name = n;
+		System.out.println("Created new BODY");
+	}
+	
+	@Override
+	public IProductPart buildProductPart() {
+		
+		return null;
+	}
+
+}

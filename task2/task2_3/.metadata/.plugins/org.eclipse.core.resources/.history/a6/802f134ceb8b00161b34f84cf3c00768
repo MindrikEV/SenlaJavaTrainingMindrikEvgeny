@@ -1,0 +1,16 @@
+package task2_3;
+
+public class CAssemblyLine implements IAssemblyLine{
+
+	//@Override
+	public IProduct assembleProduct(IProduct iProduct) {
+		CLineStep first = new ClineStep("BODY");
+		IProductPart.installFirstPart(first.buildProductPart());
+		ClineStep second = new ClineStep("CHASSIS");
+		IProductPart.installSecondPart(second.buildProductPart());
+		ClineStep third = new ClineStep("ENGINE");
+		IProductPart.installThirdPart(third.buildProductPart());
+		return null;
+	}
+
+}
