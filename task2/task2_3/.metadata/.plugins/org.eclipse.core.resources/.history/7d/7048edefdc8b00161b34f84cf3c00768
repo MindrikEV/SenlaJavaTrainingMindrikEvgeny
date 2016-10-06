@@ -1,0 +1,11 @@
+package task2_3;
+
+public class buildPartOne implements ILineStep {
+
+	@Override
+	public IProductPart buildProductPart() {
+		
+		return null;
+	}
+		
+}
