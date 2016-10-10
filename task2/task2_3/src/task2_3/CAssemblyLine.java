@@ -3,13 +3,13 @@ package task2_3;
 public class CAssemblyLine implements IAssemblyLine{
 
 	public IProduct assembleProduct(IProduct iproduct) {
-		LineStep1 first = new LineStep1();
+		CLineStep first = new CLineStep("BODY");
 		iproduct.installFirstPart(first.buildProductPart());
 		
-		LineStep2 second = new LineStep2();
+		CLineStep second = new CLineStep("CHASSIS");
 		iproduct.installSecondPart(second.buildProductPart());
 		
-		LineStep3 third = new LineStep3();
+		CLineStep third = new CLineStep("ENGINE");
 		iproduct.installThirdPart(third.buildProductPart());
 		
 		return iproduct;
