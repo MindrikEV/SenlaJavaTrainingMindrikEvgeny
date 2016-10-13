@@ -27,7 +27,7 @@ public class Array {
 	public static Patient[] delElement(Patient[] array, Patient patient){
 		int size = array.length;
 		int position = 0;
-		Patient[] newArray = new Patient[size - 1];;
+		Patient[] newArray = new Patient[size - 1];
 		
 		for(int i=0; i < size; i++){
 			if (!array[i].equals(patient)){
