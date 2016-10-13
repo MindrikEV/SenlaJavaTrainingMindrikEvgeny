@@ -1,6 +1,6 @@
 package task3_4;
 
-public class Man {
+public abstract class Man {
 	private String name;
 	private String surName;
 	

@@ -1,26 +1,25 @@
 package task3_3;
 
-public class Flower {
+abstract public class Flower {
 	private String name;
 	private String color;
-	private Double price;
-	private int amount;
-	private static double sum = 0;
+	private double price;
 	
-	public Flower(String name, String color, Double price, int amount){
+	public Flower(String name, String color, double price){
 		this.name = name;
 		this.color = color;
 		this.price = price;
-		this.amount = amount;
 	}
-	public Flower(){
+//---------------------------------------------------------------
+	public String getName(){
+		return this.name;
 	}
-	
-	public void genSum(double costOfFlowers){
-		this.sum += costOfFlowers;
+//---------------------------------------------------------------
+	public String getColor(){
+		return this.color;
 	}
-	
-	public double getSum(){
-		return sum; 
+//---------------------------------------------------------------
+	public double getPrice(){
+		return this.price;
 	}
 }
