@@ -3,13 +3,10 @@ package task3_4;
 public class Main {
 	public static void main(String[] args){
 
-		Polyclinic polyclinic = new Polyclinic("Polyclinic number 666");	// Create new polyclinic
-		
 		Doctor doctor1 = new Doctor("Bob", "Smith", "surgeon");
 		Doctor doctor2 = new Doctor("Stive", "Johnson", "pediatrist");      // Add new doctors
 		Doctor doctor3 = new Doctor("Pol", "Williams", "psychiatrist");
-		
-		System.out.println();
+		Doctor doctor4 = new Doctor("Jack", "Eaton", "trololoher");
 	
 		Patient patient1 = new Patient("Jack", "Miller", "hernia");
 		Patient patient2 = new Patient("Oliver", "Davis", "alcoholism");
@@ -19,30 +16,41 @@ public class Main {
 		Patient patient6 = new Patient("Chloe", "Thompson", "psychosis");
 		Patient patient7 = new Patient("Elly", "Clark", "narcomania");
 		
-		System.out.println();
-	
-		Queue queue1 = new Queue(doctor1); 				// Add new queue
-		queue1.addPatient(patient1);				
-		queue1.addPatient(patient3);				// Add patients to the queue
-	
-		Queue queue2 = new Queue(doctor2);
-		queue2.addPatient(patient4);
-	
-		Queue queue3 = new Queue(doctor3);
-		queue3.addPatient(patient2);
-		queue3.addPatient(patient5);
-		queue3.addPatient(patient6);
-		queue3.addPatient(patient7);
+		Polyclinic polyclinic = new Polyclinic("Polyclinic 666");	// Create new polyclinic
+		polyclinic.addDoctor(doctor1);
+		polyclinic.addDoctor(doctor2);
+		polyclinic.addDoctor(doctor3);
+		polyclinic.addDoctor(doctor4);
 		
+		polyclinic.showDoctors();
 		System.out.println();
 		
-		System.out.println(queue1.showQueue());
-		System.out.println(queue2.showQueue());			// Print amount of patients in queues to each doctor
-		System.out.println(queue3.showQueue());
+		doctor1.addPatient(patient1);
+		doctor1.addPatient(patient2);
+		doctor1.addPatient(patient3);
+		doctor1.addPatient(patient7);
+		
+		doctor1.showPatients();
+		System.out.println();
+		
+		doctor2.addPatient(patient4);
+		doctor2.addPatient(patient5);
+		doctor2.addPatient(patient6);
+		
+		doctor2.showPatients();
+		System.out.println();
+		
+		System.out.println("Total of patients = " + Doctor.getTotalOfPatients());
 		
 		System.out.println();
 		
-		System.out.println("Total of patients in polyclinic = " + polyclinic.getOfAmountOfPatients()); 			// Total of patients
-		System.out.println("Total of doctors in polyclinic = " 	+ polyclinic.getOfAmountOfDoctors());
+		doctor1.delPatient(patient2);
+		System.out.println("List of patients after delete");
+		doctor1.showPatients();
+		
+		System.out.println();
+		
+		System.out.println("Total of doctors in polyclinic = " + polyclinic.getAmountOfDoctors());
+		System.out.println("Total of patients = " + Doctor.getTotalOfPatients());
 	}
 }
