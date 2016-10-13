@@ -44,7 +44,7 @@ public class Main {
 		
 		System.out.println();
 		
-		doctor1.delPatient(patient2);
+		doctor1.delPatient(patient3);
 		System.out.println("List of patients after delete");
 		doctor1.showPatients();
 		
