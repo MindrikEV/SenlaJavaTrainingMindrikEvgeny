@@ -13,5 +13,7 @@ public class GarageWorker implements Operation{
 	public void show() {
 		
 	}
-
+	public int placeManage(){
+		
+	}
 }

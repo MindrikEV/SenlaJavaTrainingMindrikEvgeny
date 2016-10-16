@@ -1,9 +1,7 @@
 package com.autoservice.java;
-
-import com.danco.training.TextFileWorker;
 /*
  * 
- * Class for work with arrays
+ * This class work with arrays
  * 
  */
 public class ArrayWorker {
@@ -28,7 +26,7 @@ public class ArrayWorker {
 		return count;
 	}
 //-----------------------------------------------------------------------
-	public static void addElement(Object[] array){
+	public static void addElement(Object[] array){								// Add new element in to array
 		
 	}
 
