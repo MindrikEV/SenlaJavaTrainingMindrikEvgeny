@@ -7,7 +7,7 @@ public static class MasterWorker implements Operation{
 	private Master[] listOfMasters = new Master[10];	
 	
 	public void add(Master master){
-		ArrayWorker.
+		ArrayWorker.add();
 //------------------------------------------------------------------------------
 	public void remove(array, object){
 		ArrayWorker.removeElement(array, object);
