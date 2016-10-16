@@ -9,11 +9,19 @@ public abstract class Man {
 		this.lastname = lastname;
 	}
 //--------------------------------------------------------------------
-		public String get() {
-			return this.lastname;
-		}
+	public String getFirtsname() {
+		return this.firstname;
+	}
 //--------------------------------------------------------------------
-		public void set(String ) {
-			
-		}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+//--------------------------------------------------------------------
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+//--------------------------------------------------------------------
+	public String getLastname() {
+		return this.lastname;
+	}
 }

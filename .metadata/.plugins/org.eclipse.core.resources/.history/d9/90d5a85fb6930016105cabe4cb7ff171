@@ -1,5 +1,0 @@
-package com.autoservice.java;
-
-public interface Entity {
-
-}

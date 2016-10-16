@@ -13,7 +13,11 @@ public class Runner {
 		masterWorker.add(master2);
 		masterWorker.add(master3);
 		
+		masterWorker.show();
+		masterWorker.getAmount();
 		
+		FileOperator fileOperator = new FileOperator("Masters.txt");
+		fileOperator.pushToFile();
 		
 	}
 }

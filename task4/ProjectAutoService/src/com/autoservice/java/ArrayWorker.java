@@ -15,8 +15,8 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------
-	public static int countOfElements(Object[] array){					// Get amount of not empty elements in array 
-		int count = 0;
+	public static Integer countOfElements(Object[] array){					// Get amount of not empty elements in array 
+		Integer count = 0;
 		
 		for(int i = 0; i < array.length; i++){
 			if(array[i] != null){
@@ -30,9 +30,10 @@ public class ArrayWorker {
 		if(countOfElements(array) == array.length){
 			array = resize(array);
 		}
-		for(int i =0; i < array.length; i++){
+		for(int i = 0; i < array.length; i++){
 			if(array[i] == null){
 				array[i] = element;
+				break;
 			}
 		}
 	}
