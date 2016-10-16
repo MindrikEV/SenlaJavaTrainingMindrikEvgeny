@@ -1,0 +1,23 @@
+package com.autoservice.java;
+/**
+ * This class operate with Masters
+ */
+
+public class MasterWorker implements Operation{
+	//private final String PATH_TO_FILE_MASTER = "C:\Users\mindrik_ev\Documents\SenlaJavaTrainingMindrikEvgeny_BACKUP\task4\ProjectAutoService\master.txt";
+	private Path path = Path("Master.txt");
+	private Master[] listOfMasters = new Master[10];	
+	
+	
+	public void add(Master master){
+		ArrayWorker.addElement(listOfMasters, master);
+	}
+//------------------------------------------------------------------------------
+	public void remove(Master master){
+		ArrayWorker.removeElement(listOfMasters, master);
+	}
+//------------------------------------------------------------------------------	
+	public void show(){
+		
+	}
+}

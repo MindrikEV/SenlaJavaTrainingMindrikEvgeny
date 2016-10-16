@@ -1,16 +1,17 @@
 package com.autoservice.java;
+/**
+ * This class operate with Masters
+ */
 
-import com.danco.training.TextFileWorker;
-
-public static class MasterWorker implements Operation{
-	private final String PATH_TO_FILE_MASTER = "C:\Users\mindrik_ev\Documents\SenlaJavaTrainingMindrikEvgeny_BACKUP\task4\ProjectAutoService\master.txt";
+public class MasterWorker implements Operation{
 	private Master[] listOfMasters = new Master[10];	
 	
 	public void add(Master master){
-		ArrayWorker.add();
+		ArrayWorker.addElement(listOfMasters, master);
+	}
 //------------------------------------------------------------------------------
-	public void remove(array, object){
-		ArrayWorker.removeElement(array, object);
+	public void remove(Master master){
+		ArrayWorker.removeElement(listOfMasters, master);
 	}
 //------------------------------------------------------------------------------	
 	public void show(){

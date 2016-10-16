@@ -1,5 +1,10 @@
 package com.autoservice.java;
 
-public class DateOperator {
+import java.util.Date;
+import java.util.Calendar;
 
+public class DateOperator {
+	public Date getDate(){
+		
+	}
 }

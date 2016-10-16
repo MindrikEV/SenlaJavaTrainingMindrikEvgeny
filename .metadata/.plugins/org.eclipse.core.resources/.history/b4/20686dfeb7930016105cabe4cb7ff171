@@ -1,0 +1,17 @@
+package com.autoservice.java;
+
+public class Path implements Entity{
+	private String path;
+	public void Path(String path){
+		this.path = path;
+	}
+//--------------------------------------------------------	
+	public String get() {
+		return this.path;
+	}
+//--------------------------------------------------------
+	public void set(String path) {
+		this.path = path;
+	}
+	
+}

@@ -1,0 +1,7 @@
+package com.autoservice.java;
+
+public interface Entity {
+	
+	public String get();
+	public void set();
+}

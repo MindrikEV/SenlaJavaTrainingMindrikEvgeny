@@ -1,12 +1,12 @@
 package com.autoservice.java;
-/*
+/**
  * 
  * This class work with arrays
  * 
  */
 public class ArrayWorker {
 	
-	public static Object[] resize(Object[] oldArray){ 		// Get double size of array
+	public static Object[] resize(Object[] oldArray){ 					// Get double size of array
 		int size = oldArray.length;
 		
 		Object[] newArray = new Object[size * 2];
@@ -15,7 +15,7 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------
-	public static int countOfElements(Object[] array){		// Get amount of not empty elements in array 
+	public static int countOfElements(Object[] array){					// Get amount of not empty elements in array 
 		int count = 0;
 		
 		for(int i = 0; i < array.length; i++){
@@ -26,8 +26,15 @@ public class ArrayWorker {
 		return count;
 	}
 //-----------------------------------------------------------------------
-	public static void addElement(Object[] array){								// Add new element in to array
-		
+	public static void addElement(Object[] array, Object element){				// Add new element in to array
+		if(countOfElements(array) == array.length){
+			array = resize(array);
+		}
+		for(int i =0; i < array.length; i++){
+			if(array[i] == null){
+				array[i] = element;
+			}
+		}
 	}
 
 //-----------------------------------------------------------------------
@@ -51,4 +58,9 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------	
+	public static void Show(Object[] array){
+		for(int i = 0; i < array.length; i++){
+			System.out.println(array[i].get());
+		}
+	}
 }

@@ -1,11 +1,10 @@
 package com.autoservice.java;
 
-import java.util.
 
 public class Order {
 	private Integer idOfOrder = 0;
 	private Double price;
-	private Date nowTime;
+	//private Date nowTime;
 	private String description;
 	
 	public Order(String description, Double price){
