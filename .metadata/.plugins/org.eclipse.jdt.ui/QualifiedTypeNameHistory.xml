@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.autoservice.java.MasterWorker"/>
-<fullyQualifiedTypeName name="com.danco.training.TextFileWorker"/>
-<fullyQualifiedTypeName name="com.autoservice.java.FileOperator"/>
 <fullyQualifiedTypeName name="com.autoservice.java.ArrayWorker"/>
 </qualifiedTypeNameHistroy>

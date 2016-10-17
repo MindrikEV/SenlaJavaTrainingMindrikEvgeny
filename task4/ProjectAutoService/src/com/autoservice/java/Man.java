@@ -9,7 +9,7 @@ public abstract class Man {
 		this.lastname = lastname;
 	}
 //--------------------------------------------------------------------
-	public String getFirtsname() {
+	public String getFirstname() {
 		return this.firstname;
 	}
 //--------------------------------------------------------------------

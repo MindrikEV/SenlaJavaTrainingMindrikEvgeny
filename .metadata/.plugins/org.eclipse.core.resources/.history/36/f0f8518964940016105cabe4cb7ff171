@@ -1,0 +1,9 @@
+package com.autoservice.java;
+
+public class Place {
+	private Integer amountOfPlaces;
+	
+	public Place(Integer amountOfPlaces){
+		this.amountOfPlaces = amountOfPlaces;
+	}
+}

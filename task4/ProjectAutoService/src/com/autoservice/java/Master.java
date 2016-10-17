@@ -3,7 +3,7 @@ package com.autoservice.java;
 public class Master extends Man{
 	private Boolean status = false;
 	
-	public Master(String firstname,String lastname){
+	public Master(String firstname,String lastname){			// Constructor
 		super(firstname, lastname);		
 	}
 //----------------------------------------------------------
@@ -16,6 +16,7 @@ public class Master extends Man{
 	}
 //----------------------------------------------------------
 	public String toString(){
-		return getLastname();
+		return getFirstname() + getLastname();
 	}
+//----------------------------------------------------------
 }

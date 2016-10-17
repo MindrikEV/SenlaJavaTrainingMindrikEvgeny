@@ -6,7 +6,7 @@ package com.autoservice.java;
  */
 public class ArrayWorker {
 	
-	public static Object[] resize(Object[] oldArray){ 					// Get double size of array
+	public Object[] resize(Object[] oldArray){ 							// Get double size of array
 		int size = oldArray.length;
 		
 		Object[] newArray = new Object[size * 2];
@@ -15,7 +15,7 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------
-	public static Integer countOfElements(Object[] array){					// Get amount of not empty elements in array 
+	public Integer countOfElements(Object[] array){						// Get amount of not empty elements in array 
 		Integer count = 0;
 		
 		for(int i = 0; i < array.length; i++){
@@ -26,7 +26,7 @@ public class ArrayWorker {
 		return count;
 	}
 //-----------------------------------------------------------------------
-	public static void addElement(Object[] array, Object element){				// Add new element in to array
+	public void addElement(Object[] array, Object element){				// Add new element in to array
 		if(countOfElements(array) == array.length){
 			array = resize(array);
 		}
@@ -37,9 +37,8 @@ public class ArrayWorker {
 			}
 		}
 	}
-
 //-----------------------------------------------------------------------
-	public static Object[] removeElement(Object[] array, Object object){		// Remove element from array
+	public Object[] removeElement(Object[] array, Object object){		// Remove element from array
 		int size = array.length;
 		int position = 0;
 		Object[] newArray = new Object[size - 1];
@@ -59,9 +58,13 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------	
-	public static void Show(Object[] array){
+	public void Show(Object[] array){									// Print all elements from array
 		for(int i = 0; i < array.length; i++){
-			System.out.println(array[i].get());
+			if(array[i] != null){
+				System.out.println(array[i]);
+			} else {
+				continue;
+			}
 		}
-	}
+	}	
 }

@@ -12,5 +12,6 @@ public class Order {
 		this.price = price;
 		this.idOfOrder++;
 	}
+//-----------------------------------------------------------------
 	
 }
