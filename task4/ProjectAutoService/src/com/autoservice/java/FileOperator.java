@@ -2,7 +2,7 @@ package com.autoservice.java;
 
 import com.danco.training.TextFileWorker;
 /*
- * This class operate with files(text files) via "textFileWorker.jar".
+ * This class operate with files(text files) via "textFileWorker.jar" - library by Senla.
  */
 public class FileOperator {
 	private TextFileWorker fileWorker;
@@ -12,32 +12,23 @@ public class FileOperator {
 		fileWorker = new TextFileWorker(path);
 	}
 //-------------------------------------------------------------------------	
-	public void pushToFile(String[] arrayOfStrings){						// Write to file
-		fileWorker.writeToFile(arrayOfStrings);	
-	}
-//-------------------------------------------------------------------------	
-	public String[] pullFromFile(){ 										// Read from file
-		return fileWorker.readFromFile();
-	}
-//-------------------------------------------------------------------------	
-	public void pushListToFile(Object[] array){
+	public void pushListToFile(Object[] array){								// Write to file
 		Integer size = array.length;
 		String[] list = new String[arrayWorker.countOfElements(array)];
-		StringBuilder s = new StringBuilder();
 		
 		for(int i = 0; i < size; i++){
-			if(array[i] != null){ 
-				s.append(array[i].getFirstname());
-				s.append(" ");
-				s.append(array[i].getLastname());
-				s.append(" ");
-				s.append(String.valueOf(array[i].getStatus()));
-				s.append(" ");
-				list[i] = s.toString();
+			if(array[i] != null){
+				list[i] = array[i].toString();
 			} else {
 				continue;
 			}
 		}
 		fileWorker.writeToFile(list);
 	}	
+//-------------------------------------------------------------------------	
+/*	public String[] pullFromFile(){ 										// Read from file
+		return fileWorker.readFromFile();
+	}*/
+//-------------------------------------------------------------------------	
+
 }

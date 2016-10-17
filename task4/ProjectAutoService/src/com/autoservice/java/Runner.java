@@ -4,6 +4,9 @@ public class Runner {
 	public static void main(String[] args){
 		Garage serviceStation = new Garage("Bosch-service", 10);		// Name + Amount of Places
 		
+		GarageWorker garageWorker = new GarageWorker();
+		garageWorker.showListOfFreePlaces();
+		
 		Master master1 = new Master("Givi","Vartanov");
 		Master master2 = new Master("Ivan","Grozny");
 		Master master3 = new Master("Max","Pax");
@@ -19,10 +22,10 @@ public class Runner {
 		masterWorker.add(master5);
 		masterWorker.add(master6);
 		
-		masterWorker.show();
+		masterWorker.show();				// Show list of masters
 		masterWorker.getAmount();
-		masterWorker.pushListToFile();
-		masterWorker.pullListFromFile();
+		masterWorker.saveArray();
+		//masterWorker.pullListFromFile();
 		
 		//FileOperator fileOperator = new FileOperator("Masters.txt");
 		//fileOperator.pushToFile();

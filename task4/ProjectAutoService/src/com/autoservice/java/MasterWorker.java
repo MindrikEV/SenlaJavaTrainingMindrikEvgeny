@@ -16,12 +16,16 @@ public class MasterWorker{
 		arrayWorker.removeElement(listOfMasters, master);
 	}
 //------------------------------------------------------------------------------	
-	public void showListOfMasters(){
+	public void show(){
 		arrayWorker.Show(listOfMasters);
 	}
 //------------------------------------------------------------------------------
 	public void getAmount(){
 		System.out.println(arrayWorker.countOfElements(this.listOfMasters));
+	}
+//------------------------------------------------------------------------------
+	public void saveArray(){
+		fileOperator.pushListToFile(listOfMasters);
 	}
 }
 	

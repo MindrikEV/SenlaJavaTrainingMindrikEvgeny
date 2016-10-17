@@ -1,6 +1,5 @@
-Givi Vartanov false 
-Ivan Grozny false 
-Max Pax false 
-Tom Cruse false 
-Elton John false 
-Jesie Pinkman false 
+Givi Vartanov false
+Ivan Grozny false
+Max Pax false
+Tom Cruse false
+Elton John false

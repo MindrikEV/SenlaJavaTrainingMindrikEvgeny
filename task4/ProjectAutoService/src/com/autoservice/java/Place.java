@@ -1,11 +1,12 @@
 package com.autoservice.java;
 
 public class Place {
-	private Integer idOfPlace = 0;
+	private Integer idOfPlace;
+	private Integer counter = 0;
 	private Boolean statusOfPlace = false;
 	
 	public Place(){
-		this.idOfPlace++;
+		this.idOfPlace = counter++;
 	}
 //---------------------------------------------------------------
 	public void setStatus(Boolean statusOfPlace){
@@ -18,5 +19,16 @@ public class Place {
 //---------------------------------------------------------------
 	public Integer getId(){
 		return this.idOfPlace;
+	}
+//---------------------------------------------------------------
+	@Override
+	public String toString(){
+		StringBuilder s = new StringBuilder();
+		
+		s.append(getId());
+		s.append(" ");
+		s.append(getStatus());
+
+		return s.toString();
 	}
 }
