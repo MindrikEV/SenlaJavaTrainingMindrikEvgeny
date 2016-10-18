@@ -3,13 +3,23 @@ package com.autoservice.java;
 public class GarageWorker implements Operation{
 	//private Garage[] listOfMasters = new Garage[10];
 	private final String path = "Places.txt";
-	private Place[] listOfPlaces = new Place[10];
+	private Place[] listOfPlaces;
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileOperator fileOperator = new FileOperator(path);
+	private Integer amountOfPlaces;
+	private Garage garage;
 	
-	private Master[] listOfMasters = new Master[5];
-	
-	
+	public void setAmountOfPlaces(){
+		this.amountOfPlaces = garage.getAmount();
+	}
+//----------------------------------------------------------
+	public void createPlacesArray(Integer amountOfPlaces){
+		listOfPlaces = new Place[amountOfPlaces];
+		for(int i=0; i < amountOfPlaces; i++){
+			listOfPlaces[i] = new Place();	
+		}
+	}
+//----------------------------------------------------------	
 	public void add(Place place) {
 		arrayWorker.addElement(listOfPlaces, place);
 	}
@@ -28,6 +38,8 @@ public class GarageWorker implements Operation{
 				if(listOfPlaces[i].getStatus() == false){
 					System.out.println(listOfPlaces[i].toString());
 				}
+			} else {
+				continue;
 			}
 		}
 	}

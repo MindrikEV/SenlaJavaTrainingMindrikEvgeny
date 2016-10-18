@@ -23,12 +23,8 @@ public class Runner {
 		masterWorker.add(master6);
 		
 		masterWorker.show();				// Show list of masters
-		masterWorker.getAmount();
-		masterWorker.saveArray();
-		//masterWorker.pullListFromFile();
-		
-		//FileOperator fileOperator = new FileOperator("Masters.txt");
-		//fileOperator.pushToFile();
-		
+		masterWorker.getAmount();			// Show amount of masters
+		masterWorker.saveArray();			// Save array of masters to file
+		//masterWorker.pullListFromFile();	// Load array of masters from file	
 	}
 }
