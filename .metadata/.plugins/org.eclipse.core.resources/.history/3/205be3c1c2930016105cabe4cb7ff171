@@ -1,0 +1,6 @@
+package com.autoservice.java;
+
+public interface GetterSetter {
+	public void get();
+	public void set();
+}

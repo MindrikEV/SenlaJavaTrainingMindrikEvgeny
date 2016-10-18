@@ -2,7 +2,10 @@ package com.autoservice.java;
 
 public class Printer {
 	
-	public void print(String str){
+	public Printer(){
+	}
+//------------------------------------------------------	
+	public void printStr(String str){
 		System.out.print(str);
 	}
 //------------------------------------------------------

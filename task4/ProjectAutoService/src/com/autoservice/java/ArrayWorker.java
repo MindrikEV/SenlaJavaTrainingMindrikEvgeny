@@ -1,12 +1,12 @@
 package com.autoservice.java;
-/*
+/**
  * 
  * This class work with arrays
  * 
  */
 public class ArrayWorker {
 	
-	public static Object[] resize(Object[] oldArray){ 		// Get double size of array
+	public Object[] resize(Object[] oldArray){ 							// Get double size of array(resizing)
 		int size = oldArray.length;
 		
 		Object[] newArray = new Object[size * 2];
@@ -15,8 +15,8 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------
-	public static int countOfElements(Object[] array){		// Get amount of not empty elements in array 
-		int count = 0;
+	public Integer countOfElements(Object[] array){						// Get amount of nor empty(non-null) elements in array 
+		Integer count = 0;
 		
 		for(int i = 0; i < array.length; i++){
 			if(array[i] != null){
@@ -26,12 +26,19 @@ public class ArrayWorker {
 		return count;
 	}
 //-----------------------------------------------------------------------
-	public static void addElement(Object[] array){								// Add new element in to array
-		
+	public void addElement(Object[] array, Object element){				// Add new element in to array
+		if(countOfElements(array) == array.length){
+			array = resize(array);
+		}
+		for(int i = 0; i < array.length; i++){
+			if(array[i] == null){
+				array[i] = element;
+				break;
+			}
+		}
 	}
-
 //-----------------------------------------------------------------------
-	public static Object[] removeElement(Object[] array, Object object){		// Remove element from array
+	public Object[] removeElement(Object[] array, Object object){		// Remove element from array and decrement size of array
 		int size = array.length;
 		int position = 0;
 		Object[] newArray = new Object[size - 1];
@@ -51,4 +58,21 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------	
+	public void Show(Object[] array){									// Print all elements from array
+		for(int i = 0; i < array.length; i++){
+			if(array[i] != null){
+				System.out.println(array[i]);
+			} else {
+				continue;
+			}
+		}
+	}
+//-----------------------------------------------------------------------
+	/*public void getListOfEmptyElements(Object[] array){						// Get list of empty(null) elements in array 
+		for(int i = 0; i < array.length; i++){
+			if(array[i] == false){
+				System.out.println(array[i].toString());
+			}
+		}
+	}*/
 }
