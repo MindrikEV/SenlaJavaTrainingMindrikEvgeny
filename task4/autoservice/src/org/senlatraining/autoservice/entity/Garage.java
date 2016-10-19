@@ -1,23 +1,34 @@
 package org.senlatraining.autoservice.entity;
 
 public class Garage {
-	private String nameOfGarage;
-	private int amountOfPlaces;
+	private Integer idOfGarage;
+	private static Integer counter = 0;
+	private Boolean isBusy = false;
 	
-	public Garage(String nameOfGarage, int amountOfPlaces){
-		this.nameOfGarage = nameOfGarage;
-		this.amountOfPlaces = amountOfPlaces;		
+	public Garage(){
+		this.idOfGarage = ++this.counter;		
 	}
-//-------------------------------------------------------------------
-	public Integer getAmount(){							// Get amount of places in this garage
-		return this.amountOfPlaces;
+//----------------------------------------------------------------
+	public Boolean getStatus(){									
+		return this.isBusy;
 	}
-//-------------------------------------------------------------------
-	public void incOfAmountOfPlaces(){					// Increment of count
-		this.amountOfPlaces++;
+//----------------------------------------------------------------
+	public void setStatus(Boolean isBusy){									
+		this.isBusy = isBusy;
 	}
-//-------------------------------------------------------------------
-	public void decOfAmountOfPlaces(){					// Decrement of count
-		this.amountOfPlaces--;
+//----------------------------------------------------------------
+	public Integer getIdOfGarage(){							
+		return this.idOfGarage;
+	}
+//----------------------------------------------------------------
+	@Override
+	public String toString(){
+		StringBuilder s = new StringBuilder();
+			
+		s.append(getIdOfGarage());
+		s.append(" ");
+		s.append(getStatus());
+
+		return s.toString();
 	}
 }
