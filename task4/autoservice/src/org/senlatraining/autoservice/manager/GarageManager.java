@@ -1,9 +1,10 @@
 package org.senlatraining.autoservice.manager;
 
+import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
 
-public class GarageManager{
+public class GarageManager implements IGarage, ICommonEntities{
 	private final String GARAGE = "Garage ";
 	private final String STATUS_MESSEGE = " status is ";
 	private final String STATUS_TRUE = "busy";
@@ -28,12 +29,12 @@ public class GarageManager{
 	}
 
 // ----------------------------------------------------------
-	public void show() {
+	public void showListOfGarages() {
 		arrayWorker.ShowList(listOfGarages);
 	}
 
 // ----------------------------------------------------------
-	public void showListOfFreePlaces() {
+	public void showListOfFreeGarages() {
 		StringBuilder s = new StringBuilder();
 		
 		for (int i = 0; i < listOfGarages.length; i++) {

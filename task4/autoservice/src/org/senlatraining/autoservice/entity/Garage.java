@@ -26,7 +26,7 @@ public class Garage {
 		StringBuilder s = new StringBuilder();
 			
 		s.append(getIdOfGarage());
-		s.append(" ");
+		s.append("|");
 		s.append(getStatus());
 
 		return s.toString();

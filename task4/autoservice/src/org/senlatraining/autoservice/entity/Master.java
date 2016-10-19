@@ -39,9 +39,9 @@ public class Master{
 		StringBuilder s = new StringBuilder();
 		
 		s.append(getSurName());
-		s.append(" ");
+		s.append("|");
 		s.append(getName());
-		s.append(" ");
+		s.append("|");
 		s.append(getStatus());
 
 		return s.toString();

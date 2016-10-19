@@ -46,11 +46,11 @@ public class Order {
 		StringBuilder s = new StringBuilder();
 		
 		s.append(getStatus());
-		s.append(" ");
+		s.append("|");
 		s.append(getDescription());
-		s.append(" ");
+		s.append("|");
 		s.append(getPrice());
-		s.append(" ");
+		s.append("|");
 		s.append(getStatus());
 
 		return s.toString();

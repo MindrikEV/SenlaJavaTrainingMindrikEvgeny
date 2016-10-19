@@ -21,7 +21,7 @@ public class Runner {
 		garageWorker.add(garage3);
 		garageWorker.add(garage4);
 		
-		garageWorker.showListOfFreePlaces();
+		garageWorker.showListOfFreeGarages();
 		
 		Master master1 = new Master("Givi","Vartanov");
 		Master master2 = new Master("Ivan","Grozny");

@@ -2,8 +2,9 @@ package org.senlatraining.autoservice.manager;
 
 import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.entity.*;
+import org.senlatraining.autoservice.api.*;
 
-public class MasterManager {
+public class MasterManager implements IMaster, ICommonEntities{
 	private final String path = "src/files/masters.txt";
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
