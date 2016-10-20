@@ -9,14 +9,15 @@ public class ParserForMasters {
 		MasterManager masterManager = new MasterManager();
 		FileWorker fileOperator = new FileWorker(masterManager.getPath());
 		Integer size = fileOperator.pullFromFile().length;
+		String tempName;
 		String tempSurName;
 		Boolean tempStatus;
 		
 		for(int i=0; i < size; i++){
-			
-			tempName =;
-			tempSurName =;
-			tempStatus =;
+			String[] s = fileOperator.pullFromFile()[i].split("|");
+			tempName = s[0];
+			tempSurName = s[1];
+			tempStatus = Boolean.valueOf(s[2]);
 			
 			Master master = new Master(tempName, tempSurName);
 			master.setStatus(tempStatus);

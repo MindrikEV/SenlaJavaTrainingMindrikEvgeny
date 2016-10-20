@@ -39,6 +39,10 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		sort.sortOrdersListByPrice(listOfOrders);
 	}
 //------------------------------------------------------------------
+	public String getPath(){
+		return this.path;
+	}
+//------------------------------------------------------------------------------
 	public void saveArray(){
 		fileOperator.pushListToFile(listOfOrders);
 	}

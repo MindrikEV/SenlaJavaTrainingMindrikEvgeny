@@ -16,21 +16,17 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	private Garage[] listOfGarages = new Garage[10];
 	private Garage garage;
 
-// ----------------------------------------------------------
 	public void add(Garage garage) {
 		arrayWorker.addElement(listOfGarages, garage);
 	}
-
 // ----------------------------------------------------------
 	public void remove(Garage garage) {
 		arrayWorker.removeElement(listOfGarages, garage);
 	}
-
 // ----------------------------------------------------------
 	public void showListOfGarages() {
 		arrayWorker.ShowList(listOfGarages);
 	}
-
 // ----------------------------------------------------------
 	public void showListOfFreeGarages() {
 		StringBuilder s = new StringBuilder();
@@ -54,6 +50,10 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	public void sortListByStatus(){
 		Sort sort = new Sort();
 		sort.sortGaragesListByStatus(listOfGarages);
+	}
+//------------------------------------------------------------------------------
+	public String getPath(){
+		return this.path;
 	}
 //-----------------------------------------------------------
 	public void saveArray(){

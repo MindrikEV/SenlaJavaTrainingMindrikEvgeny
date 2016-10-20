@@ -2,8 +2,9 @@ package org.senlatraining.autoservice.runner;
 
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
-import org.senlatraining.autoservice.util.*;
-
+/*
+ * This class generate all objects and work with them. Emulate user-operations.  
+ */
 public class Stuffer {	 
 	   public void stuff(){
 //---------------------------------------------------------------------------------------  GARAGES  ------------------	   

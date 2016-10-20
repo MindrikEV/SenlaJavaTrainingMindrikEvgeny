@@ -11,7 +11,7 @@ public class ArrayWorker {
 		return newArray;
 	}
 //-----------------------------------------------------------------------
-	public Integer countOfElements(Object[] array){						// Get amount of not empty(non-null) elements in array 
+	public Integer countOfElements(Object[] array){						// Get amount of not empty(not-null) elements in array 
 		Integer count = 0;
 		
 		for(int i = 0; i < array.length; i++){
@@ -22,7 +22,7 @@ public class ArrayWorker {
 		return count;
 	}
 //-----------------------------------------------------------------------
-	public void addElement(Object[] array, Object element){				// Add new element in to array
+	public void addElement(Object[] array, Object element){				// Add new element into array
 		if(countOfElements(array) == array.length){
 			array = resize(array);
 		}
@@ -34,7 +34,7 @@ public class ArrayWorker {
 		}
 	}
 //-----------------------------------------------------------------------
-	public Object[] removeElement(Object[] array, Object object){		// Remove element from array and decrement size of array
+	public Object[] removeElement(Object[] array, Object object){		// Remove element from array
 		for(int i = 0; i < array.length; i++){
 			if (!array[i].equals(object)){
 				continue;
@@ -55,13 +55,5 @@ public class ArrayWorker {
 			}
 		}
 	}
-//-----------------------------------------------------------------------
-	/*public void getListOfEmptyElements(Object[] array){				// Get list of empty(null) elements in array 
-		for(int i = 0; i < array.length; i++){
-			if(array[i] == false){
-				System.out.println(array[i].toString());
-			}
-		}
-	}*/
 }
 

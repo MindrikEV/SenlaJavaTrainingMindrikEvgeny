@@ -29,7 +29,5 @@ public class FileWorker {
 	public String[] pullFromFile(){ 											// Read from file
 		return fileWorker.readFromFile();
 	}
-//--------------------------------------------------------------------------------	
-
 }
 

@@ -6,9 +6,10 @@ import org.senlatraining.autoservice.util.Printer;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class Sort{
-	private final String SORT_BY_SURNAME = "List sorted by --> surName!";
-	private final String SORT_BY_STATUS = "List sorted by --> status!";
-	private final String SORT_BY_PRICE = "List sorted by --> price!";
+	private final String SORT_BY_SURNAME = "v List sorted by --> surName!";
+	private final String SORT_BY_STATUS = "v List sorted by --> status!";
+	private final String SORT_BY_PRICE = "v List sorted by --> price!";
+	private final String SORT_BY_DATE = "v List sorted by --> date!";
 	private Printer printer = new Printer();
 	
 	public Master[] sortMastersListBySurName(Master[] listOfMasters){
