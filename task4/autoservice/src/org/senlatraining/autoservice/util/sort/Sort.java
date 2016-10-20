@@ -1,21 +1,45 @@
 package org.senlatraining.autoservice.util.sort;
 
-public class Sort {
+import java.util.Arrays;
+import org.senlatraining.autoservice.entity.*;
+import org.senlatraining.autoservice.util.Printer;
+import org.senlatraining.autoservice.util.comparators.*;
 
-	import java.util.Comparator;
-	import org.senlatraining.autoservice.entity.*;
-
-	public class CompByNameAndStatus implements Comparator<Master>{
-		
-		//public Comparator<Master> masterComparator = new Comparator<Master>(){
-			@Override
-			public int compare(Master m1, Master m2){
-			int f = m1.getName() - m2.getSurName();
-			if(f == 0){
-				f = m1.getSurName().compareTo(m2.getSurName());
-				return f;
-			}
-		}; 
-	}
+public class Sort{
+	private final String SORT_BY_SURNAME = "List sorted by --> surName!";
+	private final String SORT_BY_STATUS = "List sorted by --> status!";
+	private final String SORT_BY_PRICE = "List sorted by --> price!";
+	private Printer printer = new Printer();
 	
+	public Master[] sortMastersListBySurName(Master[] listOfMasters){
+		ComparateMastersBySurName comparateMastersBySurName = new ComparateMastersBySurName();
+		Arrays.sort(listOfMasters, comparateMastersBySurName);
+		printer.printString(SORT_BY_SURNAME);
+		
+		return listOfMasters;
+	} 
+//---------------------------------------------------------------------	
+	public Master[] sortMastersListByStatus(Master[] listOfMasters){
+		ComparateMastersByStatus comparateMastersByStatus = new ComparateMastersByStatus();
+		Arrays.sort(listOfMasters, comparateMastersByStatus);
+		printer.printString(SORT_BY_STATUS);	
+		
+		return listOfMasters;
+	}
+//---------------------------------------------------------------------
+	public Garage[] sortGaragesListByStatus(Garage[] listOfGarages){
+		ComparateGaragesByStatus compareGarageByStatus = new ComparateGaragesByStatus();
+		Arrays.sort(listOfGarages, compareGarageByStatus);
+		printer.printString(SORT_BY_STATUS);
+		
+		return listOfGarages;
+	}
+//---------------------------------------------------------------------
+	public Order[] sortOrdersListByPrice(Order[] listOfOrders){
+		ComparateOrdersByPrice comparateOrdersByPrice = new ComparateOrdersByPrice();
+		Arrays.sort(listOfOrders, comparateOrdersByPrice);
+		printer.printString(SORT_BY_PRICE);
+		
+		return listOfOrders;
+	}
 }

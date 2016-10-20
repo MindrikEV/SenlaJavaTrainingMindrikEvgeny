@@ -3,8 +3,9 @@ package org.senlatraining.autoservice.manager;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
+import org.senlatraining.autoservice.util.sort.Sort;
 
-public class GarageManager implements IGarage, ICommonEntities{
+public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	private final String GARAGE = "Garage ";
 	private final String STATUS_MESSEGE = " status is ";
 	private final String STATUS_TRUE = "busy";
@@ -15,9 +16,6 @@ public class GarageManager implements IGarage, ICommonEntities{
 	private Garage[] listOfGarages = new Garage[10];
 	private Garage garage;
 
-	//public void setAmountOfPlaces() {
-	//	this.amountOfPlaces = garage.getAmount();
-	//}
 // ----------------------------------------------------------
 	public void add(Garage garage) {
 		arrayWorker.addElement(listOfGarages, garage);
@@ -40,12 +38,10 @@ public class GarageManager implements IGarage, ICommonEntities{
 		for (int i = 0; i < listOfGarages.length; i++) {
 			if (listOfGarages[i] != null) {
 				if (listOfGarages[i].getStatus() == false) {
-
 					s.append(GARAGE);
 					s.append(listOfGarages[i].getIdOfGarage());
 					s.append(STATUS_MESSEGE);
 					s.append(listOfGarages[i].getStatus());
-					//return s.toString();
 					System.out.println(s.toString());
 					s.setLength(0);
 				}
@@ -54,5 +50,14 @@ public class GarageManager implements IGarage, ICommonEntities{
 			}
 		}
 	}
-// ----------------------------------------------------------
+//-----------------------------------------------------------
+	public void sortListByStatus(){
+		Sort sort = new Sort();
+		sort.sortGaragesListByStatus(listOfGarages);
+	}
+//-----------------------------------------------------------
+	public void saveArray(){
+		fileOperator.pushListToFile(listOfGarages);
+	}
+//-----------------------------------------------------------
 }

@@ -1,10 +1,12 @@
 package org.senlatraining.autoservice.manager;
 
 import org.senlatraining.autoservice.util.*;
+import org.senlatraining.autoservice.util.sort.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.api.*;
 
-public class MasterManager implements IMaster, ICommonEntities{
+public class MasterManager implements IMaster, ICommonEntitiesManagers{
+	private final String AMOUNT_OF_MASTERS = "Amount of masters = ";
 	private final String path = "src/files/masters.txt";
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
@@ -23,13 +25,27 @@ public class MasterManager implements IMaster, ICommonEntities{
 	}
 //------------------------------------------------------------------------------
 	public void getAmountOfMasters(){
-		System.out.println(arrayWorker.countOfElements(this.listOfMasters));
+		System.out.println(AMOUNT_OF_MASTERS + arrayWorker.countOfElements(listOfMasters));
+	}
+//------------------------------------------------------------------------------
+	public void sortListBySurName(){
+		Sort sort = new Sort();
+		sort.sortMastersListBySurName(listOfMasters);
+	}
+//------------------------------------------------------------------------------
+	public String getPath(){
+		return this.path;
+	}
+//------------------------------------------------------------------------------	
+	public void sortListByStatus(){
+		Sort sort = new Sort();
+		sort.sortMastersListByStatus(listOfMasters);
 	}
 //------------------------------------------------------------------------------
 	public void saveArray(){
 		fileOperator.pushListToFile(listOfMasters);
 	}
-//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------	
 /*	public void loadArray(){
 		fileOperator.pullFromFile(listOfMasters);
 	}*/

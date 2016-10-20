@@ -1,16 +1,20 @@
 package org.senlatraining.autoservice.entity;
 
+import java.util.Calendar;
+
 public class Order {
 	private static Integer counter = 0;
 	private Integer idOfOrder;
 	private Double price;
 	private String description;
 	private String status;
+	//private Date dateOfRegistration;
 	
 	public Order(String description, Double price){
 		this.description = description;
 		this.price = price;
 		this.idOfOrder = ++this.counter;
+		this.status = "active";
 	}
 //-----------------------------------------------------------------
 	public void setPrice(Double price){
@@ -44,9 +48,6 @@ public class Order {
 	@Override
 	public String toString(){
 		StringBuilder s = new StringBuilder();
-		
-		s.append(getStatus());
-		s.append("|");
 		s.append(getDescription());
 		s.append("|");
 		s.append(getPrice());

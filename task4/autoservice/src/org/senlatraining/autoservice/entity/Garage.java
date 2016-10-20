@@ -23,12 +23,11 @@ public class Garage {
 //----------------------------------------------------------------
 	@Override
 	public String toString(){
-		StringBuilder s = new StringBuilder();
-			
+		StringBuilder s = new StringBuilder();	
 		s.append(getIdOfGarage());
 		s.append("|");
 		s.append(getStatus());
-
+		
 		return s.toString();
 	}
 }

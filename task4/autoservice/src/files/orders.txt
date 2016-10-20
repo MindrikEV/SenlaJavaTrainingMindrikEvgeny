@@ -1,0 +1,6 @@
+Paint a door|85.2|active
+Clean glasses|25.4|active
+Change oil and filters|65.0|active
+Change full|999.9|active
+Change wheels|120.2|active
+Repair of engine|274.9|active

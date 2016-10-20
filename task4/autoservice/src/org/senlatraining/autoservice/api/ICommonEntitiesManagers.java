@@ -1,6 +1,6 @@
 package org.senlatraining.autoservice.api;
 
-public interface ICommonEntities {
+public interface ICommonEntitiesManagers {
 	
 	public void add();
 	public void remove();
