@@ -1,0 +1,5 @@
+Crazy|Max|false
+John|Elton|false
+Vartanov|Givi|false
+Cruse|Tom|true
+Grozny|Ivan|true
