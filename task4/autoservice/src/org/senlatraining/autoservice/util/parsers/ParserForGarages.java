@@ -5,7 +5,7 @@ import org.senlatraining.autoservice.manager.GarageManager;
 import org.senlatraining.autoservice.util.FileWorker;
 
 public class ParserForGarages {
-	public void getFromFile(String[] array){
+	public void parseFromFile(String[] array){
 		GarageManager garageManager = new GarageManager();
 		FileWorker fileOperator = new FileWorker(garageManager.getPath());
 		Integer size = fileOperator.pullFromFile().length;

@@ -5,7 +5,7 @@ import org.senlatraining.autoservice.manager.OrderManager;
 import org.senlatraining.autoservice.util.FileWorker;
 
 public class ParserForOrders {
-	public void getFromFile(String[] array){
+	public void parseFromFile(String[] array){
 		OrderManager orderManager = new OrderManager();
 		FileWorker fileOperator = new FileWorker(orderManager.getPath());
 		Integer size = fileOperator.pullFromFile().length;

@@ -1,20 +1,28 @@
 package org.senlatraining.autoservice.entity;
 
-import java.util.Calendar;
+import org.senlatraining.autoservice.util.date.DateWorker;
+import java.util.Date;
+
 
 public class Order {
 	private static Integer counter = 0;
+	private DateWorker dateWorker = new DateWorker();
 	private Integer idOfOrder;
 	private Double price;
 	private String description;
 	private String status;
-	//private Date dateOfRegistration;
+	private Date dateOfRegistration;
+	private Date dateOfComplete;
+	private Date dateOfPlanStart;
 	
-	public Order(String description, Double price){
+	public Order(String description, Double price){  // , Date dateOfComplete, Date dateOfPlanComplete
 		this.description = description;
 		this.price = price;
-		this.idOfOrder = ++this.counter;
+		this.idOfOrder = ++counter;
 		this.status = "active";
+		//this.dateOfRegistration = dateWorker.getCurrentDate();
+		//this.dateOfComplete = dateOfComplete;
+		//this.dateOfPlanStart = dateOfPlanStart;
 	}
 //-----------------------------------------------------------------
 	public void setPrice(Double price){
@@ -45,6 +53,26 @@ public class Order {
 		return this.status;
 	}
 //-----------------------------------------------------------------
+	public Date getDateOfRegistration(){
+		return this.dateOfRegistration;
+	}
+//-----------------------------------------------------------------
+	public Date getDateOfComplete(){
+		return this.dateOfComplete;
+	}
+//-----------------------------------------------------------------
+	public void setDateOfComplete(Date dateOfComplete){
+		this.dateOfComplete = dateOfComplete;
+	}
+//-----------------------------------------------------------------
+	public Date getDateOfPlanStart(){
+		return this.dateOfPlanStart;
+	}
+//-----------------------------------------------------------------
+	public void setDateOfPlanStart(Date dateOfPlanStart){
+		this.dateOfPlanStart = dateOfPlanStart;
+	}
+//-----------------------------------------------------------------
 	@Override
 	public String toString(){
 		StringBuilder s = new StringBuilder();
@@ -53,6 +81,12 @@ public class Order {
 		s.append(getPrice());
 		s.append("|");
 		s.append(getStatus());
+		//s.append("|");
+		//s.append(getDateOfRegistration());
+		//s.append("|");
+		//s.append(getDateOfComplete());
+		//s.append("|");
+		//s.append(getDateOfPlanStart());
 
 		return s.toString();
 	}

@@ -5,7 +5,7 @@ public class Master{
 	private String name;
 	private String surName;
 	
-	public Master(String name,String surName){			// Constructor
+	public Master(String name,String surName){			
 		this.name = name;
 		this.surName = surName;
 	}
@@ -37,7 +37,6 @@ public class Master{
 	@Override
 	public String toString(){
 		StringBuilder s = new StringBuilder();
-		
 		s.append(getSurName());
 		s.append("|");
 		s.append(getName());

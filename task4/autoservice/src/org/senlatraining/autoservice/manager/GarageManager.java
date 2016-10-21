@@ -4,6 +4,7 @@ import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.util.sort.Sort;
+import org.senlatraining.autoservice.util.parsers.*;
 
 public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	private final String GARAGE = "Garage ";
@@ -13,6 +14,7 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	private final String path = "src/files/garages.txt";
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
+	private ParserForGarages parserForGarages = new ParserForGarages();
 	private Garage[] listOfGarages = new Garage[10];
 	private Garage garage;
 
@@ -51,13 +53,17 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 		Sort sort = new Sort();
 		sort.sortGaragesListByStatus(listOfGarages);
 	}
-//------------------------------------------------------------------------------
+//------------------------------------------------------------------
 	public String getPath(){
 		return this.path;
 	}
-//-----------------------------------------------------------
-	public void saveArray(){
+//------------------------------------------------------------------
+	public void saveArray(){										// Save array to file
 		fileOperator.pushListToFile(listOfGarages);
+	}
+//------------------------------------------------------------------
+	public void loadArray(){										// Read array from file
+		parserForGarages.parseFromFile(fileOperator.pullFromFile());
 	}
 //-----------------------------------------------------------
 }

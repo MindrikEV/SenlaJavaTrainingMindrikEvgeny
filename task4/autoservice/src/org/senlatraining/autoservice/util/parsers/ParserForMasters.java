@@ -5,7 +5,7 @@ import org.senlatraining.autoservice.util.FileWorker;
 import org.senlatraining.autoservice.entity.Master;
 
 public class ParserForMasters {
-	public void getFromFile(String[] array){
+	public void parseFromFile(String[] array){
 		MasterManager masterManager = new MasterManager();
 		FileWorker fileOperator = new FileWorker(masterManager.getPath());
 		Integer size = fileOperator.pullFromFile().length;

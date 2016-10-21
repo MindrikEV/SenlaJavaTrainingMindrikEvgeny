@@ -4,12 +4,14 @@ import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.util.sort.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.api.*;
+import org.senlatraining.autoservice.util.parsers.*;
 
 public class MasterManager implements IMaster, ICommonEntitiesManagers{
 	private final String AMOUNT_OF_MASTERS = "Amount of masters = ";
 	private final String path = "src/files/masters.txt";
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
+	private ParserForMasters parserForMaster = new ParserForMasters();
 	private Master[] listOfMasters = new Master[5];
 		
 	public void add(Master master){
@@ -45,8 +47,8 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 	public void saveArray(){
 		fileOperator.pushListToFile(listOfMasters);
 	}
-//------------------------------------------------------------------------------	
-/*	public void loadArray(){
-		fileOperator.pullFromFile(listOfMasters);
-	}*/
+//------------------------------------------------------------------------------
+	public void loadArray(){													// Read array from file
+		parserForMaster.parseFromFile(fileOperator.pullFromFile());
+	}
 }
