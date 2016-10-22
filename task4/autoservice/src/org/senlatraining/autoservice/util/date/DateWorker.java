@@ -12,6 +12,6 @@ public class DateWorker {
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 	        Calendar calendar = Calendar.getInstance();
 	        
-	        return dateFormat.format(calendar.getTime());
+	        return Date(dateFormat.format(calendar.getTime());
 	 }       
 }
