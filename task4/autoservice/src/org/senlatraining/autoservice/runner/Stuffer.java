@@ -3,6 +3,8 @@ package org.senlatraining.autoservice.runner;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
 import org.senlatraining.autoservice.util.date.*;
+
+import java.util.Calendar;
 import java.util.Date;
 /*
  * This class generate all objects and work with them. Emulate user-operations.  
@@ -34,7 +36,7 @@ public class Stuffer {
 			
 			System.out.println();
 			
-			garageManager.saveArray();
+			//garageManager.saveArray();
 //----------------------------------------------------------------------------------------- MASTERS ---------------
 			Master master1 = new Master("Givi","Vartanov");
 			Master master2 = new Master("Ivan","Grozny");
@@ -63,16 +65,16 @@ public class Stuffer {
 			
 			
 			masterManager.getAmountOfMasters();			// Show amount of masters
-			masterManager.saveArray();					// Save array of masters to file
+			//masterManager.saveArray();					// Save array of masters to file
 
 //------------------------------------------------------------------------------------------------ ORDERS ----------
 			
-			Order order1 = new Order("Paint a door",85.2);
-			Order order2 = new Order("Clean glasses",25.4);
-			Order order3 = new Order("Change oil and filters",65.0);
-			Order order4 = new Order("Change full",999.9);
-			Order order5 = new Order("Change wheels",120.2);
-			Order order6 = new Order("Repair of engine",274.9);
+			Order order1 = new Order("Paint a door", 85.2, 7, "2016-10-24");
+			Order order2 = new Order("Clean glasses", 25.4, 1, "2016-10-25");
+			Order order3 = new Order("Change oil and filters", 65.0, 1, "2016-10-27");
+			Order order4 = new Order("Change full",999.9, 14, "2016-10-24");
+			Order order5 = new Order("Change wheels",120.2, 1, "2016-10-25");
+			Order order6 = new Order("Repair of engine",274.9, 10, "2016-10-28");
 			
 			OrderManager orderManager = new OrderManager();
 			orderManager.add(order1);
@@ -87,9 +89,9 @@ public class Stuffer {
 			
 			System.out.println();
 			
-			orderManager.saveArray();	
+			//orderManager.saveArray();	
 //------------------------------------------------------------------------------------------------- TIME ----------
-			DateWorker timeWorker = new DateWorker();
+			//DateWorker timeWorker = new DateWorker();
 			//timeWorker.getCurrentDate();
 	   }
 }

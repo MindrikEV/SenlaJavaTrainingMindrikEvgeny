@@ -20,16 +20,34 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 
 	public void add(Garage garage) {
 		arrayWorker.addElement(listOfGarages, garage);
+		saveArray();
 	}
 // ----------------------------------------------------------
 	public void remove(Garage garage) {
 		arrayWorker.removeElement(listOfGarages, garage);
+		saveArray();
 	}
 // ----------------------------------------------------------
 	public void showListOfGarages() {
 		arrayWorker.ShowList(listOfGarages);
 	}
 // ----------------------------------------------------------
+	public Garage getFreeGarage(){
+		Integer position = 0;
+		
+		for(int i = 0; i < listOfGarages.length; i++){
+			if(listOfGarages[i] != null){
+				if(listOfGarages[i].getStatus().toString() == "false"){
+					listOfGarages[i].setStatus(true);
+					position = i;
+					break;
+				}
+			}
+		} 
+		saveArray();
+		return	listOfGarages[position];
+	}
+//-----------------------------------------------------------
 	public void showListOfFreeGarages() {
 		StringBuilder s = new StringBuilder();
 		

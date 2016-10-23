@@ -1,32 +1,34 @@
 package org.senlatraining.autoservice.entity;
 
-import org.senlatraining.autoservice.util.date.DateWorker;
-import java.util.Date;
-
+//import org.senlatraining.autoservice.manager.OrderManager;
+//import org.senlatraining.autoservice.util.date.DateWorker;
+//import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Order {
 	private static Integer counter = 0;
-	private DateWorker dateWorker = new DateWorker();
 	private Integer idOfOrder;
 	private Double price;
 	private String description;
 	private String status;
-	private Date dateOfRegistration;
-	private Date dateOfComplete;
-	private Date dateOfPlanStart;
+	private LocalDate dateOfRegistration;
+	private LocalDate dateOfComplete;
+	private LocalDate dateOfPlanStart;
 	private Master master;
 	private Garage garage;
 	
-	public Order(String description, Double price, Date dateOfComplete, Date dateOfPlanComplete){
+	public Order(String description, Double price, Integer daysOnWork, String planStartDay){
 		this.description = description;
 		this.price = price;
 		this.idOfOrder = ++counter;
 		this.status = "active";
-		this.dateOfRegistration = dateWorker.getCurrentDate();
-		this.dateOfComplete = dateOfComplete;
-		this.dateOfPlanStart = dateOfPlanStart;
+		this.dateOfRegistration = LocalDate.now();
+		setDateOfPlanStart(planStartDay);
+		setDateOfComplete(daysOnWork);
+		
 	}
-//----------------------------------------------------------------
+//-----------------------------------------------------------------
 	public void setPrice(Double price){
 		this.price = price;
 	}
@@ -55,29 +57,30 @@ public class Order {
 		return this.status;
 	}
 //-----------------------------------------------------------------
-	public Date getDateOfRegistration(){
+	public LocalDate getDateOfRegistration(){
 		return this.dateOfRegistration;
 	}
 //-----------------------------------------------------------------
-	public Date getDateOfComplete(){
+	public LocalDate getDateOfComplete(){
 		return this.dateOfComplete;
 	}
 //-----------------------------------------------------------------
-	public void setDateOfComplete(Date dateOfComplete){
-		this.dateOfComplete = dateOfComplete;
+	public void setDateOfComplete(Integer daysOnWork){
+		this.dateOfComplete = this.dateOfPlanStart.plusDays(daysOnWork);
 	}
 //-----------------------------------------------------------------
-	public Date getDateOfPlanStart(){
+	public LocalDate getDateOfPlanStart(){
 		return this.dateOfPlanStart;
 	}
 //-----------------------------------------------------------------
-	public void setDateOfPlanStart(Date dateOfPlanStart){
-		this.dateOfPlanStart = dateOfPlanStart;
+	public void setDateOfPlanStart(String dateOfPlanStart){
+		this.dateOfPlanStart = LocalDate.parse(dateOfPlanStart);
 	}
 //-----------------------------------------------------------------	
-	public void setMaster(Master master){
-		this.master = master;
-	}
+//	public void setMaster(Master master){
+//		this.master = master;
+//		master.setOrder(this.order);
+//	}
 //-----------------------------------------------------------------
 	public void setGarage(Garage garage){
 		this.garage = garage;
@@ -94,17 +97,19 @@ public class Order {
 	@Override
 	public String toString(){
 		StringBuilder s = new StringBuilder();
+		s.append(getId());
+		s.append("|");
 		s.append(getDescription());
 		s.append("|");
 		s.append(getPrice());
 		s.append("|");
 		s.append(getStatus());
 		s.append("|");
-		s.append(getDateOfRegistration());
+		s.append(dateOfRegistration);
 		s.append("|");
-		s.append(getDateOfComplete());
+		s.append(dateOfPlanStart);
 		s.append("|");
-		s.append(getDateOfPlanStart());
+		s.append(dateOfComplete);
 
 		return s.toString();
 	}

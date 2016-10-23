@@ -55,5 +55,19 @@ public class ArrayWorker {
 			}
 		}
 	}
+//-----------------------------------------------------------------------
+	public Object searchElement(Object[] array, Object obj){
+		Integer position = 0;
+		
+		for(int i=0; i < array.length; i++){
+			if(array[i] != null){
+				if(array[i].equals(obj)){
+					position = i;
+					break;
+				}
+			}
+		}
+		return array[position];
+	}
 }
 

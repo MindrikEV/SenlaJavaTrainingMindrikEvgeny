@@ -15,7 +15,7 @@ public class ParserForOrders {
 		String tempStatus;
 		
 		for(int i=0; i < size; i++){
-			String[] s = fileOperator.pullFromFile()[i].split(SPLITER);
+			String[] s = fileOperator.pullFromFile()[i].split("|");
 			tempDescription = s[0];
 			tempPrice = Double.valueOf(s[1]);
 			tempStatus = s[2];
