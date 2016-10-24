@@ -4,13 +4,15 @@ import org.senlatraining.autoservice.manager.MasterManager;
 import org.senlatraining.autoservice.util.FileWorker;
 import org.senlatraining.autoservice.api.IParser;
 import org.senlatraining.autoservice.entity.Master;
+import org.senlatraining.autoservice.entity.Path;
 
 public class ParserForMasters implements IParser {
 	
 	@Override
 	public void parseFromFile(String[] array){
 		MasterManager masterManager = new MasterManager();
-		FileWorker fileOperator = new FileWorker(masterManager.getPath());
+		Path path = new Path();
+		FileWorker fileOperator = new FileWorker(path.getPathForMaster());
 		Integer size = fileOperator.pullFromFile().length;
 		String tempName;
 		String tempSurName;

@@ -83,7 +83,7 @@ public class Order {
 //-----------------------------------------------------------------	
 	public void setMaster(Master master){
 		this.master = master;
-		master.setOrder(this.order);
+		//master.setOrder(this.order);
 	}
 //-----------------------------------------------------------------
 	public void setGarage(Garage garage){

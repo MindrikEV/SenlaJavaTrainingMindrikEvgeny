@@ -8,12 +8,18 @@ import org.senlatraining.autoservice.manager.*;
 public class Stuffer {	 
 	   public void stuff(){
 //---------------------------------------------------------------------------------------  GARAGES  ------------------	   
-		   	Garage garage1 = new Garage();
+		  	Garage garage1 = new Garage();
 			Garage garage2 = new Garage();							
 			Garage garage3 = new Garage();
 			Garage garage4 = new Garage();
-			Garage garage5 = new Garage();
+			Garage garage5 = new Garage(); 
 			
+		/*   Recover recover = new Recover();
+		   recover.createMastersFromFile();
+		   recover.createGaragesFromFile();
+		   recover.createOrdersFromFile();*/
+		   
+		   
 			garage3.setStatus(true);								// Change status of garage(now garage is BUSY)
 			
 			GarageManager garageManager = new GarageManager();		
@@ -21,7 +27,7 @@ public class Stuffer {
 			garageManager.add(garage2);								 
 			garageManager.add(garage3);
 			garageManager.add(garage4);
-			garageManager.add(garage5);
+			garageManager.add(garage5); 
 			
 			garageManager.showListOfGarages();
 			System.out.println();
@@ -45,7 +51,7 @@ public class Stuffer {
 			masterManager.add(master3);
 			masterManager.add(master4);
 			masterManager.add(master5);
-			masterManager.add(master6);
+			masterManager.add(master6); 
 			
 			masterManager.sortListBySurName();
 			masterManager.showListOfMasters();
@@ -57,7 +63,7 @@ public class Stuffer {
 			masterManager.getAmountOfMasters();
 			System.out.println();
 			
-			masterManager.showOrderOfMaster(master1);
+			//masterManager.showOrderOfMaster(master1);
 //------------------------------------------------------------------------------------------------ ORDERS ----------		
 			Order order1 = new Order("Paint a door", 85.2, 7, "2016-10-24");
 			Order order2 = new Order("Clean glasses", 25.4, 1, "2016-10-25");
@@ -65,6 +71,11 @@ public class Stuffer {
 			Order order4 = new Order("Change full",999.9, 14, "2016-10-24");
 			Order order5 = new Order("Change wheels",120.2, 1, "2016-10-25");
 			Order order6 = new Order("Repair of engine",274.9, 10, "2016-10-28");
+			
+			order4.setGarage(garage3);
+			order4.setMaster(master2);
+			
+			order4.getGarage().getIdOfGarage();
 			
 			OrderManager orderManager = new OrderManager();
 			orderManager.add(order1);
@@ -74,12 +85,12 @@ public class Stuffer {
 			orderManager.add(order5);
 			orderManager.add(order6);
 			
-			orderManager.sortListByPrice();
+			//orderManager.sortListByPrice();
 			orderManager.showListOfOrders();
 			System.out.println();
 			
-			orderManager.sortListByDateRegistration();
-			orderManager.showListOfOrders();
+			/*orderManager.sortListByDateRegistration();
+			orderManager.showListOfOrders();		
 			orderManager.showListOfExecutableOrders();
 			System.out.println();
 			
@@ -91,8 +102,6 @@ public class Stuffer {
 			orderManager.sortListByDateComplete();
 			orderManager.showListOfOrders();
 			orderManager.showListOfExecutableOrders();
-			System.out.println();
-			
-			
+			System.out.println();	*/
 	   }
 }

@@ -56,6 +56,19 @@ public class ArrayWorker {
 		}
 	}
 //-----------------------------------------------------------------------
+	public Object[] getListOfNotNull(Object[] array){									// Print all elements from array without nulls
+		Object[] newArray = new Object[countOfElements(array)];
+		Integer k = 0;
+		
+		for(int i = 0; i < array.length; i++){ 
+			if(array[i] != null){
+				newArray[k] = array[i];
+				k++;
+			}
+		}
+		return newArray;
+	}
+//-----------------------------------------------------------------------
 	public Object searchElement(Object[] array, Object obj){
 		Integer position = 0;
 		

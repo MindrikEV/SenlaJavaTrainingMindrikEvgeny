@@ -39,9 +39,9 @@ public class Master{
 		this.order = order;
 	}
 //----------------------------------------------------------
-	public Integer getOrder(){
+/*	public Integer getOrder(){
 		return this.order.toString();
-	}
+	}*/
 //----------------------------------------------------------
 	@Override
 	public String toString(){

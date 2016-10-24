@@ -6,23 +6,22 @@ import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.util.parsers.*;
 
-public class MasterManager implements IMaster, ICommonEntitiesManagers{
+public class MasterManager implements IMaster{ // , ICommonEntitiesManagers
 	private final String AMOUNT_OF_MASTERS = "Amount of masters = ";
 	private final String ORDER_NOT_FOUND = "Master don't have order now!";
-	private final String path = "src/files/masters.txt";
-	
 	private ArrayWorker arrayWorker = new ArrayWorker();
-	private FileWorker fileOperator = new FileWorker(path);
+	private Path path = new Path();
+	private FileWorker fileOperator = new FileWorker(path.getPathForMaster());
 	//private ParserForMasters parserForMaster = new ParserForMasters();
 	private Master[] listOfMasters = new Master[5];
 	
-	@Override
+	//@Override
 	public void add(Master master){
 		arrayWorker.addElement(listOfMasters, master);
 		saveArray();
 	}
 //------------------------------------------------------------------------------
-	@Override
+	//@Override
 	public void remove(Master master){
 		arrayWorker.removeElement(listOfMasters, master);
 		saveArray();
@@ -60,7 +59,7 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 		} else {
 			System.out.println(master.getOrder().toString());
 		}
-	}	
+	}
 //------------------------------------------------------------------------------
 	public void sortListBySurName(){
 		Sort sort = new Sort();
@@ -72,7 +71,7 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 		sort.sortMastersListByStatus(listOfMasters);
 	}
 //------------------------------------------------------------------------------
-	@Override
+	//@Override
 	public void saveArray(){
 		fileOperator.pushListToFile(listOfMasters);
 	}

@@ -1,39 +1,37 @@
 package org.senlatraining.autoservice.manager;
 
+import java.time.LocalDate;
 import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.util.sort.Sort;
-
-import java.time.LocalDate;
-
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 
-public class OrderManager implements IOrder, ICommonEntitiesManagers{
+public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 	private final String STATUS_CLOSE = "closed";
 	private final String STATUS_REVOKE = "revoked";
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";
-	private final String path = "src/files/orders.txt";
 	
-	private FileWorker fileOperator = new FileWorker(path);
+	private Path path = new Path();
+	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private Order[] listOfOrders = new Order[10];
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
 		
-	@Override
+	//@Override
 	public void add(Order order) {
 		arrayWorker.addElement(listOfOrders, order);
 		saveArray();
 	}
 //------------------------------------------------------------------
-	@Override
+	//@Override
 	public void remove(Order order) {
 		arrayWorker.removeElement(listOfOrders, order);
 		saveArray();
 	}
 //------------------------------------------------------------------
-	@Override
+	//@Override
 	public void closeOrder(Order order) {
 		order.setStatus(STATUS_CLOSE);
 		order.getMaster().setStatus(false);
@@ -41,7 +39,7 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		saveArray();
 	}
 //------------------------------------------------------------------
-	@Override
+	//@Override
 	public void revokeOrder(Order order) {
 		order.setStatus(STATUS_REVOKE);
 		order.getMaster().setStatus(false);
@@ -49,7 +47,7 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		saveArray();
 	}
 //------------------------------------------------------------------
-	@Override
+	//@Override
 	public void showListOfOrders() {
 		arrayWorker.ShowList(listOfOrders);
 	}
@@ -127,7 +125,7 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		sort.sortOrdersByDatePlanStart(listOfOrders);
 	}
 //------------------------------------------------------------------
-	@Override
+	//@Override
 	public void saveArray(){										
 		fileOperator.pushListToFile(listOfOrders);
 	}

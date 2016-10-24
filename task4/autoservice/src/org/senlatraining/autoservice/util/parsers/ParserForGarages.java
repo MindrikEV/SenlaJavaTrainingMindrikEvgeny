@@ -4,13 +4,15 @@ import org.senlatraining.autoservice.api.IParser;
 import org.senlatraining.autoservice.entity.Garage;
 import org.senlatraining.autoservice.manager.GarageManager;
 import org.senlatraining.autoservice.util.FileWorker;
+import org.senlatraining.autoservice.entity.Path;
 
 public class ParserForGarages implements IParser{
 	
 	@Override
 	public void parseFromFile(String[] array){
 		GarageManager garageManager = new GarageManager();
-		FileWorker fileOperator = new FileWorker(garageManager.getPath());
+		Path path = new Path();
+		FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 		Integer size = fileOperator.pullFromFile().length;
 		Boolean tempStatus;
 		

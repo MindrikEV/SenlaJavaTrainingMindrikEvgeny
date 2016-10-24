@@ -24,21 +24,17 @@ public class Recover {
 		parser.parseFromFile(fileOperator.pullFromFile());
 	}
 */	
-	
 	//createEntityFromFile(masterPath, parserForMaster);
 	
 	public void createMastersFromFile(){													
 		parserForMaster.parseFromFile(fileOperator.pullFromFile());
 	}
-
-	
+//----------------------------------------------------------------------------	
 	public void createOrdersFromFile(){										
 		parserForOrders.parseFromFile(fileOperator.pullFromFile());
 	}
-	OrderManager orderManager = new OrderManager();
-	
+//----------------------------------------------------------------------------	
 	public void createGaragesFromFile(){										
 		parserForGarages.parseFromFile(fileOperator.pullFromFile());
 	}
-	GarageManager garageManager = new GarageManager();
 }
