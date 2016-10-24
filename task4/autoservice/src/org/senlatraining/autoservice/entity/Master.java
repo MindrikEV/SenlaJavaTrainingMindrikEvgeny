@@ -4,7 +4,7 @@ public class Master{
 	private Boolean isBusy = false;
 	private String name;
 	private String surName;
-	private Integer orderId;
+	private Order order;
 	
 	public Master(String name,String surName){			
 		this.name = name;
@@ -35,12 +35,12 @@ public class Master{
 		this.surName = surName;
 	}
 //----------------------------------------------------------
-	public void setOrder(Integer orderId){
-		this.orderId = orderId;
+	public void setOrder(Order order){
+		this.order = order;
 	}
 //----------------------------------------------------------
 	public Integer getOrder(){
-		return this.order;
+		return this.order.toString();
 	}
 //----------------------------------------------------------
 	@Override

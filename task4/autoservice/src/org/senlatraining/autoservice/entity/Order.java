@@ -29,6 +29,10 @@ public class Order {
 		
 	}
 //-----------------------------------------------------------------
+	public void setDateOfRegistration(String date){
+		this.dateOfRegistration = LocalDate.parse(date);
+	}
+//-----------------------------------------------------------------
 	public void setPrice(Double price){
 		this.price = price;
 	}
@@ -77,10 +81,10 @@ public class Order {
 		this.dateOfPlanStart = LocalDate.parse(dateOfPlanStart);
 	}
 //-----------------------------------------------------------------	
-//	public void setMaster(Master master){
-//		this.master = master;
-//		master.setOrder(this.order);
-//	}
+	public void setMaster(Master master){
+		this.master = master;
+		master.setOrder(this.order);
+	}
 //-----------------------------------------------------------------
 	public void setGarage(Garage garage){
 		this.garage = garage;

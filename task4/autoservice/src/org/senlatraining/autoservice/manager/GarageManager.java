@@ -12,26 +12,28 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 	private final String STATUS_TRUE = "busy";
 	private final String STATUS_FALSE = "free";
 	private final String path = "src/files/garages.txt";
+	
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
-	private ParserForGarages parserForGarages = new ParserForGarages();
 	private Garage[] listOfGarages = new Garage[10];
-	private Garage garage;
-
+	//private Garage garage;
+	
+	@Override
 	public void add(Garage garage) {
 		arrayWorker.addElement(listOfGarages, garage);
 		saveArray();
 	}
-// ----------------------------------------------------------
+// -----------------------------------------------------------------
+	@Override
 	public void remove(Garage garage) {
 		arrayWorker.removeElement(listOfGarages, garage);
 		saveArray();
 	}
-// ----------------------------------------------------------
+// -----------------------------------------------------------------
 	public void showListOfGarages() {
 		arrayWorker.ShowList(listOfGarages);
 	}
-// ----------------------------------------------------------
+// -----------------------------------------------------------------
 	public Garage getFreeGarage(){
 		Integer position = 0;
 		
@@ -47,7 +49,7 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 		saveArray();
 		return	listOfGarages[position];
 	}
-//-----------------------------------------------------------
+//------------------------------------------------------------------
 	public void showListOfFreeGarages() {
 		StringBuilder s = new StringBuilder();
 		
@@ -66,22 +68,14 @@ public class GarageManager implements IGarage, ICommonEntitiesManagers{
 			}
 		}
 	}
-//-----------------------------------------------------------
+//------------------------------------------------------------------
 	public void sortListByStatus(){
 		Sort sort = new Sort();
 		sort.sortGaragesListByStatus(listOfGarages);
 	}
 //------------------------------------------------------------------
-	public String getPath(){
-		return this.path;
-	}
-//------------------------------------------------------------------
-	public void saveArray(){										// Save array to file
+	public void saveArray(){	
+		@Override
 		fileOperator.pushListToFile(listOfGarages);
 	}
-//------------------------------------------------------------------
-	public void loadArray(){										// Read array from file
-		parserForGarages.parseFromFile(fileOperator.pullFromFile());
-	}
-//-----------------------------------------------------------
 }

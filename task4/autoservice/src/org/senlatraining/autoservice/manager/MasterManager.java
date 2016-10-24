@@ -10,25 +10,30 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 	private final String AMOUNT_OF_MASTERS = "Amount of masters = ";
 	private final String ORDER_NOT_FOUND = "Master don't have order now!";
 	private final String path = "src/files/masters.txt";
+	
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path);
-	private ParserForMasters parserForMaster = new ParserForMasters();
+	//private ParserForMasters parserForMaster = new ParserForMasters();
 	private Master[] listOfMasters = new Master[5];
-		
+	
+	@Override
 	public void add(Master master){
 		arrayWorker.addElement(listOfMasters, master);
 		saveArray();
 	}
 //------------------------------------------------------------------------------
+	@Override
 	public void remove(Master master){
 		arrayWorker.removeElement(listOfMasters, master);
 		saveArray();
 	}
 //------------------------------------------------------------------------------	
+	@Override
 	public void showListOfMasters(){
 		arrayWorker.ShowList(listOfMasters);
 	}
 //------------------------------------------------------------------------------
+	@Override
 	public void getAmountOfMasters(){
 		System.out.println(AMOUNT_OF_MASTERS + arrayWorker.countOfElements(listOfMasters));
 	}
@@ -49,21 +54,17 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 		return	listOfMasters[position];
 	}
 //------------------------------------------------------------------------------
-	public void sortListBySurName(){
-		Sort sort = new Sort();
-		sort.sortMastersListBySurName(listOfMasters);
-	}
-//------------------------------------------------------------------------------
 	public void showOrderOfMaster(Master master){
 		if (master.getOrder() == null){
 			System.out.print(ORDER_NOT_FOUND);
 		} else {
-			System.out.println( master.getOrder().toString());
+			System.out.println(master.getOrder().toString());
 		}
-	}
+	}	
 //------------------------------------------------------------------------------
-	public String getPath(){
-		return this.path;
+	public void sortListBySurName(){
+		Sort sort = new Sort();
+		sort.sortMastersListBySurName(listOfMasters);
 	}
 //------------------------------------------------------------------------------	
 	public void sortListByStatus(){
@@ -71,11 +72,8 @@ public class MasterManager implements IMaster, ICommonEntitiesManagers{
 		sort.sortMastersListByStatus(listOfMasters);
 	}
 //------------------------------------------------------------------------------
+	@Override
 	public void saveArray(){
 		fileOperator.pushListToFile(listOfMasters);
-	}
-//------------------------------------------------------------------------------
-	public void loadArray(){													// Read array from file
-		parserForMaster.parseFromFile(fileOperator.pullFromFile());
 	}
 }

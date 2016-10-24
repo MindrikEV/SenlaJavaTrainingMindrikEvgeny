@@ -2,10 +2,6 @@ package org.senlatraining.autoservice.runner;
 
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
-import org.senlatraining.autoservice.util.date.*;
-
-import java.util.Calendar;
-import java.util.Date;
 /*
  * This class generate all objects and work with them. Emulate user-operations.  
  */
@@ -27,16 +23,12 @@ public class Stuffer {
 			garageManager.add(garage4);
 			garageManager.add(garage5);
 			
-			//garageWorker.sortListByStatus();
 			garageManager.showListOfGarages();
-			
 			System.out.println();
 			
+			garageManager.sortListByStatus();
 			garageManager.showListOfFreeGarages();
-			
 			System.out.println();
-			
-			//garageManager.saveArray();
 //----------------------------------------------------------------------------------------- MASTERS ---------------
 			Master master1 = new Master("Givi","Vartanov");
 			Master master2 = new Master("Ivan","Grozny");
@@ -44,8 +36,8 @@ public class Stuffer {
 			Master master4 = new Master("Tom","Cruse");
 			Master master5 = new Master("Elton","John");
 			Master master6 = new Master("Jesie","Pinkman");
-			master4.setStatus(true);
 			master2.setStatus(true);
+			master4.setStatus(true);
 			
 			MasterManager masterManager = new MasterManager();
 			masterManager.add(master1);
@@ -57,18 +49,16 @@ public class Stuffer {
 			
 			masterManager.sortListBySurName();
 			masterManager.showListOfMasters();
-			
 			System.out.println();
 			
 			masterManager.sortListByStatus();
 			masterManager.showListOfMasters();
 			
+			masterManager.getAmountOfMasters();
+			System.out.println();
 			
-			masterManager.getAmountOfMasters();			// Show amount of masters
-			//masterManager.saveArray();					// Save array of masters to file
-
-//------------------------------------------------------------------------------------------------ ORDERS ----------
-			
+			masterManager.showOrderOfMaster(master1);
+//------------------------------------------------------------------------------------------------ ORDERS ----------		
 			Order order1 = new Order("Paint a door", 85.2, 7, "2016-10-24");
 			Order order2 = new Order("Clean glasses", 25.4, 1, "2016-10-25");
 			Order order3 = new Order("Change oil and filters", 65.0, 1, "2016-10-27");
@@ -84,14 +74,25 @@ public class Stuffer {
 			orderManager.add(order5);
 			orderManager.add(order6);
 			
-			//orderManager.sortListByPrice();
+			orderManager.sortListByPrice();
 			orderManager.showListOfOrders();
-			
 			System.out.println();
 			
-			//orderManager.saveArray();	
-//------------------------------------------------------------------------------------------------- TIME ----------
-			//DateWorker timeWorker = new DateWorker();
-			//timeWorker.getCurrentDate();
+			orderManager.sortListByDateRegistration();
+			orderManager.showListOfOrders();
+			orderManager.showListOfExecutableOrders();
+			System.out.println();
+			
+			orderManager.sortListByDatePlanStart();
+			orderManager.showListOfOrders();
+			orderManager.showListOfExecutableOrders();
+			System.out.println();
+			
+			orderManager.sortListByDateComplete();
+			orderManager.showListOfOrders();
+			orderManager.showListOfExecutableOrders();
+			System.out.println();
+			
+			
 	   }
 }

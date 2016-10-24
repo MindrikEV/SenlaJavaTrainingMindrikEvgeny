@@ -3,3 +3,5 @@ Grozny|Ivan|true
 Crazy|Max|false
 Cruse|Tom|true
 John|Elton|false
+Jhon|McCleyn|false
+Dobrynya|Nikitych|false
