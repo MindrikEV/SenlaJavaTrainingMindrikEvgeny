@@ -1,33 +1,24 @@
 package org.senlatraining.autoservice.util.parsers;
 
 import org.senlatraining.autoservice.manager.MasterManager;
-import org.senlatraining.autoservice.util.FileWorker;
 import org.senlatraining.autoservice.api.IParser;
-import org.senlatraining.autoservice.entity.Master;
-import org.senlatraining.autoservice.entity.Path;
+import org.senlatraining.autoservice.entity.*;
 
 public class ParserForMasters implements IParser {
 	
 	@Override
 	public void parseFromFile(String[] array){
 		MasterManager masterManager = new MasterManager();
-		Path path = new Path();
-		FileWorker fileOperator = new FileWorker(path.getPathForMaster());
-		Integer size = fileOperator.pullFromFile().length;
-		String tempName;
-		String tempSurName;
-		Boolean tempStatus;
+		Integer size = array.length;
 		
 		for(int i=0; i < size; i++){
-			String[] s = fileOperator.pullFromFile()[i].split(SPLITTER);
-			tempName = s[0];
-			tempSurName = s[1];
-			tempStatus = Boolean.valueOf(s[2]);
+			String[] s = array[i].split(SPLITTER);
+			Master master = new Master(s[0],s[1]);					//s[o] - Name  s[1] - SurName 
+			master.setStatus(Boolean.valueOf(s[2]));			//s[2] - Status
 			
-			Master master = new Master(tempName, tempSurName);
-			master.setStatus(tempStatus);
+			System.out.println(master.getName() + master.getSurName() + master.getStatus());
 			
-			masterManager.add(master);
+			masterManager.add(master);	
 		}
 	}
 }

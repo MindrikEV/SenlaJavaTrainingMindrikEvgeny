@@ -1,27 +1,20 @@
 package org.senlatraining.autoservice.util.parsers;
 
 import org.senlatraining.autoservice.api.IParser;
-import org.senlatraining.autoservice.entity.Garage;
 import org.senlatraining.autoservice.manager.GarageManager;
-import org.senlatraining.autoservice.util.FileWorker;
-import org.senlatraining.autoservice.entity.Path;
+import org.senlatraining.autoservice.entity.*;
 
 public class ParserForGarages implements IParser{
 	
 	@Override
 	public void parseFromFile(String[] array){
 		GarageManager garageManager = new GarageManager();
-		Path path = new Path();
-		FileWorker fileOperator = new FileWorker(path.getPathForGarage());
-		Integer size = fileOperator.pullFromFile().length;
-		Boolean tempStatus;
+		Integer size = array.length;
 		
 		for(int i=0; i < size; i++){
-			String[] s = fileOperator.pullFromFile()[i].split(SPLITTER);
-			tempStatus = Boolean.valueOf(s[1]);
-			
+			String[] s = array[i].split(SPLITTER);
 			Garage garage = new Garage();
-			garage.setStatus(tempStatus);
+			garage.setStatus(Boolean.valueOf(s[1]));
 			
 			garageManager.add(garage);
 		}

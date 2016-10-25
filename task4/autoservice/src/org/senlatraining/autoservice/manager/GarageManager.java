@@ -72,7 +72,7 @@ public class GarageManager implements IGarage{ //  IGarage, ICommonEntitiesManag
 //------------------------------------------------------------------
 	public void sortListByStatus(){
 		Sort sort = new Sort();
-		sort.sortGaragesListByStatus(arrayWorker.getListOfNotNull(listOfGarages));
+		sort.sortGaragesListByStatus(listOfGarages);  //arrayWorker.getListOfNotNull(listOfGarages)
 	}
 //------------------------------------------------------------------
 	//@Override

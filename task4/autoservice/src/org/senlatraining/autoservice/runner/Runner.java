@@ -1,6 +1,5 @@
 package org.senlatraining.autoservice.runner;
 
-import org.senlatraining.autoservice.manager.Recover;
 import org.senlatraining.autoservice.entity.Path;
 
 public class Runner {

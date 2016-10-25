@@ -61,13 +61,25 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 	}
 //------------------------------------------------------------------
 	public void showMasterByOrder(Order order){
-		System.out.println(order.getMaster().getSurName());
+		if(order.getMaster() != null){
+			System.out.println(order.getMaster().getSurName());
+		} else {
+			System.out.println("This order don't have garage");
+		}
 	}
-//-----------------------------------------------------------
-//	public void setMasterForOrder(Order order){
-//		order.setMaster(masterManager.getFreeMaster());
-//		saveArray();
-//	}
+//------------------------------------------------------------------
+	public void showGarageByOrder(Order order){
+		if(order.getMaster() != null){
+			System.out.println(order.getGarage().getIdOfGarage());
+		} else {
+			System.out.println("This order don't have master");
+		}
+	}
+//------------------------------------------------------------------
+	public void setMasterForOrder(Order order){
+		order.setMaster(masterManager.getFreeMaster());
+		saveArray();
+	}
 //-------------------------------------------------------------------
 	public void setGarageForOrder(Order order, Garage garage){
 		order.setGarage(garageManager.getFreeGarage());
@@ -114,12 +126,12 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 		Sort sort = new Sort();
 		sort.sortOrdersListByDateRegistration(listOfOrders);
 	}
-//-----------------------------------------------------------
+//------------------------------------------------------------------
 	public void sortListByDateComplete(){
 		Sort sort = new Sort();
 		sort.sortOrdersByDateComplete(listOfOrders);
 	}
-//-----------------------------------------------------------
+//------------------------------------------------------------------
 	public void sortListByDatePlanStart(){
 		Sort sort = new Sort();
 		sort.sortOrdersByDatePlanStart(listOfOrders);

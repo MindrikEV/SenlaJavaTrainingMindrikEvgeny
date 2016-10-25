@@ -91,11 +91,11 @@ public class Order {
 	}
 //-----------------------------------------------------------------
 	public Master getMaster(){
-		return master;
+		return this.master;
 	}
 //-----------------------------------------------------------------
 	public Garage getGarage(){
-		return garage;
+		return this.garage;
 	}	
 //-----------------------------------------------------------------
 	@Override

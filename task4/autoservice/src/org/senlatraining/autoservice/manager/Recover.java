@@ -5,32 +5,23 @@ import org.senlatraining.autoservice.util.ArrayWorker;
 import org.senlatraining.autoservice.util.FileWorker;
 import org.senlatraining.autoservice.util.parsers.*;
 import org.senlatraining.autoservice.manager.*;
+import org.senlatraining.autoservice.entity.Path;
 
-public class Recover {
-	private  String masterPath = "src/files/masters.txt";
-	private  String orderPath = "src/files/orders.txt";
-	private  String garagePath = "src/files/garages.txt";
-	
+public class Recover {	
 	private ArrayWorker arrayWorker = new ArrayWorker();
+	private Path path = new Path(); 
 	private FileWorker fileOperator;
 	private ParserForMasters parserForMaster = new ParserForMasters();
 	private ParserForOrders parserForOrders = new ParserForOrders();
 	private ParserForGarages parserForGarages = new ParserForGarages();
-		
 	
-	
-/*	public void createEntityFromFile(String path, IParser parser){
-		fileOperator = new FileWorker(path);
-		parser.parseFromFile(fileOperator.pullFromFile());
-	}
-*/	
-	//createEntityFromFile(masterPath, parserForMaster);
-	
-	public void createMastersFromFile(){													
+	public void createMastersFromFile(){
+		fileOperator = new FileWorker(path.getPathForMaster());
 		parserForMaster.parseFromFile(fileOperator.pullFromFile());
 	}
 //----------------------------------------------------------------------------	
-	public void createOrdersFromFile(){										
+	public void createOrdersFromFile(){
+		//fileOperator = new FileWorker(path.getPathForOrders());
 		parserForOrders.parseFromFile(fileOperator.pullFromFile());
 	}
 //----------------------------------------------------------------------------	

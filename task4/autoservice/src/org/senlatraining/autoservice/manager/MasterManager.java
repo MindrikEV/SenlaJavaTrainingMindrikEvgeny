@@ -18,13 +18,13 @@ public class MasterManager implements IMaster{ // , ICommonEntitiesManagers
 	//@Override
 	public void add(Master master){
 		arrayWorker.addElement(listOfMasters, master);
-		saveArray();
+		//saveArray();
 	}
 //------------------------------------------------------------------------------
 	//@Override
 	public void remove(Master master){
 		arrayWorker.removeElement(listOfMasters, master);
-		saveArray();
+		//saveArray();
 	}
 //------------------------------------------------------------------------------	
 	@Override
@@ -49,7 +49,7 @@ public class MasterManager implements IMaster{ // , ICommonEntitiesManagers
 				}
 			}
 		} 
-		saveArray();
+		//saveArray();
 		return	listOfMasters[position];
 	}
 //------------------------------------------------------------------------------

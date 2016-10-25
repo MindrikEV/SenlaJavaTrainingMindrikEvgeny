@@ -1,6 +1,6 @@
-1|Paint a door|85.2|active|2016-10-24|2016-10-24|2016-10-31
-2|Clean glasses|25.4|active|2016-10-24|2016-10-25|2016-10-26
-3|Change oil and filters|65.0|active|2016-10-24|2016-10-27|2016-10-28
-4|Change full|999.9|active|2016-10-24|2016-10-24|2016-11-07
-5|Change wheels|120.2|active|2016-10-24|2016-10-25|2016-10-26
-6|Repair of engine|274.9|active|2016-10-24|2016-10-28|2016-11-07
+1|Paint a door|85.2|active|2016-10-25|2016-10-24|2016-10-31
+2|Clean glasses|25.4|active|2016-10-25|2016-10-25|2016-10-26
+3|Change oil and filters|65.0|active|2016-10-25|2016-10-27|2016-10-28
+4|Change full|999.9|active|2016-10-25|2016-10-24|2016-11-07
+5|Change wheels|120.2|active|2016-10-25|2016-10-25|2016-10-26
+6|Repair of engine|274.9|active|2016-10-25|2016-10-28|2016-11-07

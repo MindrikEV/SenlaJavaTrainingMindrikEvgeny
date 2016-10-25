@@ -1,5 +1,5 @@
-Vartanov|Givi|false
-Grozny|Ivan|true
-Crazy|Max|false
-Cruse|Tom|true
-John|Elton|false
+Givi|Vartanov|false
+Ivan|Grozny|true
+Max|Crazy|false
+Tom|Cruse|true
+Elton|John|false
