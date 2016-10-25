@@ -18,14 +18,14 @@ public class Order {
 	private Master master;
 	private Garage garage;
 	
-	public Order(String description, Double price, Integer daysOnWork, String planStartDay){
+	public Order(String description, Double price, String planStartDay, String completeDay){
 		this.description = description;
 		this.price = price;
 		this.idOfOrder = ++counter;
 		this.status = "active";
 		this.dateOfRegistration = LocalDate.now();
 		setDateOfPlanStart(planStartDay);
-		setDateOfComplete(daysOnWork);
+		setDateOfComplete(completeDay);
 		
 	}
 //-----------------------------------------------------------------
@@ -69,8 +69,8 @@ public class Order {
 		return this.dateOfComplete;
 	}
 //-----------------------------------------------------------------
-	public void setDateOfComplete(Integer daysOnWork){
-		this.dateOfComplete = this.dateOfPlanStart.plusDays(daysOnWork);
+	public void setDateOfComplete(String dateOfComplete){
+		this.dateOfComplete = LocalDate.parse(dateOfComplete);
 	}
 //-----------------------------------------------------------------
 	public LocalDate getDateOfPlanStart(){

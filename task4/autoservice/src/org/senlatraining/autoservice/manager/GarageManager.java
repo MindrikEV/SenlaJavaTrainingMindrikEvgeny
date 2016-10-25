@@ -6,30 +6,30 @@ import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.util.sort.Sort;
 import org.senlatraining.autoservice.util.parsers.*;
 
-public class GarageManager implements IGarage{ //  IGarage, ICommonEntitiesManagers 
+public class GarageManager implements IGarage, ICommonEntitiesManagers {
 	private final String GARAGE = "Garage ";
-	private final String STATUS_MESSEGE = " status is ";
+	private final String STATUS_MESSEGE = " is FREE";
 	private final String STATUS_TRUE = "busy";
 	private final String STATUS_FALSE = "free";
 	
 	private Path path = new Path();
 	private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
-	private Garage[] listOfGarages = new Garage[10];
+	private static Garage[] listOfGarages = new Garage[10];
 	
-	//@Override
+	@Override
 	public void add(Garage garage) {
 		arrayWorker.addElement(listOfGarages, garage);
 		saveArray();
 	}
 // -----------------------------------------------------------------
-	//@Override
+	@Override
 	public void remove(Garage garage) {
 		arrayWorker.removeElement(listOfGarages, garage);
 		saveArray();
 	}
 // -----------------------------------------------------------------
-	//@Override
+	@Override
 	public void showListOfGarages() {
 		arrayWorker.ShowList(listOfGarages);
 	}
@@ -60,7 +60,6 @@ public class GarageManager implements IGarage{ //  IGarage, ICommonEntitiesManag
 					s.append(GARAGE);
 					s.append(listOfGarages[i].getIdOfGarage());
 					s.append(STATUS_MESSEGE);
-					s.append(listOfGarages[i].getStatus());
 					System.out.println(s.toString());
 					s.setLength(0);
 				}
@@ -70,12 +69,12 @@ public class GarageManager implements IGarage{ //  IGarage, ICommonEntitiesManag
 		}
 	}
 //------------------------------------------------------------------
-	public void sortListByStatus(){
+/*	public void sortListByStatus(){
 		Sort sort = new Sort();
-		sort.sortGaragesListByStatus(listOfGarages);  //arrayWorker.getListOfNotNull(listOfGarages)
-	}
+		sort.sortGaragesListByStatus(arrayWorker.getListOfNotNull(listOfGarages));  //arrayWorker.getListOfNotNull(listOfGarages)
+	} */
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void saveArray(){	
 		fileOperator.pushListToFile(listOfGarages);
 	}

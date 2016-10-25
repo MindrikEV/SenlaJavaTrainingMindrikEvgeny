@@ -46,9 +46,9 @@ public class Master{
 	@Override
 	public String toString(){
 		StringBuilder s = new StringBuilder();
-		s.append(getSurName());
-		s.append("|");
 		s.append(getName());
+		s.append("|");
+		s.append(getSurName());
 		s.append("|");
 		s.append(getStatus());
 

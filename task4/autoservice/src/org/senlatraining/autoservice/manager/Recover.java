@@ -21,11 +21,12 @@ public class Recover {
 	}
 //----------------------------------------------------------------------------	
 	public void createOrdersFromFile(){
-		//fileOperator = new FileWorker(path.getPathForOrders());
+		fileOperator = new FileWorker(path.getPathForOrder());
 		parserForOrders.parseFromFile(fileOperator.pullFromFile());
 	}
 //----------------------------------------------------------------------------	
-	public void createGaragesFromFile(){										
+	public void createGaragesFromFile(){	
+		fileOperator = new FileWorker(path.getPathForGarage());
 		parserForGarages.parseFromFile(fileOperator.pullFromFile());
 	}
 }

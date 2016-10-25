@@ -56,7 +56,7 @@ public class ArrayWorker {
 		}
 	}
 //-----------------------------------------------------------------------
-	public Object[] getListOfNotNull(Object[] array){									// Print all elements from array without nulls
+	public Object[] getListOfNotNull(Object[] array){									// Return all elements from array without nulls
 		Object[] newArray = new Object[countOfElements(array)];
 		Integer k = 0;
 		

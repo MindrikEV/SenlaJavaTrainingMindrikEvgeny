@@ -6,7 +6,7 @@ import org.senlatraining.autoservice.util.sort.Sort;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 
-public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
+public class OrderManager implements IOrder, ICommonEntitiesManagers{
 	private final String STATUS_CLOSE = "closed";
 	private final String STATUS_REVOKE = "revoked";
 	private final String STATUS_ACTIVE = "active";
@@ -15,23 +15,23 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 	private Path path = new Path();
 	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private ArrayWorker arrayWorker = new ArrayWorker();
-	private Order[] listOfOrders = new Order[10];
+	private static Order[] listOfOrders = new Order[10];
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
 		
-	//@Override
+	@Override
 	public void add(Order order) {
 		arrayWorker.addElement(listOfOrders, order);
 		saveArray();
 	}
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void remove(Order order) {
 		arrayWorker.removeElement(listOfOrders, order);
 		saveArray();
 	}
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void closeOrder(Order order) {
 		order.setStatus(STATUS_CLOSE);
 		order.getMaster().setStatus(false);
@@ -39,7 +39,7 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 		saveArray();
 	}
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void revokeOrder(Order order) {
 		order.setStatus(STATUS_REVOKE);
 		order.getMaster().setStatus(false);
@@ -47,7 +47,7 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 		saveArray();
 	}
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void showListOfOrders() {
 		arrayWorker.ShowList(listOfOrders);
 	}
@@ -86,8 +86,8 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 		saveArray();
 	}
 //------------------------------------------------------------------
-	public void changeDateOFComplete(Order order, Integer daysOnWork){
-		order.setDateOfComplete(daysOnWork);
+	public void changeDateOFComplete(Order order, String newDate){
+		order.setDateOfComplete(newDate);
 		saveArray();
 	}
 //------------------------------------------------------------------
@@ -104,12 +104,11 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 //------------------------------------------------------------------
 	public Integer getAmountOfFreeByDate(String date){
 		int count = 0;
-		for(int i=0; i < listOfOrders.length; i++){
+		for(int i = 0; i < listOfOrders.length; i++){
 			if(listOfOrders[i] != null){
 				if((LocalDate.parse(date).isAfter(listOfOrders[i].getDateOfRegistration()))
-				&& (LocalDate.parse(date).isBefore(listOfOrders[i].getDateOfComplete()))){
-					continue;
-				} else {
+				&& (LocalDate.parse(date).isBefore(listOfOrders[i].getDateOfComplete())) 
+				&& ()){
 					count++;
 				}
 			}
@@ -137,7 +136,7 @@ public class OrderManager{ //implements IOrder, ICommonEntitiesManagers
 		sort.sortOrdersByDatePlanStart(listOfOrders);
 	}
 //------------------------------------------------------------------
-	//@Override
+	@Override
 	public void saveArray(){										
 		fileOperator.pushListToFile(listOfOrders);
 	}

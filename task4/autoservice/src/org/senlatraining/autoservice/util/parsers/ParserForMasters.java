@@ -16,8 +16,6 @@ public class ParserForMasters implements IParser {
 			Master master = new Master(s[0],s[1]);					//s[o] - Name  s[1] - SurName 
 			master.setStatus(Boolean.valueOf(s[2]));			//s[2] - Status
 			
-			System.out.println(master.getName() + master.getSurName() + master.getStatus());
-			
 			masterManager.add(master);	
 		}
 	}
