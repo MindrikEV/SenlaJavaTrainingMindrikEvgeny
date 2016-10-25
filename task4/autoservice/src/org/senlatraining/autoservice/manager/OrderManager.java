@@ -103,17 +103,20 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 	}
 //------------------------------------------------------------------
 	public Integer getAmountOfFreeByDate(String date){
-		int count = 0;
+		Integer count = 0;
+		Boolean f = false;
+		
 		for(int i = 0; i < listOfOrders.length; i++){
 			if(listOfOrders[i] != null){
 				if((LocalDate.parse(date).isAfter(listOfOrders[i].getDateOfRegistration()))
 				&& (LocalDate.parse(date).isBefore(listOfOrders[i].getDateOfComplete())) 
-				&& ()){
+				&& (listOfOrders[i].getGarage().getStatus() == f)
+				&& (listOfOrders[i].getMaster().getStatus() == f)){
 					count++;
 				}
 			}
 		}
-		return Integer.valueOf(count);
+		return count;
 	} 
 //------------------------------------------------------------------
 	public void sortListByPrice(){
