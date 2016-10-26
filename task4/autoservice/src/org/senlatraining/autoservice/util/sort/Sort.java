@@ -12,6 +12,14 @@ public class Sort{
 	private final String SORT_BY_DATE_COMPLETE = "v List sorted by --> date of complete work!";
 	private final String SORT_BY_DATE_PLAN_START = "v List sorted by --> date of plan start of work!";
 	
+/*	public Object[] sortMastersListBySurName(Object[] array){
+		ComparateMastersBySurName comparateMastersBySurName = new ComparateMastersBySurName();
+		Arrays.sort(array, comparateMastersBySurName);
+		System.out.println(SORT_BY_SURNAME);
+		
+		return array;
+	}*/
+//---------------------------------------------------------------------------------------------------	
 	public Master[] sortMastersListBySurName(Master[] listOfMasters){
 		ComparateMastersBySurName comparateMastersBySurName = new ComparateMastersBySurName();
 		Arrays.sort(listOfMasters, comparateMastersBySurName);

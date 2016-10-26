@@ -36,24 +36,12 @@ public class ArrayWorker {
 //-----------------------------------------------------------------------
 	public Object[] removeElement(Object[] array, Object object){		// Remove element from array
 		for(int i = 0; i < array.length; i++){
-			if (!array[i].equals(object)){
-				continue;
-			} else {
+			if (array[i].equals(object)){
 				array[i] = null;
 				break;
 			}
 		}
 		return array;
-	}
-//-----------------------------------------------------------------------	
-	public void ShowList(Object[] array){									// Print all elements from array without nulls
-		for(int i = 0; i < array.length; i++){ 
-			if(array[i] != null){
-				System.out.println(array[i]);
-			} else {
-				continue;
-			}
-		}
 	}
 //-----------------------------------------------------------------------
 	public Object[] getListOfNotNull(Object[] array){									// Return all elements from array without nulls
@@ -73,11 +61,10 @@ public class ArrayWorker {
 		Integer position = 0;
 		
 		for(int i=0; i < array.length; i++){
-			if(array[i] != null){
-				if(array[i].equals(obj)){
-					position = i;
-					break;
-				}
+			if((array[i] != null)
+			&&(array[i].equals(obj))){
+				position = i;
+				break;
 			}
 		}
 		return array[position];

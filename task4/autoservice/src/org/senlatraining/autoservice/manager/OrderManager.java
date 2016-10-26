@@ -5,17 +5,21 @@ import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.util.sort.Sort;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
+import org.senlatraining.autoservice.util.Printer;
 
-public class OrderManager implements IOrder, ICommonEntitiesManagers{
+public class OrderManager implements IOrderManager, ICommonManagers {
 	private final String STATUS_CLOSE = "closed";
 	private final String STATUS_REVOKE = "revoked";
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";
-	
-	private Path path = new Path();
-	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
-	private ArrayWorker arrayWorker = new ArrayWorker();
+	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
+	private final String ERROR_ORDER_DONT_HAVE_MASTER = "This order don't have master";
 	private static Order[] listOfOrders = new Order[10];
+	private Sort sort = new Sort();
+	private Path path = new Path();
+	private Printer printer = new Printer();
+	private ArrayWorker arrayWorker = new ArrayWorker();
+	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
 		
@@ -49,9 +53,14 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 //------------------------------------------------------------------
 	@Override
 	public void showListOfOrders() {
-		arrayWorker.ShowList(listOfOrders);
+		printer.printArray(listOfOrders);
 	}
+//------------------------------------------------------------------	
+	public Order[] getListOfOrders() {
+		return listOfOrders;
+	}	
 //------------------------------------------------------------------
+	@Override
 	public void showListOfExecutableOrders(){
 		for(int i = 0; i < listOfOrders.length; i++){
 			if(listOfOrders[i] != null && listOfOrders[i].getStatus().equals(STATUS_AT_WORK)){
@@ -60,21 +69,63 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		}
 	}
 //------------------------------------------------------------------
+	public Order[] getListOfExecutableOrders(){
+		Integer k = 0;
+		Order[] array = new Order[arrayWorker.countOfElements(listOfOrders)];
+		for(int i = 0; i < listOfOrders.length; i++){
+			if(listOfOrders[i] != null && listOfOrders[i].getStatus().equals(STATUS_AT_WORK)){
+				array[k] = listOfOrders[i];
+				k++;
+			}
+		}
+		return array;	
+	}
+//------------------------------------------------------------------
+	@Override
 	public void showMasterByOrder(Order order){
 		if(order.getMaster() != null){
-			System.out.println(order.getMaster().getSurName());
+			System.out.println(order.getMaster().toString());
 		} else {
-			System.out.println("This order don't have garage");
+			printer.printMessage(ERROR_ORDER_DONT_HAVE_MASTER);
 		}
 	}
 //------------------------------------------------------------------
 	public void showGarageByOrder(Order order){
 		if(order.getMaster() != null){
-			System.out.println(order.getGarage().getIdOfGarage());
+			System.out.println(order.getGarage().toString());
 		} else {
-			System.out.println("This order don't have master");
+			printer.printMessage(ERROR_ORDER_DONT_HAVE_GARAGE);
 		}
 	}
+//------------------------------------------------------------------
+	public void showOrdersInInterval(String startDate, String endDate){
+		for(int i = 0; i < listOfOrders.length; i++){
+			if((listOfOrders[i] != null) 
+			&& (listOfOrders[i].getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
+			&& (listOfOrders[i].getDateOfComplete().isBefore(LocalDate.parse(endDate)))){
+				System.out.println(listOfOrders[i].toString());
+			}	
+		}	
+	}	
+//------------------------------------------------------------------
+	public Object[] getOrdersInInterval(String startDate, String endDate){
+		Order[] array = new Order[10];
+		Integer k = 0;
+		
+		if(arrayWorker.countOfElements(array) == array.length){
+			arrayWorker.resize(array);
+		}
+		
+		for(int i = 0; i < listOfOrders.length; i++){
+			if((listOfOrders[i] != null) 
+			&& (listOfOrders[i].getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
+			&& (listOfOrders[i].getDateOfComplete().isBefore(LocalDate.parse(endDate)))){
+				array[k] = listOfOrders[i];
+				k++;
+			}	
+		}
+		return arrayWorker.getListOfNotNull(array);
+	}		
 //------------------------------------------------------------------
 	public void setMasterForOrder(Order order){
 		order.setMaster(masterManager.getFreeMaster());
@@ -86,20 +137,9 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		saveArray();
 	}
 //------------------------------------------------------------------
-	public void changeDateOFComplete(Order order, String newDate){
+	public void setDateOFComplete(Order order, String newDate){
 		order.setDateOfComplete(newDate);
 		saveArray();
-	}
-//------------------------------------------------------------------
-	public void showOrdersInInterval(String startDate, String endDate){
-		for(int i = 0; i < listOfOrders.length; i++){
-			if(listOfOrders[i] != null){
-				if((listOfOrders[i].getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
-				&& (listOfOrders[i].getDateOfComplete().isBefore(LocalDate.parse(endDate)))) {
-					System.out.println(listOfOrders[i].toString());
-				}
-			}	
-		}	
 	}
 //------------------------------------------------------------------
 	public Integer getAmountOfFreeByDate(String date){
@@ -107,36 +147,35 @@ public class OrderManager implements IOrder, ICommonEntitiesManagers{
 		Boolean f = false;
 		
 		for(int i = 0; i < listOfOrders.length; i++){
-			if(listOfOrders[i] != null){
-				if((LocalDate.parse(date).isAfter(listOfOrders[i].getDateOfRegistration()))
-				&& (LocalDate.parse(date).isBefore(listOfOrders[i].getDateOfComplete())) 
-				&& (listOfOrders[i].getGarage().getStatus() == f)
-				&& (listOfOrders[i].getMaster().getStatus() == f)){
-					count++;
-				}
+			if((listOfOrders[i] != null) 
+			&& (LocalDate.parse(date).isAfter(listOfOrders[i].getDateOfRegistration()))
+			&& (LocalDate.parse(date).isBefore(listOfOrders[i].getDateOfComplete())) 
+			&& (listOfOrders[i].getGarage().getStatus() == f)
+			&& (listOfOrders[i].getMaster().getStatus() == f)){
+				count++;	
 			}
 		}
 		return count;
 	} 
 //------------------------------------------------------------------
-	public void sortListByPrice(){
-		Sort sort = new Sort();
+	public void sortListByPrice(Order[] listOfOrders){
 		sort.sortOrdersListByPrice(listOfOrders);
+		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------	
-	public void sortListByDateRegistration(){
-		Sort sort = new Sort();
+	public void sortListByDateRegistration(Order[] listOfOrders){
 		sort.sortOrdersListByDateRegistration(listOfOrders);
+		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------
-	public void sortListByDateComplete(){
-		Sort sort = new Sort();
+	public void sortListByDateComplete(Order[] listOfOrders){
 		sort.sortOrdersByDateComplete(listOfOrders);
+		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------
-	public void sortListByDatePlanStart(){
-		Sort sort = new Sort();
+	public void sortListByDatePlanStart(Order[] listOfOrders){
 		sort.sortOrdersByDatePlanStart(listOfOrders);
+		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------
 	@Override

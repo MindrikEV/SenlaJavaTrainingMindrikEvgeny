@@ -1,8 +1,5 @@
 package org.senlatraining.autoservice.entity;
 
-//import org.senlatraining.autoservice.manager.OrderManager;
-//import org.senlatraining.autoservice.util.date.DateWorker;
-//import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

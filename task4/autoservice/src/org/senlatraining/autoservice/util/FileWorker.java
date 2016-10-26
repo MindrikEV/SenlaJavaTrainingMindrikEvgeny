@@ -13,14 +13,11 @@ public class FileWorker {
 	}
 //--------------------------------------------------------------------------------	
 	public void pushListToFile(Object[] array){								 	// Write to file
-		Integer size = array.length;
 		String[] list = new String[arrayWorker.countOfElements(array)];
 		
-		for(int i = 0; i < size; i++){
+		for(int i = 0; i < array.length; i++){
 			if(array[i] != null){
 				list[i] = array[i].toString();
-			} else {
-				continue;
 			}
 		}
 		fileWorker.writeToFile(list);

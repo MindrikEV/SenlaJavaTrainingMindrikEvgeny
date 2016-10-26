@@ -1,6 +1,7 @@
 package org.senlatraining.autoservice.runner;
 
-import org.senlatraining.autoservice.entity.Path;
+import org.senlatraining.autoservice.frontage.Service;
+import org.senlatraining.autoservice.util.Path;
 
 public class Runner {
 	public static void main(String[] args){
@@ -10,7 +11,8 @@ public class Runner {
 		path.setPathForOrder(args[1]);
 		path.setPathForGarage(args[2]); 
  	*/	
-		Stuffer stuffer = new Stuffer();
-		stuffer.stuff();
+		Service service = new Service();
+		service.init();
+		//service.stuff();
 	}
 }
