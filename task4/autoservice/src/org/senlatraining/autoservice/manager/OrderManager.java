@@ -1,11 +1,11 @@
 package org.senlatraining.autoservice.manager;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import org.senlatraining.autoservice.util.*;
-import org.senlatraining.autoservice.util.sort.Sort;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
-import org.senlatraining.autoservice.util.Printer;
+import org.senlatraining.autoservice.util.comparators.*;
 
 public class OrderManager implements IOrderManager, ICommonManagers {
 	private final String STATUS_CLOSE = "closed";
@@ -15,7 +15,6 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
 	private final String ERROR_ORDER_DONT_HAVE_MASTER = "This order don't have master";
 	private static Order[] listOfOrders = new Order[10];
-	private Sort sort = new Sort();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private ArrayWorker arrayWorker = new ArrayWorker();
@@ -69,6 +68,7 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		}
 	}
 //------------------------------------------------------------------
+	@Override
 	public Order[] getListOfExecutableOrders(){
 		Integer k = 0;
 		Order[] array = new Order[arrayWorker.countOfElements(listOfOrders)];
@@ -90,6 +90,7 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		}
 	}
 //------------------------------------------------------------------
+	@Override
 	public void showGarageByOrder(Order order){
 		if(order.getMaster() != null){
 			System.out.println(order.getGarage().toString());
@@ -98,6 +99,7 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		}
 	}
 //------------------------------------------------------------------
+	@Override
 	public void showOrdersInInterval(String startDate, String endDate){
 		for(int i = 0; i < listOfOrders.length; i++){
 			if((listOfOrders[i] != null) 
@@ -108,7 +110,8 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		}	
 	}	
 //------------------------------------------------------------------
-	public Object[] getOrdersInInterval(String startDate, String endDate){
+	@Override
+	public Order[] getOrdersInInterval(String startDate, String endDate){
 		Order[] array = new Order[10];
 		Integer k = 0;
 		
@@ -124,24 +127,28 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 				k++;
 			}	
 		}
-		return arrayWorker.getListOfNotNull(array);
+		return array;
 	}		
 //------------------------------------------------------------------
+	@Override
 	public void setMasterForOrder(Order order){
 		order.setMaster(masterManager.getFreeMaster());
 		saveArray();
 	}
 //-------------------------------------------------------------------
+	@Override
 	public void setGarageForOrder(Order order, Garage garage){
 		order.setGarage(garageManager.getFreeGarage());
 		saveArray();
 	}
 //------------------------------------------------------------------
+	@Override
 	public void setDateOFComplete(Order order, String newDate){
 		order.setDateOfComplete(newDate);
 		saveArray();
 	}
 //------------------------------------------------------------------
+	@Override
 	public Integer getAmountOfFreeByDate(String date){
 		Integer count = 0;
 		Boolean f = false;
@@ -158,23 +165,35 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		return count;
 	} 
 //------------------------------------------------------------------
-	public void sortListByPrice(Order[] listOfOrders){
-		sort.sortOrdersListByPrice(listOfOrders);
+	@Override
+	public void sortOrdersListByPrice(Order[] listOfOrders){
+		ComparateOrdersByPrice comparateOrdersByPrice = new ComparateOrdersByPrice();
+		Arrays.sort(listOfOrders, comparateOrdersByPrice);
+		System.out.println(SORT_BY_PRICE);
 		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------	
-	public void sortListByDateRegistration(Order[] listOfOrders){
-		sort.sortOrdersListByDateRegistration(listOfOrders);
+	@Override
+	public void sortOrdersListByDateRegistration(Order[] listOfOrders){
+		ComparateOrdersByDateRegistration comparateOrdersByDateRegistration = new ComparateOrdersByDateRegistration();
+		Arrays.sort(listOfOrders, comparateOrdersByDateRegistration);
+		System.out.println(SORT_BY_DATE_REGISTRATION);
 		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------
-	public void sortListByDateComplete(Order[] listOfOrders){
-		sort.sortOrdersByDateComplete(listOfOrders);
+	@Override
+	public void sortOrdersByDateComplete(Order[] listOfOrders){
+		ComparateOrdersByDateComplete comparateOrdersByDateComplete = new ComparateOrdersByDateComplete();
+		Arrays.sort(listOfOrders, comparateOrdersByDateComplete);
+		System.out.println(SORT_BY_DATE_COMPLETE);		
 		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------
-	public void sortListByDatePlanStart(Order[] listOfOrders){
-		sort.sortOrdersByDatePlanStart(listOfOrders);
+	@Override
+	public void sortOrdersByDatePlanStart(Order[] listOfOrders){
+		ComparateOrdersByDatePlanStart comparateOrdersByDatePlanStart = new ComparateOrdersByDatePlanStart();
+		Arrays.sort(listOfOrders, comparateOrdersByDatePlanStart);
+		System.out.println(SORT_BY_DATE_PLAN_START);		
 		printer.printArray(listOfOrders);
 	}
 //------------------------------------------------------------------

@@ -2,9 +2,8 @@ package org.senlatraining.autoservice.util.parsers;
 
 import org.senlatraining.autoservice.api.IParser;
 import org.senlatraining.autoservice.entity.Order;
-//import org.senlatraining.autoservice.manager.MasterManager;
 import org.senlatraining.autoservice.manager.OrderManager;
-//import org.senlatraining.autoservice.util.FileWorker;
+
 
 public class ParserForOrders implements IParser{
 	

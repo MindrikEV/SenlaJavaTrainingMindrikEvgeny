@@ -8,4 +8,5 @@ public interface IGarageManager {
 	public void remove(Garage garage);
 	public void showListOfGarages();
 	public void showListOfFreeGarages();
+	public Garage getFreeGarage();
 }

@@ -1,22 +1,13 @@
 package org.senlatraining.autoservice.manager;
 
-import java.util.Arrays;
-
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
-import org.senlatraining.autoservice.util.sort.Sort;
-import org.senlatraining.autoservice.util.parsers.*;
-import org.senlatraining.autoservice.util.Printer;
-import org.senlatraining.autoservice.util.comparators.ComparateGaragesByStatus;
 
 public class GarageManager implements IGarageManager, ICommonManagers {
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
-	private final String STATUS_BUSY = "busy";
-	private final String STATUS_FREE = " - free";
 	private static Garage[] listOfGarages = new Garage[10];
-	private Sort sort = new Sort();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private ArrayWorker arrayWorker = new ArrayWorker();
@@ -39,6 +30,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 		printer.printArray(listOfGarages);
 	}
 // -----------------------------------------------------------------
+	@Override
 	public Garage getFreeGarage(){
 		Integer position = 0;
 		
@@ -69,19 +61,6 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 			}
 		}
 	}
-//------------------------------------------------------------------
-/*	public void sortListByStatus(){
-		sort.sortGaragesListByStatus(arrayWorker.getListOfNotNull(listOfGarages));  //arrayWorker.getListOfNotNull(listOfGarages)
-	} */
-//------------------------------------------------------------------
-	public Garage[] sortGaragesListByStatus(Garage[] listOfGarages){
-		ComparateGaragesByStatus compareGarageByStatus = new ComparateGaragesByStatus();
-		Arrays.sort(listOfGarages, compareGarageByStatus);
-		System.out.println(SORT_BY_STATUS);
-		
-		return listOfGarages;
-	}
-	
 //------------------------------------------------------------------
 	@Override
 	public void saveArray(){	

@@ -13,6 +13,5 @@ public class Runner {
  	*/	
 		Service service = new Service();
 		service.init();
-		//service.stuff();
 	}
 }
