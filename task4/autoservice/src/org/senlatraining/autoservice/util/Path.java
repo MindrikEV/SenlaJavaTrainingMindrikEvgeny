@@ -1,9 +1,9 @@
 package org.senlatraining.autoservice.util;
 
 public class Path {
-	private String pathForMaster = "src/files/masters.txt";
-	private String pathForGarage = "src/files/garages.txt";
-	private String pathForOrder  = "src/files/orders.txt";
+	private static String pathForMaster = "src/files/masters.txt";
+	private static String pathForGarage = "src/files/garages.txt";
+	private static String pathForOrder  = "src/files/orders.txt";
 	
 //---------------------------------------------------------------	
 	public void setPathForMaster(String pathForMaster){

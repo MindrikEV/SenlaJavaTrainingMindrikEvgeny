@@ -1,6 +1,3 @@
 @echo off
-java -cp textFileWorker.jar; -jar auto.jar
-  
+java -classpath textFileWorker.jar; -jar auto.jar "masters.txt" "orders.txt" "garages.txt"
 pause
-
-
