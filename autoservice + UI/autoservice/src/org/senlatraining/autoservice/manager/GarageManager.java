@@ -1,5 +1,8 @@
 package org.senlatraining.autoservice.manager;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
@@ -7,7 +10,8 @@ import org.senlatraining.autoservice.util.*;
 public class GarageManager implements IGarageManager, ICommonManagers {
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
-	private static Garage[] listOfGarages = new Garage[10];
+	//private static Garage[] listOfGarages = new Garage[10];
+	List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private ArrayWorker arrayWorker = new ArrayWorker();
@@ -15,19 +19,21 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	
 	@Override
 	public void add(Garage garage) {
-		arrayWorker.addElement(listOfGarages, garage);
-		saveArray();
+		//arrayWorker.addElement(listOfGarages, garage);
+		listOfGarages.add(garage);
+		//saveArray();
 	}
 // -----------------------------------------------------------------
 	@Override
 	public void remove(Garage garage) {
-		arrayWorker.removeElement(listOfGarages, garage);
-		saveArray();
+		//arrayWorker.removeElement(listOfGarages, garage);
+		//listOfGarages.remo
+		//saveArray();
 	}
 // -----------------------------------------------------------------
 	@Override
 	public void showListOfGarages() {
-		printer.printArray(listOfGarages);
+		printer.printList(listOfGarages);
 	}
 // -----------------------------------------------------------------
 	@Override
