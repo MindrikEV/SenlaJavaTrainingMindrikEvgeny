@@ -17,14 +17,14 @@ public class Printer {
 		}
 	}*/
 //----------------------------------------------------------
-	public void printList(List<Object> array){
+	public void printList(ArrayList<T> array){
 		/*for(int i = 0; i < array.length; i++){
 			if(array[i] != null){
 				System.out.println(array[i].toString());
 			}
 		}*/
-		for(Object o : array){
-			System.out.println(o);
+		for(ArrayList<T> o : array){
+			System.out.println(o.get().toString());
 		}
 	}
 }

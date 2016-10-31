@@ -14,7 +14,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
 	private Printer printer = new Printer();
-	private ArrayWorker arrayWorker = new ArrayWorker();
+	//private ArrayWorker arrayWorker = new ArrayWorker();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
 	@Override
@@ -40,27 +40,25 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	public Garage getFreeGarage(){
 		Integer position = 0;
 		
-		for(int i = 0; i < listOfGarages.length; i++){
-			if((listOfGarages[i] != null)
-			&&(!listOfGarages[i].getStatus())){
-				listOfGarages[i].setStatus(true);
+		for(int i = 0; i < listOfGarages.size(); i++){
+			if(!listOfGarages.get(i).getStatus()){
+				listOfGarages.get(i).setStatus(true);
 				position = i;
 				break;
 			}
 		} 
 		saveArray();
-		return	listOfGarages[position];
+		return	listOfGarages.get(position);
 	}
 //------------------------------------------------------------------
 	@Override
 	public void showListOfFreeGarages() {
 		StringBuilder s = new StringBuilder();
 		
-		for (int i = 0; i < listOfGarages.length; i++) {
-			if ((listOfGarages[i] != null)
-			&& (!listOfGarages[i].getStatus())) {
+		for (int i = 0; i < listOfGarages.size(); i++) {
+			if (!listOfGarages.get(i).getStatus()) {
 				s.append(GARAGE);
-				s.append(listOfGarages[i].getNumberOfGarage());
+				s.append(listOfGarages.get(i).getNumberOfGarage());
 				s.append(STATUS_FREE_MESSEGE);
 				System.out.println(s.toString());
 				s.setLength(0);

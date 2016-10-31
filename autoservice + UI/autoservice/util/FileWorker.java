@@ -1,6 +1,7 @@
 package org.senlatraining.autoservice.util;
 
 import com.danco.training.TextFileWorker;
+import java.util.ArrayList;
 /*
  * This class operate with files(text files) via "textFileWorker.jar" - library by Senla.
  */
@@ -12,13 +13,11 @@ public class FileWorker {
 		fileWorker = new TextFileWorker(path);
 	}
 //--------------------------------------------------------------------------------	
-	public void pushListToFile(Object[] array){								 	// Write to file
-		String[] list = new String[arrayWorker.countOfElements(array)];
+	public void pushListToFile(ArrayList<Object> array){								 	// Write to file
+		String[] list = new String[array.size()];
 		
-		for(int i = 0; i < array.length; i++){
-			if(array[i] != null){
-				list[i] = array[i].toString();
-			}
+		for(int i = 0; i < array.size(); i++){
+			list[i] = array.get(i).toString();
 		}
 		fileWorker.writeToFile(list);
 	}	
