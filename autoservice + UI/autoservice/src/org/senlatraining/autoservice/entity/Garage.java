@@ -1,12 +1,14 @@
 package org.senlatraining.autoservice.entity;
 
+import org.senlatraining.autoservice.util.IdMaker;
+
 public class Garage {
 	private Integer numberOfGarage;
-	private static Integer counter = 0;
 	private Boolean isBusy = false;
+	private IdMaker idMaker = new IdMaker();
 	
 	public Garage(){
-		this.numberOfGarage = ++this.counter;		
+		this.numberOfGarage = idMaker.getNumber();		
 	}
 //----------------------------------------------------------------
 	public void setStatus(Boolean isBusy){									

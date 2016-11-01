@@ -4,10 +4,13 @@ import org.senlatraining.autoservice.api.IService;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
 import org.senlatraining.autoservice.util.Recover;
+import org.senlatraining.autoservice.util.comparators.*;
+import org.senlatraining.autoservice.util.Printer;
 /*
  * This class is facade... 
  */
-public class Service implements IService{	 
+public class Service implements IService{	
+	private Printer printer = new Printer();
  	private GarageManager garageManager = new GarageManager();
 	private MasterManager masterManager = new MasterManager();
 	private OrderManager orderManager = new OrderManager();
@@ -20,57 +23,77 @@ public class Service implements IService{
 		Garage garage1 = new Garage();
 		Garage garage2 = new Garage();
 		
-		//Master master2 = new Master("Mister","Been");
-		//Master master3 = new Master("Kurt","Russel");
+		Master master2 = new Master("Mister","Been");
+		Master master3 = new Master("Kurt","Russel");
 		
-		//Order order1 = new Order("Change driver",95.2,"2016-10-31","2016-11-08");
-		//Order order2 = new Order("Change oil",32.2,"2016-11-02","2016-11-17");
-		//Order order3 = new Order("Change wife of driver",22.2,"2016-11-23","2016-11-25");
-		//Order order4 = new Order("Change tutu",31.2,"2016-11-02","2016-11-17");
-		//Order order5 = new Order("Bi-bi",43.2,"2016-11-02","2016-11-17");
+		Order order1 = new Order("Change driver",95.2,"2016-10-31","2016-11-08");
+		Order order2 = new Order("Change oil",32.2,"2016-11-02","2016-11-17");
+		Order order3 = new Order("Change wife of driver",22.2,"2016-11-23","2016-11-25");
+		Order order4 = new Order("Change tutu",31.2,"2016-11-02","2016-11-17");
+		Order order5 = new Order("Bi-bi",43.2,"2016-11-02","2016-11-17");
 		
-		//addNewMaster(master2);
-		//addNewMaster(master3);
-		//removeMaster(master2);
-		//order3.setMaster(master3);
-		//order3.setGarage(garage2);
-		//showOrderOfMaster(master2);
-		//showMasterByOrder(order3);
+		addNewMaster(master2);
+		addNewMaster(master3);
+		removeMaster(master2);
+		order3.setMaster(master3);
+		order3.setGarage(garage2);
+		showOrderOfMaster(master2);
+		printer.printStick();
+		showMasterByOrder(order3);
+		printer.printStick();
 		
 		addNewGarage(garage1);
 		addNewGarage(garage2);
-		//removeGarage(garage1);
+		removeGarage(garage1);
 		
-		//addNewOrder(order1);
-		//addNewOrder(order2);
-		//addNewOrder(order3);
-		//addNewOrder(order4);
-		//addNewOrder(order5);
-		//removeOrder(order1);
+		addNewOrder(order1);
+		addNewOrder(order2);
+		addNewOrder(order3);
+		addNewOrder(order4);
+		addNewOrder(order5);
+		removeOrder(order1);
 		//closeOrder(order2);
 		//revokeOrder(order2);
-		//moveOrderDateComplete(order4, "2016-11-27");
+		moveOrderDateComplete(order4, "2016-11-27");
 		
 		garageManager.showListOfGarages();
-		//showListOfFreeGarages();
-		//showListOfOrders();
-		//showListOfOrdersSortedByRegistrationDate();
-		//showListOfOrdersSortedByCompleteDate();
-		//showListOfOrdersSortedByPlanStartDate();
-		//showListOfOrdersSortedByPrice();
-		//showListOfMasters();
-		//sortListOfMastersByAlphabet();
-		//sortListOfMastersByStatus();
-		//showListOfNowExecutable();
-		//showListOfNowExecutableSortedByRegistrationDate();
-		//showListOfNowExecutableSortedByCompleteDate();
-		//showListOfNowExecutableSortedByPrice();
+		printer.printStick();
+		showListOfFreeGarages();
+		printer.printStick();
+		showListOfOrders();
+		printer.printStick();
+		showListOfOrdersSortedByRegistrationDate();
+		printer.printStick();
+		showListOfOrdersSortedByCompleteDate();
+		printer.printStick();
+		showListOfOrdersSortedByPlanStartDate();
+		printer.printStick();
+		showListOfOrdersSortedByPrice();
+		printer.printStick();
+		showListOfMasters();
+		printer.printStick();
+		sortListOfMastersByAlphabet();
+		printer.printStick();
+		sortListOfMastersByStatus();
+		printer.printStick();
+		showListOfNowExecutable();
+		printer.printStick();
+		showListOfNowExecutableSortedByRegistrationDate();
+		printer.printStick();
+		showListOfNowExecutableSortedByCompleteDate();
+		printer.printStick();
+		showListOfNowExecutableSortedByPrice();
+		printer.printStick();
 		
-		//showOrdersInDateInterval(String startDate, String endDate);
-		//showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate);
-		//showOrdersInDateIntervalSortedByPrice(String startDate, String endDate);
-		//showAmountOfFreePlacesOnDate(String date);
-		//showNearestFreeDate();
+		showOrdersInDateInterval("2016-11-02", "2016-11-20");
+		printer.printStick();
+		showOrdersInDateIntervalSortedByRegistrationDate("2016-11-02", "2016-11-20");
+		printer.printStick();
+		showOrdersInDateIntervalSortedByPrice("2016-11-02", "2016-11-20");
+		printer.printStick();
+		//showAmountOfFreePlacesOnDate("2016-11-02");
+		//printer.printStick();
+		showNearestFreeDate();
 	}
 //-----------------------------------------------------------------------------------------------------------  GARAGES  -------------------
 	@Override
@@ -95,22 +118,22 @@ public class Service implements IService{
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByRegistrationDate(){
-		orderManager.sortOrdersListByDateRegistration(orderManager.getListOfOrders());
+		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateRegistration());
 	}
 //-----------------------------------------------------------------	
 	@Override
 	public void showListOfOrdersSortedByCompleteDate(){
-		orderManager.sortOrdersByDateComplete(orderManager.getListOfOrders());
+		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateComplete());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByPlanStartDate(){
-		orderManager.sortOrdersByDatePlanStart(orderManager.getListOfOrders());
+		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDatePlanStart());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByPrice(){
-		orderManager.sortOrdersListByPrice(orderManager.getListOfOrders());
+		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByPrice());
 	}
 //-----------------------------------------------------------------
 	@Override
@@ -120,17 +143,17 @@ public class Service implements IService{
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfNowExecutableSortedByRegistrationDate(){
-		orderManager.sortOrdersListByDateRegistration(orderManager.getListOfExecutableOrders());
+		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateRegistration());
 	}
 //-----------------------------------------------------------------	
 	@Override
 	public void showListOfNowExecutableSortedByCompleteDate(){
-		orderManager.sortOrdersByDateComplete(orderManager.getListOfExecutableOrders());
+		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateComplete());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfNowExecutableSortedByPrice(){
-		orderManager.sortOrdersListByPrice(orderManager.getListOfExecutableOrders());
+		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByPrice());
 	}
 //-----------------------------------------------------------------
 	@Override
@@ -145,17 +168,17 @@ public class Service implements IService{
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate){
-		orderManager.sortOrdersListByDateRegistration(orderManager.getOrdersInInterval(startDate, endDate));
+		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateRegistration());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate){
-		orderManager.sortOrdersByDateComplete(orderManager.getOrdersInInterval(startDate, endDate));
+		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateComplete());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate){
-		orderManager.sortOrdersListByPrice(orderManager.getOrdersInInterval(startDate, endDate));
+		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByPrice());
 	}	
 //-----------------------------------------------------------------
 	@Override
@@ -200,12 +223,12 @@ public class Service implements IService{
 //-----------------------------------------------------------------
 	@Override
 	public void sortListOfMastersByAlphabet(){ 
-		masterManager.sortMastersListBySurName(masterManager.getListOfMasters());
+		masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersBySurName());
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void sortListOfMastersByStatus(){ 
-		masterManager.sortMastersListByStatus(masterManager.getListOfMasters());
+		masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersByStatus());
 	}
 //-----------------------------------------------------------------
 	@Override

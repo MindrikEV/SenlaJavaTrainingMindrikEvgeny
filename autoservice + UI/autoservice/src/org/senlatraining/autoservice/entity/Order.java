@@ -3,8 +3,9 @@ package org.senlatraining.autoservice.entity;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.senlatraining.autoservice.util.IdMaker;
+
 public class Order {
-	private static Integer counter = 0;
 	private Integer idOfOrder;
 	private Double price;
 	private String description;
@@ -14,11 +15,12 @@ public class Order {
 	private LocalDate dateOfPlanStart;
 	private Master master;
 	private Garage garage;
+	private IdMaker idMaker = new IdMaker();
 	
 	public Order(String description, Double price, String planStartDay, String completeDay){
 		this.description = description;
 		this.price = price;
-		this.idOfOrder = ++counter;
+		this.idOfOrder = idMaker.getId();
 		this.status = "active";
 		this.dateOfRegistration = LocalDate.now();
 		setDateOfPlanStart(planStartDay);
