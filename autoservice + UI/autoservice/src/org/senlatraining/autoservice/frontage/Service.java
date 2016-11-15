@@ -9,14 +9,14 @@ import org.senlatraining.autoservice.util.comparators.*;
  * This class is facade... 
  */
 public class Service implements IService{	
-	private Printer printer = new Printer();
+	//private Printer printer = new Printer();
  	private GarageManager garageManager = new GarageManager();
 	private MasterManager masterManager = new MasterManager();
 	private OrderManager orderManager = new OrderManager();
 	
 	@Override
 	public void init(){
-		Recover recover = new Recover();
+/*		Recover recover = new Recover();
 		recover.initRecover();
 		
 		Garage garage1 = new Garage();
@@ -92,7 +92,7 @@ public class Service implements IService{
 		printer.printStick();
 		//showAmountOfFreePlacesOnDate("2016-11-02");
 		//printer.printStick();
-		showNearestFreeDate();
+		showNearestFreeDate(); */
 	}
 //-----------------------------------------------------------------------------------------------------------  GARAGES  -------------------
 	@Override
