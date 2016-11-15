@@ -8,7 +8,7 @@ public class AddGarage implements IAction{
 	
 	@Override
 	public void execute() {
-		service.addNewGarage(garage);
+		service.addNewGarage();
 	}
 	
 }

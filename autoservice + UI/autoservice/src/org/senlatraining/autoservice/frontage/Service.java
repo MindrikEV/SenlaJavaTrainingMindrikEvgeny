@@ -101,13 +101,13 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------	
 	@Override
-	public void addNewGarage(Garage garage){ 
-		garageManager.add(garage);
+	public void addNewGarage(){ 
+		garageManager.add();
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void removeGarage(Garage garage){ 
-		garageManager.remove(garage);
+	public void removeGarage(Integer number){ 
+		garageManager.remove(number);
 	}
 //-----------------------------------------------------------------------------------------------------------  ORDERS  --------------------
 	@Override

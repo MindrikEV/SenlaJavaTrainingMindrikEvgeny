@@ -17,20 +17,24 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
 	@Override
-	public void add(Garage garage){ // throws Exception 
-		try{
+	public void add(){ // throws Exception 
+		try{	
+			Garage garage = new Garage();
 			listOfGarages.add(garage);
 		} catch (NullPointerException e){
 			//throw e.getMessage();
 			log.error(e.getMessage());		}
 		saveArray();
-		log.info("TROLOLO!");
 	}
 // -----------------------------------------------------------------
 	@Override
-	public void remove(Garage garage){ // throws Exception 
+	public void remove(Integer number){ // throws Exception 
 		//try{
-			listOfGarages.remove(listOfGarages.indexOf(garage));
+			for(int i=0; i < listOfGarages.size(); i++){
+				if (listOfGarages.get(i).getNumberOfGarage() == number){
+					listOfGarages.remove(i);
+				}	
+			}	
 		//} catch (NullPointerException e){
 		//	throw new Exception(e.getMessage());
 		//}

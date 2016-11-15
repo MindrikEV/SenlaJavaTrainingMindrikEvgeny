@@ -5,8 +5,8 @@ import org.senlatraining.autoservice.entity.*;
 public interface IService {
 	public void init();
 	public void showListOfFreeGarages();
-	public void addNewGarage(Garage garage);
-	public void removeGarage(Garage garage);
+	public void addNewGarage();
+	public void removeGarage(Integer number);
 //---------------------------------------------------------------------------
 	public void showListOfOrders();
 	public void showListOfOrdersSortedByRegistrationDate();
