@@ -5,25 +5,37 @@ import java.util.List;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
+import org.apache.log4j.Logger;
 
 public class GarageManager implements IGarageManager, ICommonManagers {
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
+	private static final Logger log = Logger.getLogger(GarageManager.class);
 	private List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
 	@Override
-	public void add(Garage garage) {
-		listOfGarages.add(garage);
+	public void add(Garage garage){ // throws Exception 
+		try{
+			listOfGarages.add(garage);
+		} catch (NullPointerException e){
+			//throw e.getMessage();
+			log.error(e.getMessage());		}
 		saveArray();
+		log.info("TROLOLO!");
 	}
 // -----------------------------------------------------------------
 	@Override
-	public void remove(Garage garage) {
-		listOfGarages.remove(listOfGarages.indexOf(garage));
+	public void remove(Garage garage){ // throws Exception 
+		//try{
+			listOfGarages.remove(listOfGarages.indexOf(garage));
+		//} catch (NullPointerException e){
+		//	throw new Exception(e.getMessage());
+		//}
 		saveArray();
+		log.error("Hueston we have problem!");
 	}
 // -----------------------------------------------------------------
 	@Override

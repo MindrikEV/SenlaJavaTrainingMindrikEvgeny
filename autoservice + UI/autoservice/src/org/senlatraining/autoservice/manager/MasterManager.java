@@ -4,17 +4,17 @@ import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.entity.*;
 
 import java.util.ArrayList;
-//import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Comparator;
-
+import org.apache.log4j.Logger;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.util.Printer;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class MasterManager implements IMasterManager, ICommonManagers{  
 	private final String ORDER_NOT_FOUND = "Master don't have order now!";
+	private static final Logger log = Logger.getLogger(MasterManager.class);
 	private List<Master> listOfMasters = new ArrayList<Master>();
 	private Path path = new Path();
 	private Printer printer = new Printer();

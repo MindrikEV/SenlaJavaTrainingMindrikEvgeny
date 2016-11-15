@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import org.senlatraining.autoservice.util.*;
+import org.apache.log4j.Logger;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.comparators.*;
@@ -19,6 +20,7 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	private final String STATUS_AT_WORK = "at work";
 	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
 	private final String ERROR_ORDER_DONT_HAVE_MASTER = "This order don't have master";
+	private static final Logger log = Logger.getLogger(OrderManager.class);
 	private List<Order> listOfOrders = new ArrayList<Order>();
 	private Path path = new Path();
 	private Printer printer = new Printer();

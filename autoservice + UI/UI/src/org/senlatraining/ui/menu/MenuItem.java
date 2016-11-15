@@ -1,3 +1,6 @@
+package org.senlatraining.ui.menu;
+
+import org.senlatraining.ui.api.IAction;
 
 public class MenuItem {
 	private String title = new String();

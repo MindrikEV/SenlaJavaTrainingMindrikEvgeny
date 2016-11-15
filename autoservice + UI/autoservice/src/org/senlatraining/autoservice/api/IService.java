@@ -7,6 +7,7 @@ public interface IService {
 	public void showListOfFreeGarages();
 	public void addNewGarage(Garage garage);
 	public void removeGarage(Garage garage);
+//---------------------------------------------------------------------------
 	public void showListOfOrders();
 	public void showListOfOrdersSortedByRegistrationDate();
 	public void showListOfOrdersSortedByCompleteDate();
@@ -28,6 +29,7 @@ public interface IService {
 	public void closeOrder(Order order);
 	public void revokeOrder(Order order);
 	public void moveOrderDateComplete(Order order, String newDate);
+//-----------------------------------------------------------------------------
 	public void showListOfMasters();
 	public void sortListOfMastersByAlphabet();
 	public void sortListOfMastersByStatus();
