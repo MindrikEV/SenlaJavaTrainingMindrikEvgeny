@@ -7,10 +7,9 @@ public class MenuItem {
 	private IAction action;
 	private Menu nextMenu = new Menu();
 	
-	public MenuItem(String title){ //, IAction action
+	public MenuItem(String title, IAction action){
 		this.title = title;
-		//this.action = action;
-		//this.nextMenu = nextMenu;
+		this.action = action;
 	}
 //--------------------------------------------------------	
 	public void doAction(){

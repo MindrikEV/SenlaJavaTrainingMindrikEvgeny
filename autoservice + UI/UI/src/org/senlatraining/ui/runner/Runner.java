@@ -1,13 +1,12 @@
-package org.senlatarining.ui.runner;
+package org.senlatraining.ui.runner;
 
-import org.senlatarining.ui.control.MenuController;
+import org.senlatraining.ui.control.MenuController;
+
 
 public class Runner {
 public static void main(String[] args){
 
 		MenuController menuController = new MenuController();	
 		menuController.run();
-		
-		System.out.println("Hello Kon");
 	}
 }

@@ -8,7 +8,7 @@ public class RemoveGarage implements IAction{
 
 	@Override
 	public void execute() {
-		service.removeGarage(number);
+	//	service.removeGarage(number);
 	}
 	
 	

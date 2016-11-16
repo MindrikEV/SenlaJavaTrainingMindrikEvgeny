@@ -1,11 +1,11 @@
 package org.senlatraining.ui.constants;
 
 public enum Titles {
-	AUTOSERVICE,
-	RootMenu,
-	MasterMenu,
-	OrderMenu,
-	GarageMenu,
+	A_U_T_O_S_E_R_V_I_C_E,
+	Root,
+	Masters,
+	Orders,
+	Garages,
 	add,
 	remove,
 	close,
