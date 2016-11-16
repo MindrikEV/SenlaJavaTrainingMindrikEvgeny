@@ -6,10 +6,17 @@ public enum Titles {
 	Masters,
 	Orders,
 	Garages,
-	add,
-	remove,
-	close,
-	revoke,
-	move,
-	back
+	SortMaters,
+	SortByAlpabet,
+	SortByStatus,
+	SortOrders,
+	SortByPrice,
+	Add,
+	Remove,
+	Close,
+	Revoke,
+	Move,
+	ShowList,
+	ShowSorted,
+	ShowOrder
 }

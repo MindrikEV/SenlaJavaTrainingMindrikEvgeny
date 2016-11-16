@@ -15,6 +15,7 @@ public class JumpMenu implements IAction{
 	public void execute() {
 		Navigator navigator = new Navigator();
 		navigator.setCurrenMenu(this.menu);
+		//System.console().flush();
 		navigator.printMenu();
 	}
 

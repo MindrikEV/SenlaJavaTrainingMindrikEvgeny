@@ -8,6 +8,10 @@ public class Printer {
 	private static final Logger log = Logger.getLogger(Printer.class);
 		
 	public void print(String message){
+		System.out.print(message);
+	}
+//----------------------------------------------------------
+	public void println(String message){
 		System.out.println(message);
 	}
 //----------------------------------------------------------

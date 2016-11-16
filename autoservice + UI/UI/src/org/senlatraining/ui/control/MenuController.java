@@ -1,5 +1,7 @@
 package org.senlatraining.ui.control;
 
+import java.util.Scanner;
+
 import org.senlatraining.ui.builder.Builder;
 import org.senlatraining.ui.navigator.Navigator;
 
@@ -7,12 +9,12 @@ public class MenuController {
 	private Builder builder = new Builder();;
 	private Navigator navigator = new Navigator();
 	
+	private Scanner sc = new Scanner(System.in);
+	
 	public void run(){
-		try {
-			navigator.setCurrenMenu(builder.buildMenu());
-		} catch (NullPointerException e){
-			throw e;
-		}	
+		builder.buildMenu();
+		navigator.setCurrenMenu(builder.getRootMenu());
 		navigator.printMenu();
+		navigator.navigate(sc.nextInt());
 	}
 }

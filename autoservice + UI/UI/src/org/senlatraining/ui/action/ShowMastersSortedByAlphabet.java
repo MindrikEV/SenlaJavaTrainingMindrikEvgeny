@@ -1,5 +1,13 @@
 package org.senlatraining.ui.action;
 
-public class ShowMastersSortedByAlphabet {
+import org.senlatraining.ui.api.IAction;
+
+public class ShowMastersSortedByAlphabet implements IAction{
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

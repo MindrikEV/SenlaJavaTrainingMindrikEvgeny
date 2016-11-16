@@ -11,3 +11,7 @@
 16-11-2016 14:21:25 ERROR Builder:32 - java.lang.NullPointerException
 16-11-2016 14:23:53 ERROR Builder:32 - java.lang.NullPointerException
 16-11-2016 14:26:46 ERROR Builder:32 - java.lang.NullPointerException
+16-11-2016 19:47:29 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 19:49:25 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 19:57:42 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 20:26:24 ERROR Builder:34 - java.lang.NullPointerException

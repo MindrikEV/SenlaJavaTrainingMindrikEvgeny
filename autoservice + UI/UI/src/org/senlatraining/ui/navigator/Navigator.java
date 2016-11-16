@@ -8,7 +8,7 @@ import org.senlatraining.ui.constants.*;
 
 public class Navigator {
 	private final String MSG_MENU = "Menu: ";
-	private final String MSG_ENT_CMD = "Enter the command > ";
+	private final String MSG_ENT_NUM_ITEM = "Enter the number of item > ";
 	private static final Logger log = Logger.getLogger(Builder.class);
 	private Menu currentMenu = new Menu();
 	private Printer printer = new Printer();
@@ -21,20 +21,20 @@ public class Navigator {
 		return currentMenu;
 	}
 //---------------------------------------------------------------	
-	public void printMenu(){
+	public void printMenu(){ 
 		try {
-			printer.print(Titles.A_U_T_O_S_E_R_V_I_C_E.toString());
-			printer.print(MSG_MENU + currentMenu.getMenuName());
+			printer.println(Titles.A_U_T_O_S_E_R_V_I_C_E.toString());
+			printer.println(MSG_MENU + currentMenu.getMenuName());
 			printer.printStick();
 			printer.printMenu(currentMenu.getMenuItems());
 			printer.printStick();
-			printer.print(MSG_ENT_CMD);
+			printer.print(MSG_ENT_NUM_ITEM);
 		} catch (NullPointerException e){
 			log.error(e);
 		}
 	}
 //---------------------------------------------------------------
 	public void navigate(Integer index){
-		currentMenu.getMenuItems().get(index - 1).doAction();;	
+		currentMenu.getMenuItems().get(index - 1).doAction();
 	}
 }
