@@ -21,7 +21,8 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 	private FileWorker fileOperator = new FileWorker(path.getPathForMaster());
 		
 	@Override
-	public void add(Master master){
+	public void add(String name, String surName){
+		Master master = new Master(name, surName);
 		listOfMasters.add(master);
 		saveArray();
 	}

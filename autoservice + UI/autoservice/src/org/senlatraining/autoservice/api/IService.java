@@ -1,10 +1,12 @@
 package org.senlatraining.autoservice.api;
 
+import java.util.List;
+
 import org.senlatraining.autoservice.entity.*;
 
 public interface IService {
-	public void init();
-	public void showListOfFreeGarages();
+	//public void showListOfFreeGarages();
+	public List getListOfFreeGarages();
 	public void addNewGarage();
 	public void removeGarage(Integer number);
 //---------------------------------------------------------------------------
@@ -34,6 +36,6 @@ public interface IService {
 	public void sortListOfMastersByAlphabet();
 	public void sortListOfMastersByStatus();
 	public void showOrderOfMaster(Master master);
-	public void addNewMaster(Master master);
+	public void addNewMaster(String name, String surName);
 	public void removeMaster(Master master);
 }

@@ -17,7 +17,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
 	@Override
-	public void add(){ // throws Exception 
+	public void add(){
 		try{	
 			Garage garage = new Garage();
 			listOfGarages.add(garage);
@@ -39,7 +39,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 		//	throw new Exception(e.getMessage());
 		//}
 		saveArray();
-		log.error("Hueston we have problem!");
+		//log.error("Hueston we have problem!");
 	}
 // -----------------------------------------------------------------
 	@Override
@@ -57,6 +57,19 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 		saveArray();
 		return	listOfGarages.get(position);
 	}
+//------------------------------------------------------------------
+	@Override
+	public List getListOfFreeGarages() {
+		List tmp = new ArrayList();
+			
+		for (int i = 0; i < listOfGarages.size(); i++) {
+			if (!listOfGarages.get(i).getStatus()) {
+				tmp.add(listOfGarages.get(i));
+			}
+		}
+		return tmp;
+	}
+
 //------------------------------------------------------------------
 	@Override
 	public void showListOfFreeGarages() {

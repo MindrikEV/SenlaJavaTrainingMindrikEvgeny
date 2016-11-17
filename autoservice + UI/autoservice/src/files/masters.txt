@@ -1,1 +1,5 @@
 Kurt|Russel|false
+Deby|Mure|true
+Jan|Klod|false
+Ricko|Saliri|false
+Hovard|Volavits|true

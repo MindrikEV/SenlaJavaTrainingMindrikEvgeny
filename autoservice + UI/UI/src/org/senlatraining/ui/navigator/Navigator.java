@@ -1,8 +1,9 @@
 package org.senlatraining.ui.navigator;
 
+import java.util.Scanner;
+import org.apache.log4j.Logger;
 import org.senlatraining.ui.menu.*;
 import org.senlatraining.ui.util.Printer;
-import org.apache.log4j.Logger;
 import org.senlatraining.ui.builder.Builder;
 import org.senlatraining.ui.constants.*;
 
@@ -29,6 +30,8 @@ public class Navigator {
 			printer.printMenu(currentMenu.getMenuItems());
 			printer.printStick();
 			printer.print(MSG_ENT_NUM_ITEM);
+			
+			scanItemNumber();
 		} catch (NullPointerException e){
 			log.error(e);
 		}
@@ -36,5 +39,24 @@ public class Navigator {
 //---------------------------------------------------------------
 	public void navigate(Integer index){
 		currentMenu.getMenuItems().get(index - 1).doAction();
+	}
+//---------------------------------------------------------------
+	public void scanItemNumber(){
+		try(Scanner sc = new Scanner(System.in)){
+			navigate(sc.nextInt());
+		} catch(Exception e){
+			log.error(e);
+		}	
+	}
+//------------------------------------------------------------------------	
+	public String scanValue(){
+		String tmp = new String();
+		
+		try(Scanner sc = new Scanner(System.in)){
+			tmp = sc.nextLine();
+		} catch(Exception e){
+			log.error(e);
+		}
+		return tmp;
 	}
 }

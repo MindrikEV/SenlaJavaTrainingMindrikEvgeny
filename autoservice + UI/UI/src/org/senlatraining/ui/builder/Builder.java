@@ -36,7 +36,7 @@ public class Builder {
 		//--------------------------------------------------------------------------------------------
 			mastersMenu.addMenuItem(new MenuItem(Titles.ShowSorted.toString(), new JumpMenu(sortMasterMenu)));
 			mastersMenu.addMenuItem(new MenuItem(Titles.ShowOrder.toString(), new ShowOrderOfMaster()));
-			mastersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
+			//mastersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
 			mastersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------

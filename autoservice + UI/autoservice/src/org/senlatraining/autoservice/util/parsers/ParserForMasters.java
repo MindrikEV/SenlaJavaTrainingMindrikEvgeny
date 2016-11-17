@@ -12,10 +12,10 @@ public class ParserForMasters implements IParser {
 		
 		for(int i=0; i < array.length; i++){
 			String[] s = array[i].split(SPLITTER);
-			Master master = new Master(s[0],s[1]);					//s[o] - Name  s[1] - SurName 
-			master.setStatus(Boolean.valueOf(s[2]));				//s[2] - Status
-			
-			masterManager.add(master);	
+			//Master master = new Master(s[0],s[1]);					//s[o] - Name  s[1] - SurName 
+							//s[2] - Status			
+			masterManager.add(s[0],s[1]);	
+			//masterManager.getListOfMasters().get(getListOfMasters()).setStatus(Boolean.valueOf(s[2]));
 		}
 	}
 }

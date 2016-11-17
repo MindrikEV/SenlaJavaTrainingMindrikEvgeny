@@ -2,6 +2,7 @@ package org.senlatraining.ui.action;
 
 import org.senlatraining.autoservice.api.IService;
 import org.senlatraining.ui.api.IAction;
+import org.senlatraining.ui.util.Printer;
 
 public class AddGarage implements IAction{
 	private IService service;

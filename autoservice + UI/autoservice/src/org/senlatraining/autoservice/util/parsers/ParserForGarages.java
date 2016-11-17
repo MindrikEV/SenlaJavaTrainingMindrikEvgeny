@@ -10,13 +10,14 @@ public class ParserForGarages implements IParser{
 	public void parseFromFile(String[] array){
 		GarageManager garageManager = new GarageManager();
 		
-		for(int i=0; i < array.length; i++){
-			String[] s = array[i].split(SPLITTER);
-			Garage garage = new Garage();
-			garage.setNumberOfGarage(Integer.valueOf(s[0]));
-			garage.setStatus(Boolean.valueOf(s[1]));
+		//for(int i=0; i < array.length; i++){
+			//String[] s = array[i].split(SPLITTER);
+			//Garage garage = new Garage();
+			//garage.setNumberOfGarage(Integer.valueOf(s[0]));
+			//garage.setStatus(Boolean.valueOf(s[1]));
 			
-			garageManager.add(garage);
-		}
+			garageManager.add();
+			//garageManager.getListOfFreeGarages()
+		//}
 	}
 }
