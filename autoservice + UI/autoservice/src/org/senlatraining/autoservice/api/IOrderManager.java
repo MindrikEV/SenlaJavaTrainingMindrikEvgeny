@@ -12,6 +12,7 @@ public interface IOrderManager {
 	public void remove(Order order);
 	public void closeOrder(Order order);
 	public void revokeOrder(Order order);
+	public void moveOrder();
 	public void showMasterByOrder(Order order);
 	public void showListOfExecutableOrders();
 	public List<Order> getListOfExecutableOrders();

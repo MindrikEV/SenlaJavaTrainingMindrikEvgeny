@@ -45,9 +45,9 @@ public class Builder {
 			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByAlpabet.toString(), new ShowMastersSortedByAlphabet()));
-			sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByStatus.toString(), new ShowMastersSortedByStatus()));
-			sortMasterMenu.addMenuItem(new MenuItem("Exit", new Exit()));
+			//sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByAlpabet.toString(), new ShowMastersSortedByAlphabet()));
+			//sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByStatus.toString(), new ShowMastersSortedByStatus()));
+			//sortMasterMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 			
 		} catch (RuntimeException e) {
 			log.error(e);

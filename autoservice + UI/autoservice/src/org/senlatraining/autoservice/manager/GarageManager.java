@@ -8,38 +8,52 @@ import org.senlatraining.autoservice.util.*;
 import org.apache.log4j.Logger;
 
 public class GarageManager implements IGarageManager, ICommonManagers {
+	private static final Logger log = Logger.getLogger(GarageManager.class);
+	private static Boolean addebleOfGarage = true;
+	private static Boolean removebleOfGarage = true;
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
-	private static final Logger log = Logger.getLogger(GarageManager.class);
+	private final String MSG_GARAGE_IS_NOT_ADDEBLE = "Sorry, but add-function is disabled for Garages!";
+	private final String MSG_GARAGE_IS_NOT_REMOVEBLE = "Sorry, but remove-function is disabled for Garages!";
 	private List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
+	public void setAddebleOfGarage(Boolean addebleOfGarage){
+		this.addebleOfGarage = addebleOfGarage;
+	}
+//-------------------------------------------------------------------
+	public void setRemovebleOfGarage(Boolean removebleOfGarage){
+		this.removebleOfGarage = removebleOfGarage;
+	}	
+//-------------------------------------------------------------------	
 	@Override
 	public void add(){
-		try{	
-			Garage garage = new Garage();
-			listOfGarages.add(garage);
-		} catch (NullPointerException e){
-			//throw e.getMessage();
-			log.error(e.getMessage());		}
-		saveArray();
+		if(addebleOfGarage){
+			try{	
+				Garage garage = new Garage();
+				listOfGarages.add(garage);
+			} catch (NullPointerException e){
+				log.error(e.getMessage());		}
+			saveArray();
+		} else {
+			printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
+		}
 	}
-// -----------------------------------------------------------------
+//-------------------------------------------------------------------
 	@Override
-	public void remove(Integer number){ // throws Exception 
-		//try{
+	public void remove(Integer number){
+		if(removebleOfGarage){
 			for(int i=0; i < listOfGarages.size(); i++){
 				if (listOfGarages.get(i).getNumberOfGarage() == number){
 					listOfGarages.remove(i);
 				}	
 			}	
-		//} catch (NullPointerException e){
-		//	throw new Exception(e.getMessage());
-		//}
 		saveArray();
-		//log.error("Hueston we have problem!");
+		} else {
+			printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
+		}
 	}
 // -----------------------------------------------------------------
 	@Override

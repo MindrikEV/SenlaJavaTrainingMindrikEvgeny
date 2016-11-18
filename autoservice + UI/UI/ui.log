@@ -66,3 +66,18 @@
 17-11-2016 19:46:11 ERROR Builder:48 - java.lang.NullPointerException
 17-11-2016 19:49:47 ERROR Builder:48 - java.lang.NullPointerException
 17-11-2016 19:51:34 ERROR Builder:48 - java.lang.ArrayIndexOutOfBoundsException: -1
+17-11-2016 20:09:15 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:11:31 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:12:15 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:13:32 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:15:58 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:19:07 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:19:07 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:20:54 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:20:54 ERROR Builder:27 - java.lang.NullPointerException
+17-11-2016 20:21:33 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:21:33 ERROR RemoveGarage:27 - java.lang.NullPointerException
+17-11-2016 20:23:31 ERROR RemoveGarage:27 - java.lang.NullPointerException
+17-11-2016 20:24:30 ERROR RemoveGarage:24 - java.lang.NullPointerException
+17-11-2016 20:26:25 ERROR RemoveGarage:24 - java.lang.NullPointerException
+18-11-2016 15:38:21 ERROR RemoveGarage:24 - java.lang.NullPointerException

@@ -14,20 +14,32 @@ import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class OrderManager implements IOrderManager, ICommonManagers {
+	private static final Logger log = Logger.getLogger(OrderManager.class);
+	private static Boolean movableOfOrder = true;
+	private static Boolean removebleOfOrder = true;
 	private final String STATUS_CLOSE = "closed";
 	private final String STATUS_REVOKE = "revoked";
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";
 	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
 	private final String ERROR_ORDER_DONT_HAVE_MASTER = "This order don't have master";
-	private static final Logger log = Logger.getLogger(OrderManager.class);
+	private final String MSG_ORDER_IS_NOT_MOVABLE = "Sorry, but move-function is disabled for Orders!";
+	private final String MSG_ORDER_IS_NOT_REMOVEBLE = "Sorry, but remove-function is disabled for Orders!";
 	private List<Order> listOfOrders = new ArrayList<Order>();
 	private Path path = new Path();
 	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
-		
+
+	public void setMovableOfOrder(Boolean movableOfOrder){
+		this.movableOfOrder = movableOfOrder;
+	}
+//-------------------------------------------------------------------
+	public void setRemovebleOfOrder(Boolean removebleOfOrder){
+		this.removebleOfOrder = removebleOfOrder;
+	}	
+//-------------------------------------------------------------------	
 	@Override
 	public void add(Order order) {
 		listOfOrders.add(order);
@@ -36,8 +48,12 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 //------------------------------------------------------------------
 	@Override
 	public void remove(Order order) {
-		listOfOrders.remove(listOfOrders.indexOf(order));
-		saveArray();
+		if(removebleOfOrder){
+			listOfOrders.remove(listOfOrders.indexOf(order));
+			saveArray();
+		} else {
+			printer.print(MSG_ORDER_IS_NOT_REMOVEBLE);
+		}	
 	}
 //------------------------------------------------------------------
 	@Override
@@ -55,6 +71,14 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		order.getGarage().setStatus(false);
 		saveArray();
 	}
+//------------------------------------------------------------------
+	@Override
+	public void moveOrder() {
+		if(movableOfOrder){
+		} else {
+			printer.print(MSG_ORDER_IS_NOT_MOVABLE);
+		}
+	}		
 //------------------------------------------------------------------
 	@Override
 	public void showListOfOrders() {
