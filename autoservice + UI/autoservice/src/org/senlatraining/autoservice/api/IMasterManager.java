@@ -9,7 +9,6 @@ public interface IMasterManager {
 	
 	public void add(String name, String surName);
 	public void remove(Master master);
-	public void showListOfMasters();
 	public List<Master> getListOfMasters();	
 	public Master getFreeMaster();
 	public void showOrderOfMaster(Master master);

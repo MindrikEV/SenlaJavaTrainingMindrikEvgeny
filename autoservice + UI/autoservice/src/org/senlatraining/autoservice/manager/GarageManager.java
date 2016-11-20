@@ -30,35 +30,31 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 //-------------------------------------------------------------------	
 	@Override
 	public void add(){
-		if(addebleOfGarage){
+		//if(addebleOfGarage){
 			try{	
 				Garage garage = new Garage();
 				listOfGarages.add(garage);
-			} catch (NullPointerException e){
-				log.error(e.getMessage());		}
+			} catch (Exception e){
+				log.error(e.getMessage());		
+			}
 			saveArray();
-		} else {
+		//} else {
 			printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
-		}
+		//}
 	}
 //-------------------------------------------------------------------
 	@Override
 	public void remove(Integer number){
-		if(removebleOfGarage){
+		//if(removebleOfGarage){
 			for(int i=0; i < listOfGarages.size(); i++){
 				if (listOfGarages.get(i).getNumberOfGarage() == number){
 					listOfGarages.remove(i);
 				}	
 			}	
 		saveArray();
-		} else {
+		//} else {
 			printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
-		}
-	}
-// -----------------------------------------------------------------
-	@Override
-	public void showListOfGarages() {
-		printer.printList(listOfGarages);
+		//}
 	}
 // -----------------------------------------------------------------
 	@Override
@@ -73,8 +69,9 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	}
 //------------------------------------------------------------------
 	@Override
-	public List getListOfFreeGarages() {
-		List tmp = new ArrayList();
+	public List<Garage> getListOfFreeGarages() {	
+		
+		List<Garage> tmp = new ArrayList<Garage>();
 			
 		for (int i = 0; i < listOfGarages.size(); i++) {
 			if (!listOfGarages.get(i).getStatus()) {
@@ -82,22 +79,6 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 			}
 		}
 		return tmp;
-	}
-
-//------------------------------------------------------------------
-	@Override
-	public void showListOfFreeGarages() {
-		StringBuilder s = new StringBuilder();
-		
-		for (int i = 0; i < listOfGarages.size(); i++) {
-			if (!listOfGarages.get(i).getStatus()) {
-				s.append(GARAGE);
-				s.append(listOfGarages.get(i).getNumberOfGarage());
-				s.append(STATUS_FREE_MESSEGE);
-				printer.print(s.toString());
-				s.setLength(0);
-			}
-		}
 	}
 //------------------------------------------------------------------
 	@Override

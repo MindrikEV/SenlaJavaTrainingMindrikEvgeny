@@ -34,14 +34,9 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 	}
 //------------------------------------------------------------------------------	
 	@Override
-	public void showListOfMasters(){
-		printer.printList(listOfMasters);
-	}
-//------------------------------------------------------------------------------
-	@Override
 	public List<Master> getListOfMasters(){
-		return listOfMasters;
-	}
+		return listOfMasters;	
+	}	
 //------------------------------------------------------------------------------
 	@Override
 	public Master getFreeMaster(){

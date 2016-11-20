@@ -7,26 +7,24 @@ import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
 import org.senlatraining.autoservice.util.comparators.*;
 import org.senlatraining.autoservice.util.Recover;
-/*
- * This class is facade... 
- */
+
 public class Service implements IService{	
- 	private GarageManager garageManager = new GarageManager();
-	private MasterManager masterManager = new MasterManager();
-	private OrderManager orderManager = new OrderManager();
-	private Recover recover = new Recover();
+	private static IService service = new Service();
+	private GarageManager garageManager;
+	private MasterManager masterManager;
+	private OrderManager orderManager;
 	
 	public Service(){
+		garageManager = new GarageManager();
+		masterManager = new MasterManager();
+		orderManager = new OrderManager();
+		
+		Recover recover = new Recover();
 		recover.initRecover();
 	}
 //-----------------------------------------------------------------------------------------------------------  GARAGES  -------------------
-/*	@Override
-	public void showListOfFreeGarages(){
-		garageManager.showListOfFreeGarages();
-	}*/
-//-----------------------------------------------------------------
 	@Override
-	public List getListOfFreeGarages(){
+	public List<Garage> getListOfFreeGarages(){
 		return garageManager.getListOfFreeGarages();
 	}
 //-----------------------------------------------------------------	
@@ -146,8 +144,8 @@ public class Service implements IService{
 	}	
 //-------------------------------------------------------------------------------------------------------------  MASTERS  -------------------
 	@Override
-	public void showListOfMasters(){
-		masterManager.showListOfMasters();
+	public List<Master> getListOfMasters(){
+		return masterManager.getListOfMasters();
 	}
 //-----------------------------------------------------------------
 	@Override

@@ -81,3 +81,40 @@
 17-11-2016 20:24:30 ERROR RemoveGarage:24 - java.lang.NullPointerException
 17-11-2016 20:26:25 ERROR RemoveGarage:24 - java.lang.NullPointerException
 18-11-2016 15:38:21 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:00:17 ERROR Builder:48 - java.lang.NullPointerException
+19-11-2016 18:01:50 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 3, Size: 0
+19-11-2016 18:02:15 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 1, Size: 0
+19-11-2016 18:02:20 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 2, Size: 0
+19-11-2016 18:02:34 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:07:17 ERROR Builder:48 - java.lang.NullPointerException
+19-11-2016 18:09:35 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:09:35 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:11:31 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:11:31 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:11:38 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:11:38 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:26:33 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:26:48 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:27:26 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:28:02 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:28:02 ERROR Builder:52 - java.util.NoSuchElementException
+19-11-2016 18:28:02 ERROR Builder:52 - java.util.NoSuchElementException
+19-11-2016 18:30:25 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:30:44 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:31:19 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:31:52 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:39:30 ERROR Builder:50 - java.lang.NullPointerException
+19-11-2016 18:40:12 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:43:20 ERROR RemoveGarage:26 - java.lang.NullPointerException
+19-11-2016 18:46:59 ERROR Builder:50 - java.lang.NumberFormatException: For input string: ""
+19-11-2016 18:48:58 ERROR RemoveGarage:29 - java.lang.NullPointerException
+19-11-2016 18:49:14 ERROR RemoveGarage:29 - java.lang.NullPointerException
+20-11-2016 17:14:41 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:14:49 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:14:58 ERROR Builder:50 - java.lang.IndexOutOfBoundsException: Index: 2, Size: 0
+20-11-2016 17:15:07 ERROR RemoveGarage:27 - java.lang.NullPointerException
+20-11-2016 17:21:20 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:25:24 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:26:04 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:27:52 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 19:05:57 ERROR Builder:50 - java.lang.NullPointerException

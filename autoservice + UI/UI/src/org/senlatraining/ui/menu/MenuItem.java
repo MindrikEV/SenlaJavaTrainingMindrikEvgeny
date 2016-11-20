@@ -5,7 +5,6 @@ import org.senlatraining.ui.api.IAction;
 public class MenuItem {
 	private String title = new String();
 	private IAction action;
-	private Menu nextMenu = new Menu();
 	
 	public MenuItem(String title, IAction action){
 		this.title = title;
@@ -19,9 +18,5 @@ public class MenuItem {
 	@Override
 	public String toString(){
 		return this.title;
-	}
-//--------------------------------------------------------
-	public Menu getNextMenu(){
-		return this.nextMenu;
 	}
 }

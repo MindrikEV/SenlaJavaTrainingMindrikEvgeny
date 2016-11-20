@@ -6,10 +6,8 @@ import org.senlatraining.autoservice.entity.*;
 
 public interface IGarageManager {
 	
-	public void add(); //throws Exception;
-	public void remove(Integer number); // throws Exception
-	public void showListOfGarages();
-	public void showListOfFreeGarages();
-	public List getListOfFreeGarages();
+	public void add();
+	public void remove(Integer number);
+	public List<Garage> getListOfFreeGarages();
 	public Garage getFreeGarage();
 }

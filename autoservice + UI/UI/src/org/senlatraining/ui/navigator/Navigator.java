@@ -13,6 +13,7 @@ public class Navigator {
 	private static final Logger log = Logger.getLogger(Builder.class);
 	private Menu currentMenu = new Menu();
 	private Printer printer = new Printer();
+	private Scanner sc = new Scanner(System.in);
 	
 	public void setCurrenMenu(Menu currentMenu){
 		this.currentMenu = currentMenu;
@@ -42,8 +43,9 @@ public class Navigator {
 	}
 //---------------------------------------------------------------
 	public void scanItemNumber(){
-		try(Scanner sc = new Scanner(System.in)){
+		try{
 			navigate(sc.nextInt());
+			
 		} catch(Exception e){
 			log.error(e);
 		}	
@@ -51,9 +53,11 @@ public class Navigator {
 //------------------------------------------------------------------------	
 	public String scanValue(){
 		String tmp = new String();
-		
-		try(Scanner sc = new Scanner(System.in)){
+		try{
 			tmp = sc.nextLine();
+			
+			System.out.println("--> " + sc.nextLine());
+			
 		} catch(Exception e){
 			log.error(e);
 		}

@@ -5,8 +5,9 @@ import java.util.List;
 import org.senlatraining.autoservice.entity.*;
 
 public interface IService {
+	//public void initService();
 	//public void showListOfFreeGarages();
-	public List getListOfFreeGarages();
+	public List<Garage> getListOfFreeGarages();
 	public void addNewGarage();
 	public void removeGarage(Integer number);
 //---------------------------------------------------------------------------
@@ -32,7 +33,7 @@ public interface IService {
 	public void revokeOrder(Order order);
 	public void moveOrderDateComplete(Order order, String newDate);
 //-----------------------------------------------------------------------------
-	public void showListOfMasters();
+	public List<Master> getListOfMasters();
 	public void sortListOfMastersByAlphabet();
 	public void sortListOfMastersByStatus();
 	public void showOrderOfMaster(Master master);
