@@ -9,24 +9,15 @@ import org.senlatraining.autoservice.util.comparators.*;
 import org.senlatraining.autoservice.util.Recover;
 
 public class Service implements IService{	
-	private static Service service;
-	private static GarageManager garageManager;
-	private static MasterManager masterManager;
-	private static OrderManager orderManager;
+	//private static Service service;
+	private static GarageManager garageManager  = new GarageManager();
+	private static MasterManager masterManager = new MasterManager();
+	private static OrderManager orderManager = new OrderManager();
 	
-	public Service(){
-		garageManager = new GarageManager();
-		masterManager = new MasterManager();
-		orderManager = new OrderManager();
-		
+	public Service(){	
 		Recover recover = new Recover();
 		recover.initRecover();
 	}
-//-----------------------------------------------------------------
-	//public static Service getService(){
-	//	service = new Service();
-	//	return service;
-	//}
 //-----------------------------------------------------------------------------------------------------------  GARAGES  -------------------
 	@Override
 	public List<Garage> getListOfFreeGarages(){
@@ -39,8 +30,8 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void removeGarage(Integer number){ 
-		garageManager.remove(number);
+	public Boolean removeGarage(Integer number){ 
+		return garageManager.remove(number);
 	}
 //-----------------------------------------------------------------------------------------------------------  ORDERS  --------------------
 	@Override

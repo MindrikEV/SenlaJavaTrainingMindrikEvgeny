@@ -44,14 +44,17 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	}
 //-------------------------------------------------------------------
 	@Override
-	public void remove(Integer number){
+	public Boolean remove(Integer number){
 		//if(removebleOfGarage){
+		Boolean flag = false;
 			for(int i=0; i < listOfGarages.size(); i++){
-				if (listOfGarages.get(i).getNumberOfGarage() == number){
+				if(listOfGarages.get(i).getNumberOfGarage().equals(number)){
 					listOfGarages.remove(i);
+					flag = true;
 				}	
-			}	
+			}
 		saveArray();
+		return flag;
 		//} else {
 			//printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
 		//}
@@ -70,7 +73,6 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 //------------------------------------------------------------------
 	@Override
 	public List<Garage> getListOfFreeGarages() {	
-		
 		List<Garage> tmp = new ArrayList<Garage>();
 			
 		for (int i = 0; i < listOfGarages.size(); i++) {
@@ -78,6 +80,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 				tmp.add(listOfGarages.get(i));
 			}
 		}
+		//printer.printList(tmp);
 		return tmp;
 	}
 //------------------------------------------------------------------

@@ -11,28 +11,21 @@ import org.senlatraining.ui.util.Printer;
 public class Runner {
 public static void main(String[] args){
 		
-		//------------------------------------------------------------------------------
 		Service ser = new Service();
 		
+		ser.addNewGarage();
+		ser.addNewGarage();
+		ser.addNewGarage();
+		ser.addNewGarage();
+		ser.addNewGarage();
+		ser.addNewGarage();
+		ser.addNewGarage();
 		
-		//------------------------------------------------------------------------------
-	
-	
-		Path path = new Path();
 		
-		//System.out.println(path.getPathForGarage());
-		try{
-		FileWorker fw = new FileWorker(path.getPathForGarage());
-		fw.pullFromFile();
-		
-		//GarageManager gm = new GarageManager();
-		Printer printer = new Printer();
-		printer.printList(ser.getListOfFreeGarages());
-		
-		} catch (Exception e){
-			System.out.print(e.getMessage().toString());
-		}
-		//MenuController menuController = new MenuController();	
-		//menuController.run();
+		//Printer printer = new Printer();
+		//printer.printList(ser.getListOfFreeGarages());
+		//printer.printList(ser.getListOfFreeGarages());
+		MenuController menuController = new MenuController();	
+		menuController.run();
 	}
 }

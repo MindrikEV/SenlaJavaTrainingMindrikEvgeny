@@ -7,7 +7,7 @@ import org.senlatraining.autoservice.entity.*;
 public interface IGarageManager {
 	
 	public void add();
-	public void remove(Integer number);
+	public Boolean remove(Integer number);
 	public List<Garage> getListOfFreeGarages();
 	public Garage getFreeGarage();
 }

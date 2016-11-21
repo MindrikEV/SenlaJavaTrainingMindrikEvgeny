@@ -24,12 +24,11 @@ public class FileWorker {
 	}	
 //--------------------------------------------------------------------------------	
 	public String[] pullFromFile(){ 											// Read from file
-		try{
-			return fileWorker.readFromFile();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
-		}
+		
+		//for(int i=0; i < fileWorker.readFromFile().length;i++){
+		//	System.out.println(fileWorker.readFromFile()[i]);	
+		//}
+		return fileWorker.readFromFile();
 	}
 }
 

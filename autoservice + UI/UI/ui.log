@@ -138,3 +138,16 @@
 21-11-2016 19:42:22 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
 21-11-2016 19:48:13 ERROR Builder:50 - java.lang.NullPointerException
 21-11-2016 20:14:07 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:43:21 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:44:04 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:45:26 ERROR RemoveGarage:27 - java.lang.NullPointerException
+22-11-2016 00:51:16 ERROR RemoveGarage:27 - java.lang.NullPointerException
+22-11-2016 00:57:29 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:01:22 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:02:10 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 01:02:25 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:05:01 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:05:54 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:12:44 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 01:13:25 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 01:19:22 ERROR RemoveGarage:33 - java.lang.NullPointerException

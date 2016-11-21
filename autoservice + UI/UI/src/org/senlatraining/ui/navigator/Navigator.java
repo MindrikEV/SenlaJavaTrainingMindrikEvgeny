@@ -51,16 +51,13 @@ public class Navigator {
 		}	
 	}
 //------------------------------------------------------------------------	
-	public String scanValue(){
+	/*public String scanValue(){
 		String tmp = new String();
-		try{
+		//try{
 			tmp = sc.nextLine();
-			
-			System.out.println("--> " + sc.nextLine());
-			
-		} catch(Exception e){
-			log.error(e);
-		}
+		//} catch(Exception e){
+		//	log.error(e);
+		//}
 		return tmp;
-	}
+	}*/
 }

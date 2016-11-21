@@ -9,7 +9,7 @@ public interface IService {
 	//public void showListOfFreeGarages();
 	public List<Garage> getListOfFreeGarages();
 	public void addNewGarage();
-	public void removeGarage(Integer number);
+	public Boolean removeGarage(Integer number);
 //---------------------------------------------------------------------------
 	public void showListOfOrders();
 	public void showListOfOrdersSortedByRegistrationDate();
