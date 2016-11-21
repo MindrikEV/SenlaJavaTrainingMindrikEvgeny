@@ -6,6 +6,7 @@ import org.senlatraining.ui.builder.Builder;
 import org.senlatraining.ui.navigator.Navigator;
 
 public class MenuController {
+	private IService service; 
 	private Builder builder = new Builder();
 	private Navigator navigator = new Navigator();
 	

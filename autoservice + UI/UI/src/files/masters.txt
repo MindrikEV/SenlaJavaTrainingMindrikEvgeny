@@ -1,0 +1,5 @@
+Kurt|Russel|false
+Deby|Mure|false
+Jan|Klod|false
+Ricko|Saliri|false
+Hovard|Volavits|false

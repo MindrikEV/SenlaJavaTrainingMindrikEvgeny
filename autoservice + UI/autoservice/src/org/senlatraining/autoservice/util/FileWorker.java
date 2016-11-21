@@ -26,7 +26,7 @@ public class FileWorker {
 	public String[] pullFromFile(){ 											// Read from file
 		try{
 			return fileWorker.readFromFile();
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
 		}

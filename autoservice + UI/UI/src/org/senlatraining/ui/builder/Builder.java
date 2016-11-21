@@ -21,8 +21,8 @@ public class Builder {
 			rootMenu.addMenuItem(new MenuItem(Titles.Orders.toString(), new JumpMenu(ordersMenu)));
 			rootMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			//garagesMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new ShowListOfFreeGarages()));
-			//garagesMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
+			garagesMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new ShowListOfFreeGarages()));
+			garagesMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
 			//garagesMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			garagesMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------

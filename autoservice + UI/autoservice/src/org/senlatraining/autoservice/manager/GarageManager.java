@@ -39,7 +39,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 			}
 			saveArray();
 		//} else {
-			printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
+			//printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
 		//}
 	}
 //-------------------------------------------------------------------
@@ -53,7 +53,7 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 			}	
 		saveArray();
 		//} else {
-			printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
+			//printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
 		//}
 	}
 // -----------------------------------------------------------------

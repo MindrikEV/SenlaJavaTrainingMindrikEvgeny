@@ -118,3 +118,23 @@
 20-11-2016 17:26:04 ERROR Builder:50 - java.lang.NullPointerException
 20-11-2016 17:27:52 ERROR Builder:50 - java.lang.NullPointerException
 20-11-2016 19:05:57 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 12:52:16 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 13:04:59 ERROR AddGarage:19 - java.lang.NullPointerException
+21-11-2016 13:04:59 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 13:16:37 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 14:46:12 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 17:39:20 ERROR Builder:50 - java.util.NoSuchElementException
+21-11-2016 17:40:55 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 17:50:31 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 17:51:41 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:11:56 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:12:57 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:15:51 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:20:19 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:25:05 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:32:26 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:35:30 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:36:06 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:42:22 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:48:13 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 20:14:07 ERROR Builder:50 - java.lang.NullPointerException
