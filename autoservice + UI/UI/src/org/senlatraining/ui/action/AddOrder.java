@@ -15,12 +15,11 @@ public class AddOrder implements IAction{
 	private final String MSG_ENTER_START_DAY = "Enter start day: ";
 	private final String MSG_ENTER_COMPLETE_DAY = "Enter complete day: ";
 	private Service service = new Service();
-	private Scanner sc = new Scanner(System.in);
 	private Printer printer;
 	
 	@Override
 	public void execute() {
-		try{
+		try (Scanner sc = new Scanner(System.in)){
 			printer.println(MSG_ENTER_DESCRIPTION);
 			String description = sc.nextLine();
 			
@@ -34,8 +33,8 @@ public class AddOrder implements IAction{
 			String completeDay = sc.nextLine();
 			
 		service.addNewOrder(description, price, planStartDay, completeDay);
-		} catch(NullPointerException ne){
-			log.error(ne);
+		} catch(Exception e){
+			log.error(e);
 		}
 		printer.print(MSG_WAS_ADDED);
 	}

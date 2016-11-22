@@ -16,7 +16,7 @@ public class AddGarage implements IAction{
 	public void execute() {
 		service = new Service();
 		try{
-		service.addNewGarage();
+			service.addNewGarage();
 		} catch(NullPointerException ne){
 			log.error(ne);
 		}
