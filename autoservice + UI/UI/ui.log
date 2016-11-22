@@ -151,3 +151,5 @@
 22-11-2016 01:12:44 ERROR RemoveGarage:33 - java.lang.NullPointerException
 22-11-2016 01:13:25 ERROR RemoveGarage:33 - java.lang.NullPointerException
 22-11-2016 01:19:22 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 09:31:48 ERROR AddOrder:38 - java.lang.NullPointerException
+22-11-2016 09:31:48 ERROR Builder:50 - java.lang.NullPointerException

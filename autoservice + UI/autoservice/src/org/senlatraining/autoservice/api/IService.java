@@ -27,7 +27,7 @@ public interface IService {
 	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate);
 	public void showAmountOfFreePlacesOnDate(String date);
 	public void showNearestFreeDate();
-	public void addNewOrder(Order order);
+	public void addNewOrder(String description, Double price, String planStartDay, String completeDay);
 	public void removeOrder(Order order);
 	public void closeOrder(Order order);
 	public void revokeOrder(Order order);
@@ -36,7 +36,7 @@ public interface IService {
 	public List<Master> getListOfMasters();
 	public void sortListOfMastersByAlphabet();
 	public void sortListOfMastersByStatus();
-	public void showOrderOfMaster(Master master);
+	public String getOrderOfMaster(String surName);
 	public void addNewMaster(String name, String surName);
 	public void removeMaster(Master master);
 }

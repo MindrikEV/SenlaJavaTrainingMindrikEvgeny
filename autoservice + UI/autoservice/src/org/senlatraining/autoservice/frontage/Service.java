@@ -115,8 +115,8 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void addNewOrder(Order order){ 
-		orderManager.add(order);
+	public void addNewOrder(String description, Double price, String planStartDay, String completeDay){ 
+		orderManager.add(description, price, planStartDay, completeDay);
 	}
 //-----------------------------------------------------------------
 	@Override
@@ -155,8 +155,8 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showOrderOfMaster(Master master){
-		masterManager.showOrderOfMaster(master);
+	public String getOrderOfMaster(String surName){
+		masterManager.getOrderOfMaster(surName);
 	}
 //-----------------------------------------------------------------	
 	@Override

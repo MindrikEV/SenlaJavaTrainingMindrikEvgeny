@@ -41,7 +41,9 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	}	
 //-------------------------------------------------------------------	
 	@Override
-	public void add(Order order) {
+	public void add(String description, Double price, String planStartDay, String completeDay) {
+		Order order = new Order(description, price, planStartDay, completeDay);
+		
 		listOfOrders.add(order);
 		saveArray();
 	}

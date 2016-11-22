@@ -30,12 +30,12 @@ public class Builder {
 			//mastersMenu.addMenuItem(new MenuItem(Titles.ShowOrder.toString(), new ShowOrderOfMaster()));
 			//mastersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
 			//mastersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
-			//mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
+			mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
 			//ordersMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new ShowListOfFreeGarages()));
-			//ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddGarage()));
-			//ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
-			//ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
+			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
+			//ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
 			//sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByAlpabet.toString(), new ShowMastersSortedByAlphabet()));
 			//sortMasterMenu.addMenuItem(new MenuItem(Titles.SortByStatus.toString(), new ShowMastersSortedByStatus()));

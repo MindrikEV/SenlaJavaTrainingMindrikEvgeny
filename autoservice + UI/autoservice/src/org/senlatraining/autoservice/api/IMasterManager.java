@@ -11,6 +11,6 @@ public interface IMasterManager {
 	public void remove(Master master);
 	public List<Master> getListOfMasters();	
 	public Master getFreeMaster();
-	public void showOrderOfMaster(Master master);
+	public String getOrderOfMaster(String surName);
 	public void sort(List<Master> listOfMasters, Comparator comparator);
 }

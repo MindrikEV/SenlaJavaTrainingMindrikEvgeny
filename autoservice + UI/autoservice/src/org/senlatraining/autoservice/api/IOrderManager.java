@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 public interface IOrderManager {
 	
-	public void add(Order order);
+	public void add(String description, Double price, String planStartDay, String completeDay);
 	public void remove(Order order);
 	public void closeOrder(Order order);
 	public void revokeOrder(Order order);

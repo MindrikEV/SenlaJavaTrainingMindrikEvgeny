@@ -49,7 +49,8 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 	}
 //------------------------------------------------------------------------------
 	@Override
-	public void showOrderOfMaster(Master master){
+	public String getOrderOfMaster(String surName){
+		for(int i=0; i < listOfMasters.size(); i++){
 		if (master.getOrder() != null){
 			printer.print(master.getOrder().toString());
 		} else {

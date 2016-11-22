@@ -13,11 +13,11 @@ public class ParserForOrders implements IParser{
 		
 		for(int i = 0; i < array.length; i++){
 			String[] s = array[i].split(SPLITTER);
-			Order order = new Order(s[1],Double.valueOf(s[2]),s[5],s[6]); 		//s[2] - Price; s[5] - PlanStartDate; s[6] - DateOFComplete; 
-			order.setStatus(s[3]);												//s[3] - Status;
-			order.setDateOfRegistration(s[4]);									//s[4] - Date of registration;
+			//Order order = new Order(s[1],Double.valueOf(s[2]),s[5],s[6]); 		//s[2] - Price; s[5] - PlanStartDate; s[6] - DateOFComplete; 
+			//order.setStatus(s[3]);												//s[3] - Status;
+			//order.setDateOfRegistration(s[4]);									//s[4] - Date of registration;
 			
-			orderManager.add(order);
+			orderManager.add(s[1],Double.valueOf(s[2]),s[5],s[6]);
 		}
 	}
 }
