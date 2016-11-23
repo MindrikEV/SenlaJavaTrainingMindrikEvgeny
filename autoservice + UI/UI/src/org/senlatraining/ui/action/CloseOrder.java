@@ -19,7 +19,7 @@ public class CloseOrder implements IAction{
 	public void execute() {
 		printer.print(MSG_ENTER_ID);
 		try (Scanner sc = new Scanner(System.in)){
-			Boolean f = service.closeOrder(sc.nextInt());
+			Boolean f = service.changeStatusOrder(sc.nextInt(), "closed");
 			if(!f){
 				System.out.print(MSG_NOT_FOUND_ORDER);
 			} else {

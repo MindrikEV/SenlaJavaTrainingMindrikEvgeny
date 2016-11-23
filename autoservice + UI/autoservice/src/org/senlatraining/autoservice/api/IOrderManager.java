@@ -10,9 +10,8 @@ public interface IOrderManager {
 	
 	public void add(String description, Double price, String planStartDay, String completeDay);
 	public Boolean remove(Integer id);
-	public Boolean closeOrder(Integer id);
-	public void revokeOrder(Order order);
-	public void moveOrder();
+	public Boolean changeStatusOrder(Integer id, String status);
+	public void moveOrder(Integer id, String startDate, String completeDate);
 	public void showMasterByOrder(Order order);
 	public void showListOfExecutableOrders();
 	public List<Order> getListOfExecutableOrders();

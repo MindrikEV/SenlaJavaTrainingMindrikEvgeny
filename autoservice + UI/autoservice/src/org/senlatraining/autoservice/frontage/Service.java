@@ -151,9 +151,9 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public Boolean closeOrder(Integer id){ 
+	public Boolean changeStatusOrder(Integer id, String status){ 
 		try{
-			return orderManager.closeOrder(id);
+			return orderManager.changeStatusOrder(id, status);
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -161,19 +161,9 @@ public class Service implements IService{
 	}	
 //-----------------------------------------------------------------
 	@Override
-	public void revokeOrder(Order order){ 
+	public void moveOrderDateComplete(Integer id, String dateStart, String dateComplete){ 
 		try{
-			orderManager.revokeOrder(order);
-		} catch (NullPointerException npe){
-			log.error(npe);
-			throw(npe);
-		}
-	}	
-//-----------------------------------------------------------------
-	@Override
-	public void moveOrderDateComplete(Order order, String newDate){ 
-		try{
-			orderManager.setDateOFComplete(order, newDate);
+			orderManager.moveOrder(id, dateStart, dateComplete);
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);

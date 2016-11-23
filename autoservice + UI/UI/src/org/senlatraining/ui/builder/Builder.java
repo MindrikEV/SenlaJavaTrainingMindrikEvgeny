@@ -36,7 +36,8 @@ public class Builder {
 			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
-			//ordersMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
+			ordersMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
+			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));			
 		} catch (RuntimeException e) {
 			log.error(e);

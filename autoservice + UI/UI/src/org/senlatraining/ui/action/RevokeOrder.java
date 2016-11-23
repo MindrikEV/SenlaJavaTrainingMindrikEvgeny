@@ -19,11 +19,11 @@ public class RevokeOrder implements IAction{
 	public void execute() {
 		printer.print(MSG_ENTER_ID);
 		try (Scanner sc = new Scanner(System.in)){
-			Boolean f = service.revokeOrder(sc.nextInt());
+			Boolean f = service.changeStatusOrder(sc.nextInt(), "revoked");
 			if(!f){
 				System.out.print(MSG_NOT_FOUND_ORDER);
 			} else {
-				printer.print(sc.nextInt() + Messeges.Closed.toString());
+				printer.print(sc.nextInt() + Messeges.Revoked.toString());
 			}
 		} catch(NullPointerException ne){
 			log.error(ne);

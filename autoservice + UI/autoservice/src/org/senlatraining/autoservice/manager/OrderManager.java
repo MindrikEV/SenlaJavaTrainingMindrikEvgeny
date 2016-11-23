@@ -67,14 +67,14 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	}
 //------------------------------------------------------------------
 	@Override
-	public Boolean closeOrder(Integer id) {
+	public Boolean changeStatusOrder(Integer id, String status) {
 		Boolean flag = false;
 		try{
 			for(int i=0; i<listOfOrders.size(); i++){
 				if(listOfOrders.get(i).getId().equals(id)){
-					listOfOrders.get(i).setStatus(STATUS_CLOSE);
-					listOfOrders.get(i).getMaster().setStatus(false);
-					listOfOrders.get(i).getGarage().setStatus(false);
+					listOfOrders.get(i).setStatus(status);
+					//listOfOrders.get(i).getMaster().setStatus(false);
+					//listOfOrders.get(i).getGarage().setStatus(false);
 					flag = true;
 				}
 			}	
@@ -87,19 +87,17 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	}
 //------------------------------------------------------------------
 	@Override
-	public void revokeOrder(Order order) {
-		order.setStatus(STATUS_REVOKE);
-		order.getMaster().setStatus(false);
-		order.getGarage().setStatus(false);
-		saveArray();
-	}
-//------------------------------------------------------------------
-	@Override
-	public void moveOrder() {
-		if(movableOfOrder){
-		} else {
-			printer.print(MSG_ORDER_IS_NOT_MOVABLE);
+	public void moveOrder(Integer id, String startDate, String completeDate) {
+		//if(movableOfOrder){
+		//} else {
+		for(int i=0; i<listOfOrders.size(); i++){
+			if(listOfOrders.get(i).getId().equals(id)){
+				listOfOrders.get(i).setDateOfPlanStart(startDate);
+				listOfOrders.get(i).setDateOfComplete(completeDate);
+			}
 		}
+			printer.print(MSG_ORDER_IS_NOT_MOVABLE);
+		//}
 	}		
 //------------------------------------------------------------------
 	@Override

@@ -28,9 +28,8 @@ public interface IService {
 	public void showNearestFreeDate();
 	public void addNewOrder(String description, Double price, String planStartDay, String completeDay);
 	public Boolean removeOrder(Integer id);
-	public Boolean closeOrder(Integer id);
-	public Boolean revokeOrder(Integer id);
-	public Boolean moveOrderDateComplete(Order order, String newDate);
+	public Boolean changeStatusOrder(Integer id, String status);
+	public void moveOrderDateComplete(Integer id, String startDate, String completeDate);
 //-----------------------------------------------------------------------------
 	public List<Master> getListOfMasters();
 	public void sortListOfMastersByAlphabet();
