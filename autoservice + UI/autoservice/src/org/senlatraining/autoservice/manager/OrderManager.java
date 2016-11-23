@@ -49,21 +49,41 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	}
 //------------------------------------------------------------------
 	@Override
-	public void remove(Order order) {
-		if(removebleOfOrder){
-			listOfOrders.remove(listOfOrders.indexOf(order));
-			saveArray();
-		} else {
-			printer.print(MSG_ORDER_IS_NOT_REMOVEBLE);
+	public Boolean remove(Integer id) {
+		//if(removebleOfOrder){
+		Boolean flag = false;
+		
+		for(int i=0; i<listOfOrders.size(); i++){
+			if(listOfOrders.get(i).getId().equals(id)){
+				listOfOrders.remove(i);
+				flag = true;
+			}
 		}	
+			saveArray();
+			return flag;
+		//} else {
+			//printer.print(MSG_ORDER_IS_NOT_REMOVEBLE);
+		//}	
 	}
 //------------------------------------------------------------------
 	@Override
-	public void closeOrder(Order order) {
-		order.setStatus(STATUS_CLOSE);
-		order.getMaster().setStatus(false);
-		order.getGarage().setStatus(false);
+	public Boolean closeOrder(Integer id) {
+		Boolean flag = false;
+		try{
+			for(int i=0; i<listOfOrders.size(); i++){
+				if(listOfOrders.get(i).getId().equals(id)){
+					listOfOrders.get(i).setStatus(STATUS_CLOSE);
+					listOfOrders.get(i).getMaster().setStatus(false);
+					listOfOrders.get(i).getGarage().setStatus(false);
+					flag = true;
+				}
+			}	
+		} catch (Exception e){
+			log.error(e);
+			throw e;
+		}
 		saveArray();
+		return flag;
 	}
 //------------------------------------------------------------------
 	@Override

@@ -21,10 +21,6 @@ public static void main(String[] args){
 		ser.addNewGarage();
 		ser.addNewGarage();
 		
-		
-		//Printer printer = new Printer();
-		//printer.printList(ser.getListOfFreeGarages());
-		//printer.printList(ser.getListOfFreeGarages());
 		MenuController menuController = new MenuController();	
 		menuController.run();
 	}

@@ -22,15 +22,28 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 		
 	@Override
 	public void add(String name, String surName){
-		Master master = new Master(name, surName);
-		listOfMasters.add(master);
-		saveArray();
+		try{
+			Master master = new Master(name, surName);
+			listOfMasters.add(master);
+			saveArray();
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //------------------------------------------------------------------------------
 	@Override
-	public void remove(Master master){
-		listOfMasters.remove(listOfMasters.indexOf(master));
+	public Boolean remove(String surName){
+		Boolean flag = false;
+		
+		for(int i=0; i < listOfMasters.size(); i++){
+			if(listOfMasters.get(i).equals(surName)){
+				listOfMasters.remove(i);
+				flag = true;
+			}
+		}
 		saveArray();
+		return flag;
 	}
 //------------------------------------------------------------------------------	
 	@Override
@@ -48,7 +61,7 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 		return	listOfMasters.get(position);
 	}
 //------------------------------------------------------------------------------
-	@Override
+/*	@Override
 	public String getOrderOfMaster(String surName){
 		for(int i=0; i < listOfMasters.size(); i++){
 		if (master.getOrder() != null){
@@ -56,7 +69,7 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 		} else {
 			printer.print(ORDER_NOT_FOUND);
 		}
-	}
+	}*/
 //------------------------------------------------------------------------------
 	@Override
 	public void sort(List<Master> listOfMasters, Comparator comparator){

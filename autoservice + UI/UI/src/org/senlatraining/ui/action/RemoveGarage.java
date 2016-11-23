@@ -14,17 +14,15 @@ import org.senlatraining.ui.util.Printer;
 public class RemoveGarage implements IAction{
 	private static final Logger log = Logger.getLogger(RemoveGarage.class);
 	private final String MSG_NOT_FOUND_GARAGE = "Garage with this number not found. Try another!";
-	private final String MSG_TYPE_NUM = "Type number -> ";
+	private final String MSG_ENTER_NUM = "Type number -> ";
 	private final String MSG_GARAGE = "Garage number - ";
 	private Service service = new Service();
-	private Scanner sc = new Scanner(System.in);
-	private Navigator navigator = new Navigator();
 	private Printer printer = new Printer(); 
 		
 	@Override
 	public void execute() {
-		printer.print(MSG_TYPE_NUM);
-		try{
+		printer.print(MSG_ENTER_NUM);
+		try (Scanner sc = new Scanner(System.in)){
 			Integer number = Integer.valueOf(sc.nextLine());
 		
 			Boolean f = service.removeGarage(number);
@@ -35,6 +33,7 @@ public class RemoveGarage implements IAction{
 			}
 		} catch(NullPointerException ne){
 			log.error(ne);
+			throw(ne);
 		}	
 	}
 }

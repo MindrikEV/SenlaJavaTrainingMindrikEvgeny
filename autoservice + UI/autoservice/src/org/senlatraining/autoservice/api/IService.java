@@ -6,37 +6,36 @@ import org.senlatraining.autoservice.entity.*;
 
 public interface IService {
 	//public void initService();
-	//public void showListOfFreeGarages();
 	public List<Garage> getListOfFreeGarages();
 	public void addNewGarage();
 	public Boolean removeGarage(Integer number);
 //---------------------------------------------------------------------------
-	public void showListOfOrders();
+	//public void showListOfOrders();
 	public void showListOfOrdersSortedByRegistrationDate();
 	public void showListOfOrdersSortedByCompleteDate();
 	public void showListOfOrdersSortedByPlanStartDate();
 	public void showListOfOrdersSortedByPrice();
-	public void showListOfNowExecutable();
+	//public void showListOfNowExecutable();
 	public void showListOfNowExecutableSortedByRegistrationDate();
 	public void showListOfNowExecutableSortedByCompleteDate();
 	public void showListOfNowExecutableSortedByPrice();
 	public void showMasterByOrder(Order order);
-	public void showOrdersInDateInterval(String startDate, String endDate);
+	//public void showOrdersInDateInterval(String startDate, String endDate);
 	public void showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate);
 	public void showOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate);
 	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate);
 	public void showAmountOfFreePlacesOnDate(String date);
 	public void showNearestFreeDate();
 	public void addNewOrder(String description, Double price, String planStartDay, String completeDay);
-	public void removeOrder(Order order);
-	public void closeOrder(Order order);
-	public void revokeOrder(Order order);
-	public void moveOrderDateComplete(Order order, String newDate);
+	public Boolean removeOrder(Integer id);
+	public Boolean closeOrder(Integer id);
+	public Boolean revokeOrder(Integer id);
+	public Boolean moveOrderDateComplete(Order order, String newDate);
 //-----------------------------------------------------------------------------
 	public List<Master> getListOfMasters();
 	public void sortListOfMastersByAlphabet();
 	public void sortListOfMastersByStatus();
-	public String getOrderOfMaster(String surName);
+	//public String getOrderOfMaster(String surName);
 	public void addNewMaster(String name, String surName);
-	public void removeMaster(Master master);
+	public Boolean removeMaster(String surname);
 }

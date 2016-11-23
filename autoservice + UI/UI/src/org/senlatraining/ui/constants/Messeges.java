@@ -4,4 +4,6 @@ public enum Messeges {
 	Added,
 	Removed,
 	Modified,
+	Closed,
+	Revoked
 }

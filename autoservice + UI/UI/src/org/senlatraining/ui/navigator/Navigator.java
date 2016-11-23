@@ -8,9 +8,9 @@ import org.senlatraining.ui.builder.Builder;
 import org.senlatraining.ui.constants.*;
 
 public class Navigator {
+	private static final Logger log = Logger.getLogger(Builder.class);
 	private final String MSG_MENU = "Menu: ";
 	private final String MSG_ENT_NUM_ITEM = "Enter the number of item > ";
-	private static final Logger log = Logger.getLogger(Builder.class);
 	private Menu currentMenu = new Menu();
 	private Printer printer = new Printer();
 	

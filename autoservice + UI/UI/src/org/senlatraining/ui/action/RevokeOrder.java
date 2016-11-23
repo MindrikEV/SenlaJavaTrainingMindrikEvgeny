@@ -8,22 +8,22 @@ import org.senlatraining.ui.api.IAction;
 import org.senlatraining.ui.constants.Messeges;
 import org.senlatraining.ui.util.Printer;
 
-public class RemoveMaster implements IAction{
-	private static final Logger log = Logger.getLogger(RemoveGarage.class);
-	private final String MSG_NOT_FOUND_MASTER = "Master with this surname not found. Try another!";
-	private final String MSG_ENTER_SURNAME = "Enter surname of master -> ";
+public class RevokeOrder implements IAction{
+	private static final Logger log = Logger.getLogger(RevokeOrder.class);
+	private final String MSG_NOT_FOUND_ORDER = "Order with this ID not found. Try another!";
+	private final String MSG_ENTER_ID = "Enter ID of order -> ";
 	private Service service = new Service();
 	private Printer printer = new Printer(); 
-	
+		
 	@Override
 	public void execute() {
-		printer.print(MSG_ENTER_SURNAME);
+		printer.print(MSG_ENTER_ID);
 		try (Scanner sc = new Scanner(System.in)){
-			Boolean f = service.removeMaster(sc.nextLine());
+			Boolean f = service.revokeOrder(sc.nextInt());
 			if(!f){
-				System.out.print(MSG_NOT_FOUND_MASTER);
+				System.out.print(MSG_NOT_FOUND_ORDER);
 			} else {
-				printer.print(sc.nextLine() + Messeges.Removed.toString());
+				printer.print(sc.nextInt() + Messeges.Closed.toString());
 			}
 		} catch(NullPointerException ne){
 			log.error(ne);

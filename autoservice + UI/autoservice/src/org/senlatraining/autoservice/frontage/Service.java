@@ -2,6 +2,7 @@ package org.senlatraining.autoservice.frontage;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.senlatraining.autoservice.api.IService;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
@@ -9,14 +10,19 @@ import org.senlatraining.autoservice.util.comparators.*;
 import org.senlatraining.autoservice.util.Recover;
 
 public class Service implements IService{	
-	//private static Service service;
+	private static final Logger log = Logger.getLogger(Service.class);
 	private static GarageManager garageManager  = new GarageManager();
 	private static MasterManager masterManager = new MasterManager();
 	private static OrderManager orderManager = new OrderManager();
 	
 	public Service(){	
-		Recover recover = new Recover();
-		recover.initRecover();
+		try{
+			Recover recover = new Recover();
+			recover.initRecover();
+		} catch(Exception e) {
+			log.error(e);
+			throw(e);
+		}
 	}
 //-----------------------------------------------------------------------------------------------------------  GARAGES  -------------------
 	@Override
@@ -26,7 +32,12 @@ public class Service implements IService{
 //-----------------------------------------------------------------	
 	@Override
 	public void addNewGarage(){ 
-		garageManager.add();
+		try{
+			garageManager.add();
+		} catch (NullPointerException npe) {
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //-----------------------------------------------------------------
 	@Override
@@ -34,74 +45,79 @@ public class Service implements IService{
 		return garageManager.remove(number);
 	}
 //-----------------------------------------------------------------------------------------------------------  ORDERS  --------------------
-	@Override
+/*	@Override
 	public void showListOfOrders(){
-		orderManager.showListOfOrders();
-	}
+		try{
+			orderManager.showListOfOrders();
+		} catch(NullPointerException npe) {
+			log.error(npe);
+			throw(npe);
+		}
+	}*/
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByRegistrationDate(){
 		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateRegistration());
+		orderManager.showListOfOrders();
 	}
 //-----------------------------------------------------------------	
 	@Override
 	public void showListOfOrdersSortedByCompleteDate(){
 		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateComplete());
+		orderManager.showListOfOrders();
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByPlanStartDate(){
 		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDatePlanStart());
+		orderManager.showListOfOrders();
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfOrdersSortedByPrice(){
 		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByPrice());
+		orderManager.showListOfOrders();
 	}
 //-----------------------------------------------------------------
-	@Override
+/*	@Override
 	public void showListOfNowExecutable(){
 		orderManager.showListOfExecutableOrders();
-	}
+	}*/
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfNowExecutableSortedByRegistrationDate(){
 		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateRegistration());
+		orderManager.showListOfExecutableOrders();
 	}
 //-----------------------------------------------------------------	
 	@Override
 	public void showListOfNowExecutableSortedByCompleteDate(){
 		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateComplete());
+		orderManager.showListOfExecutableOrders();
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showListOfNowExecutableSortedByPrice(){
 		orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByPrice());
-	}
-//-----------------------------------------------------------------
-	@Override
-	public void showMasterByOrder(Order order){
-		orderManager.showMasterByOrder(order);
-	}
-//-----------------------------------------------------------------	
-	@Override
-	public void showOrdersInDateInterval(String startDate, String endDate){
-		orderManager.showOrdersInInterval(startDate, endDate);
+		orderManager.showListOfExecutableOrders();
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate){
 		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateRegistration());
+		orderManager.showOrdersInInterval(startDate, endDate);
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate){
 		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateComplete());
+		orderManager.showOrdersInInterval(startDate, endDate);
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate){
 		orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByPrice());
+		orderManager.showOrdersInInterval(startDate, endDate);
 	}	
 //-----------------------------------------------------------------
 	@Override
@@ -116,56 +132,98 @@ public class Service implements IService{
 //-----------------------------------------------------------------
 	@Override
 	public void addNewOrder(String description, Double price, String planStartDay, String completeDay){ 
-		orderManager.add(description, price, planStartDay, completeDay);
+		try{
+			orderManager.add(description, price, planStartDay, completeDay);
+		} catch (Exception e){
+			log.error(e);
+			throw(e);
+		}
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void removeOrder(Order order){ 
-		orderManager.remove(order);
+	public Boolean removeOrder(Integer id){ 
+		try{
+			return orderManager.remove(id);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void closeOrder(Order order){ 
-		orderManager.closeOrder(order);
+	public Boolean closeOrder(Integer id){ 
+		try{
+			return orderManager.closeOrder(id);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}	
 //-----------------------------------------------------------------
 	@Override
 	public void revokeOrder(Order order){ 
-		orderManager.revokeOrder(order);
+		try{
+			orderManager.revokeOrder(order);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}	
 //-----------------------------------------------------------------
 	@Override
 	public void moveOrderDateComplete(Order order, String newDate){ 
-		orderManager.setDateOFComplete(order, newDate);
+		try{
+			orderManager.setDateOFComplete(order, newDate);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}	
 //-------------------------------------------------------------------------------------------------------------  MASTERS  -------------------
 	@Override
 	public List<Master> getListOfMasters(){
-		return masterManager.getListOfMasters();
+			return masterManager.getListOfMasters();
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void sortListOfMastersByAlphabet(){ 
-		masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersBySurName());
+		try{
+			masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersBySurName());
+			masterManager.getListOfMasters();
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //-----------------------------------------------------------------
 	@Override
 	public void sortListOfMastersByStatus(){ 
-		masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersByStatus());
+		try{
+			masterManager.sort(masterManager.getListOfMasters(), new ComparateMastersByStatus());
+			masterManager.getListOfMasters();
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //-----------------------------------------------------------------
-	@Override
-	public String getOrderOfMaster(String surName){
+	/*	@Override
+public String getOrderOfMaster(String surName){
 		masterManager.getOrderOfMaster(surName);
-	}
+	}*/
 //-----------------------------------------------------------------	
 	@Override
 	public void addNewMaster(String name, String surName){ 
-		masterManager.add(name, surName);
+		try{
+			masterManager.add(name, surName);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}	
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void removeMaster(Master master){ 
-		masterManager.remove(master);
+	public Boolean removeMaster(String surName){ 
+		return masterManager.remove(surName);
 	}	
 }

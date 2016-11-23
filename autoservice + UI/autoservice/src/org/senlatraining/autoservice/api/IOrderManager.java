@@ -9,8 +9,8 @@ import java.util.Comparator;
 public interface IOrderManager {
 	
 	public void add(String description, Double price, String planStartDay, String completeDay);
-	public void remove(Order order);
-	public void closeOrder(Order order);
+	public Boolean remove(Integer id);
+	public Boolean closeOrder(Integer id);
 	public void revokeOrder(Order order);
 	public void moveOrder();
 	public void showMasterByOrder(Order order);
