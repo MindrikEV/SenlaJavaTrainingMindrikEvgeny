@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="autoservice/src"/>
+	<classpathentry kind="src" path="UI/src"/>
+	<classpathentry kind="lib" path="autoservice/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="autoservice/lib/textFileWorker.jar"/>
+	<classpathentry kind="lib" path="UI/lib/log4j.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="UI/bin"/>
+</classpath>

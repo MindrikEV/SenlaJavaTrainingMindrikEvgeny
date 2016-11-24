@@ -1,0 +1,163 @@
+16-11-2016 12:05:50 ERROR Builder:16 - ERRRO
+16-11-2016 14:09:58 ERROR Builder:24 - java.lang.NullPointerException
+16-11-2016 14:11:34 ERROR Builder:24 - java.lang.NullPointerException
+16-11-2016 14:11:34 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 14:12:44 ERROR Builder:24 - java.lang.NullPointerException
+16-11-2016 14:12:44 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 14:14:11 ERROR Builder:28 - java.lang.NullPointerException
+16-11-2016 14:14:11 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 14:18:30 ERROR Builder:24 - java.lang.NullPointerException
+16-11-2016 14:18:30 ERROR Builder:32 - java.lang.NullPointerException
+16-11-2016 14:21:25 ERROR Builder:32 - java.lang.NullPointerException
+16-11-2016 14:23:53 ERROR Builder:32 - java.lang.NullPointerException
+16-11-2016 14:26:46 ERROR Builder:32 - java.lang.NullPointerException
+16-11-2016 19:47:29 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 19:49:25 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 19:57:42 ERROR Builder:33 - java.lang.NullPointerException
+16-11-2016 20:26:24 ERROR Builder:34 - java.lang.NullPointerException
+17-11-2016 00:43:54 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 00:45:03 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 00:48:43 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 00:49:12 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:01:09 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:09:27 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:11:44 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:12:20 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:14:03 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:15:01 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:15:28 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 01:17:50 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 11:59:04 ERROR Builder:39 - java.lang.NullPointerException
+17-11-2016 12:18:02 ERROR Builder:49 - java.lang.NullPointerException
+17-11-2016 14:09:43 ERROR Builder:49 - java.lang.NullPointerException
+17-11-2016 14:10:09 ERROR Builder:49 - java.lang.NullPointerException
+17-11-2016 14:17:07 ERROR Builder:16 - java.lang.NullPointerException
+17-11-2016 14:24:49 ERROR Builder:16 - java.lang.NullPointerException
+17-11-2016 14:24:55 ERROR Builder:16 - java.lang.NullPointerException
+17-11-2016 17:18:30 ERROR Builder:16 - java.lang.NullPointerException
+17-11-2016 17:43:22 ERROR Builder:16 - java.lang.NullPointerException
+17-11-2016 17:49:19 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 17:50:12 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 17:54:57 ERROR Builder:42 - java.lang.NullPointerException
+17-11-2016 17:56:12 ERROR Builder:37 - java.lang.NullPointerException
+17-11-2016 18:16:16 ERROR Builder:37 - java.lang.NullPointerException
+17-11-2016 18:16:39 ERROR Builder:37 - java.lang.NullPointerException
+17-11-2016 18:19:19 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:21:03 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:25:11 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:25:16 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:25:21 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:27:45 ERROR Builder:37 - java.lang.NullPointerException
+17-11-2016 18:28:20 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:48:12 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:56:31 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 18:56:38 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 19:03:08 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 19:07:49 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 19:10:02 ERROR Reader:16 - java.lang.NullPointerException
+17-11-2016 19:10:53 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 19:14:16 ERROR Reader:15 - java.lang.NullPointerException
+17-11-2016 19:16:37 ERROR Builder:37 - java.lang.NullPointerException
+17-11-2016 19:24:18 ERROR Builder:51 - java.lang.NullPointerException
+17-11-2016 19:24:42 ERROR Builder:51 - java.lang.NullPointerException
+17-11-2016 19:26:01 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 19:44:53 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 19:45:22 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 19:46:11 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 19:49:47 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 19:51:34 ERROR Builder:48 - java.lang.ArrayIndexOutOfBoundsException: -1
+17-11-2016 20:09:15 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:11:31 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:12:15 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:13:32 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:15:58 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:19:07 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:19:07 ERROR Builder:48 - java.lang.NullPointerException
+17-11-2016 20:20:54 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:20:54 ERROR Builder:27 - java.lang.NullPointerException
+17-11-2016 20:21:33 ERROR Builder:58 - java.util.NoSuchElementException: No line found
+17-11-2016 20:21:33 ERROR RemoveGarage:27 - java.lang.NullPointerException
+17-11-2016 20:23:31 ERROR RemoveGarage:27 - java.lang.NullPointerException
+17-11-2016 20:24:30 ERROR RemoveGarage:24 - java.lang.NullPointerException
+17-11-2016 20:26:25 ERROR RemoveGarage:24 - java.lang.NullPointerException
+18-11-2016 15:38:21 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:00:17 ERROR Builder:48 - java.lang.NullPointerException
+19-11-2016 18:01:50 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 3, Size: 0
+19-11-2016 18:02:15 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 1, Size: 0
+19-11-2016 18:02:20 ERROR Builder:48 - java.lang.IndexOutOfBoundsException: Index: 2, Size: 0
+19-11-2016 18:02:34 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:07:17 ERROR Builder:48 - java.lang.NullPointerException
+19-11-2016 18:09:35 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:09:35 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:11:31 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:11:31 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:11:38 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:11:38 ERROR Builder:51 - java.util.NoSuchElementException
+19-11-2016 18:26:33 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:26:48 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:27:26 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:28:02 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:28:02 ERROR Builder:52 - java.util.NoSuchElementException
+19-11-2016 18:28:02 ERROR Builder:52 - java.util.NoSuchElementException
+19-11-2016 18:30:25 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:30:44 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:31:19 ERROR Builder:52 - java.lang.NullPointerException
+19-11-2016 18:31:52 ERROR Builder:51 - java.lang.NullPointerException
+19-11-2016 18:39:30 ERROR Builder:50 - java.lang.NullPointerException
+19-11-2016 18:40:12 ERROR RemoveGarage:24 - java.lang.NullPointerException
+19-11-2016 18:43:20 ERROR RemoveGarage:26 - java.lang.NullPointerException
+19-11-2016 18:46:59 ERROR Builder:50 - java.lang.NumberFormatException: For input string: ""
+19-11-2016 18:48:58 ERROR RemoveGarage:29 - java.lang.NullPointerException
+19-11-2016 18:49:14 ERROR RemoveGarage:29 - java.lang.NullPointerException
+20-11-2016 17:14:41 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:14:49 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:14:58 ERROR Builder:50 - java.lang.IndexOutOfBoundsException: Index: 2, Size: 0
+20-11-2016 17:15:07 ERROR RemoveGarage:27 - java.lang.NullPointerException
+20-11-2016 17:21:20 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:25:24 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:26:04 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 17:27:52 ERROR Builder:50 - java.lang.NullPointerException
+20-11-2016 19:05:57 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 12:52:16 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 13:04:59 ERROR AddGarage:19 - java.lang.NullPointerException
+21-11-2016 13:04:59 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 13:16:37 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 14:46:12 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 17:39:20 ERROR Builder:50 - java.util.NoSuchElementException
+21-11-2016 17:40:55 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 17:50:31 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 17:51:41 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:11:56 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:12:57 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 18:15:51 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:20:19 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:25:05 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:32:26 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:35:30 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:36:06 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:42:22 ERROR Builder:50 - java.lang.IllegalArgumentException: File not found
+21-11-2016 19:48:13 ERROR Builder:50 - java.lang.NullPointerException
+21-11-2016 20:14:07 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:43:21 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:44:04 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 00:45:26 ERROR RemoveGarage:27 - java.lang.NullPointerException
+22-11-2016 00:51:16 ERROR RemoveGarage:27 - java.lang.NullPointerException
+22-11-2016 00:57:29 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:01:22 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:02:10 ERROR Builder:50 - java.lang.NullPointerException
+22-11-2016 01:02:25 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:05:01 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:05:54 ERROR RemoveGarage:29 - java.lang.NullPointerException
+22-11-2016 01:12:44 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 01:13:25 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 01:19:22 ERROR RemoveGarage:33 - java.lang.NullPointerException
+22-11-2016 09:31:48 ERROR AddOrder:38 - java.lang.NullPointerException
+22-11-2016 09:31:48 ERROR Builder:50 - java.lang.NullPointerException
+23-11-2016 19:43:25 ERROR Builder:49 - java.lang.NullPointerException
+23-11-2016 19:44:03 ERROR AddOrder:37 - java.lang.NullPointerException
+23-11-2016 19:44:03 ERROR Builder:49 - java.lang.NullPointerException
+24-11-2016 01:19:19 ERROR Builder:49 - java.lang.NullPointerException
+24-11-2016 03:15:53 ERROR Builder:48 - java.lang.NullPointerException
+24-11-2016 18:40:24 ERROR Builder:48 - java.lang.NullPointerException
+24-11-2016 18:40:53 ERROR ShowExecutableOrdersSortedByDateRegistration:19 - java.lang.NullPointerException
+24-11-2016 18:40:53 ERROR Builder:48 - java.lang.NullPointerException
