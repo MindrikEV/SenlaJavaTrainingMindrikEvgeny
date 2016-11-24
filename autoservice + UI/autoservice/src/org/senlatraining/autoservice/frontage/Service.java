@@ -75,16 +75,21 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------	
 	@Override
-	public void showListOfOrdersSortedByCompleteDate(){
-		orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateComplete());
-		orderManager.getListOfOrders();
+	public List<Order> getListOfOrdersSortedByCompleteDate(){
+		try{
+			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateRegistration());
+			return orderManager.getListOfOrders();
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showListOfOrdersSortedByPlanStartDate(){
+	public List<Order> getListOfOrdersSortedByPlanStartDate(){
 		try{
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDatePlanStart());
-			orderManager.getListOfOrders();
+			return orderManager.getListOfOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -92,10 +97,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showListOfOrdersSortedByPrice(){
+	public List<Order> getListOfOrdersSortedByPrice(){
 		try{
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByPrice());
-			orderManager.getListOfOrders();
+			return orderManager.getListOfOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -103,10 +108,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showListOfNowExecutableSortedByRegistrationDate(){
+	public List<Order> getListOfNowExecutableSortedByRegistrationDate(){
 		try{
 			orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateRegistration());
-			orderManager.getListOfExecutableOrders();
+			return orderManager.getListOfExecutableOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -114,10 +119,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------	
 	@Override
-	public void showListOfNowExecutableSortedByCompleteDate(){
+	public List<Order> getListOfNowExecutableSortedByCompleteDate(){
 		try{
 			orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByDateComplete());
-			orderManager.getListOfExecutableOrders();
+			return orderManager.getListOfExecutableOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -125,10 +130,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showListOfNowExecutableSortedByPrice(){
+	public List<Order> getListOfNowExecutableSortedByPrice(){
 		try{
 			orderManager.sort(orderManager.getListOfExecutableOrders(), new ComparateOrdersByPrice());
-			orderManager.getListOfExecutableOrders();
+			return orderManager.getListOfExecutableOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -136,10 +141,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate){
+	public List<Order> getOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate){
 		try{
 			orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateRegistration());
-			orderManager.getOrdersInInterval(startDate, endDate);
+			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -147,10 +152,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate){
+	public List<Order> getOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate){
 		try{
 			orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateComplete());
-			orderManager.getOrdersInInterval(startDate, endDate);
+			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);
@@ -158,10 +163,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------
 	@Override
-	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate){
+	public List<Order> getOrdersInDateIntervalSortedByPrice(String startDate, String endDate){
 		try{
 			orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByPrice());
-			orderManager.getOrdersInInterval(startDate, endDate);
+			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);

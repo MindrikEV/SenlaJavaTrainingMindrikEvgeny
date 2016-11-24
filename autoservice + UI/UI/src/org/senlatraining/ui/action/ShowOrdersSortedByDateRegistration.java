@@ -13,6 +13,7 @@ public class ShowOrdersSortedByDateRegistration implements IAction{
 	@Override
 	public void execute() {
 		try{
+			Printer.println(MSG_ORDERS_SORT_BY_DATE_REG);
 			Printer.printList(service.getListOfOrdersSortedByRegistrationDate());
 		} catch (NullPointerException npe){
 			log.error(npe);

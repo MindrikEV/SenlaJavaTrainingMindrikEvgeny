@@ -13,6 +13,7 @@ public class Builder {
 	private Menu  mastersMenu = new Menu(Titles.Masters.toString());
 	private Menu  ordersMenu = new Menu(Titles.Orders.toString());
 	private Menu  sortOrdersMenu = new Menu(Titles.SortOrders.toString());
+	private Menu  sortExecutableOrdersMenu = new Menu(Titles.SortExecutableOrders.toString());
 	
 	public void buildMenu(){	
 		try{
@@ -42,6 +43,13 @@ public class Builder {
 			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));		
 		//--------------------------------------------------------------------------------------------
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowOrdersSortedByDateRegistration()));
+			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowOrdersSortedByDateComplete()));
+			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowOrdersSortedByDatePlanStart()));
+			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePrice.toString(), new ShowListOfOrdersSortedByPrice()));
+		//--------------------------------------------------------------------------------------------
+			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowExecutableOrdersSortedByDateRegistration()));
+			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowExecutableOrdersSortedByDateComplete()));
+			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowExecutableOrdersSortedByPrice()));
 		} catch (RuntimeException e) {
 			log.error(e);
 		}	
