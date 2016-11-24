@@ -9,6 +9,7 @@ public enum Titles {
 	SortMaters,
 	SortByAlpabet,
 	SortByStatus,
+	SortByDateRegistration,
 	SortOrders,
 	SortByPrice,
 	Add,
@@ -18,6 +19,7 @@ public enum Titles {
 	Move,
 	ShowList,
 	ShowSorted,
+	ShowListOfOrders,
 	ShowOrder,
 	ShowAmountOfFreePlacesOnDate
 }

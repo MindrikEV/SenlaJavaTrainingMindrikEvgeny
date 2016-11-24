@@ -64,10 +64,10 @@ public class Service implements IService{
 	}
 //-----------------------------------------------------------------------------------------------------------  ORDERS  --------------------
 	@Override
-	public void showListOfOrdersSortedByRegistrationDate(){
+	public List<Order> getListOfOrdersSortedByRegistrationDate(){
 		try{
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateRegistration());
-			orderManager.getListOfOrders();
+			return orderManager.getListOfOrders();
 		} catch (NullPointerException npe){
 			log.error(npe);
 			throw(npe);

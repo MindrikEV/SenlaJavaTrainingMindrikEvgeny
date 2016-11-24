@@ -11,7 +11,7 @@ public interface IService {
 	public Boolean removeGarage(Integer number);
 //---------------------------------------------------------------------------
 	//public void showListOfOrders();
-	public void showListOfOrdersSortedByRegistrationDate();
+	public List<Garage> getListOfOrdersSortedByRegistrationDate();
 	public void showListOfOrdersSortedByCompleteDate();
 	public void showListOfOrdersSortedByPlanStartDate();
 	public void showListOfOrdersSortedByPrice();

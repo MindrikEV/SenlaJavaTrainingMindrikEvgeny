@@ -12,7 +12,7 @@ public class Builder {
 	private Menu  garagesMenu = new Menu(Titles.Garages.toString());
 	private Menu  mastersMenu = new Menu(Titles.Masters.toString());
 	private Menu  ordersMenu = new Menu(Titles.Orders.toString());
-//	private Menu  sortMasterMenu = new Menu(Titles.SortMaters.toString());
+	private Menu  sortOrdersMenu = new Menu(Titles.SortOrders.toString());
 	
 	public void buildMenu(){	
 		try{
@@ -26,20 +26,22 @@ public class Builder {
 			garagesMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			garagesMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			mastersMenu.addMenuItem(new MenuItem(Titles.ShowSorted.toString(), new ShowMastersSortedByAlphabet()));
-			mastersMenu.addMenuItem(new MenuItem(Titles.ShowOrder.toString(), new ShowMastersSortedByStatus()));
+			mastersMenu.addMenuItem(new MenuItem(Titles.SortByAlpabet.toString(), new ShowMastersSortedByAlphabet()));
+			mastersMenu.addMenuItem(new MenuItem(Titles.SortByStatus.toString(), new ShowMastersSortedByStatus()));
 			mastersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddMaster()));
 			mastersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			//ordersMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new JumpMenu(sortMenu)));
+			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListOfOrders.toString(), new JumpMenu(sortOrdersMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
-			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));			
+			ordersMenu.addMenuItem(new MenuItem(Titles.ShowAmountOfFreePlacesOnDate.toString(), new ShowAmountOfFreePlacesOnDate()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));		
+		//--------------------------------------------------------------------------------------------
+			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowOrdersSortedByDateRegistration()));
 		} catch (RuntimeException e) {
 			log.error(e);
 		}	
