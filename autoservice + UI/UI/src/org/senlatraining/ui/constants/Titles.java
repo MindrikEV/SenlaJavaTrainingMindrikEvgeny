@@ -25,6 +25,7 @@ public enum Titles {
 	ShowList,
 	ShowSorted,
 	ShowListOfOrders,
+	ShowListOfExecutableOrders,
 	ShowOrder,
 	ShowAmountOfFreePlacesOnDate
 }
