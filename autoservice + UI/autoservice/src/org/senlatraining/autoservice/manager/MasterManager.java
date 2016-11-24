@@ -13,11 +13,9 @@ import org.senlatraining.autoservice.util.Printer;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class MasterManager implements IMasterManager, ICommonManagers{  
-	private final String ORDER_NOT_FOUND = "Master don't have order now!";
 	private static final Logger log = Logger.getLogger(MasterManager.class);
 	private List<Master> listOfMasters = new ArrayList<Master>();
 	private Path path = new Path();
-	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForMaster());
 		
 	@Override
@@ -74,7 +72,7 @@ public class MasterManager implements IMasterManager, ICommonManagers{
 	@Override
 	public void sort(List<Master> listOfMasters, Comparator comparator){
 		Collections.sort(listOfMasters, comparator);	
-		printer.printList(listOfMasters);
+		//Printer.printList(listOfMasters);
 	}
 //------------------------------------------------------------------------------
 	@Override

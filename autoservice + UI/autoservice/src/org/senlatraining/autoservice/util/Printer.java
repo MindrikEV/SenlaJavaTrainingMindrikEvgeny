@@ -4,17 +4,17 @@ import java.util.List;
 
 public class Printer {
 	
-	public void print(String message){
+	public static void print(String message){
 		System.out.println(message);
 	}
 //----------------------------------------------------------
-	public <T> void printList(List<T> array){
+	public static <T> void printList(List<T> array){
 		for(T a : array){
 			System.out.println(a.toString());
 		}
 	}
 //----------------------------------------------------------
-	public void printStick(){
+	public static void printStick(){
 		System.out.println("---------------------------------------------------------------");
 	}
 }

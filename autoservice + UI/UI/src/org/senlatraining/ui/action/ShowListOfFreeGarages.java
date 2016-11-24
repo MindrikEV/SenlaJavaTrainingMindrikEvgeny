@@ -6,13 +6,12 @@ import org.senlatraining.autoservice.frontage.Service;
 
 public class ShowListOfFreeGarages implements IAction{
 	private final String MSG_FREE_GARAGES = "Free garages:";
-	private Service service = new Service();
-	private Printer printer = new Printer();
+	private Service service;
 	
 	@Override
 	public void execute() {
-		printer.println(MSG_FREE_GARAGES);
-		printer.printList(service.getListOfFreeGarages());
+		Printer.println(MSG_FREE_GARAGES);
+		Printer.printList(service.getListOfFreeGarages());
 
 	}
 	

@@ -6,13 +6,12 @@ import org.senlatraining.ui.util.Printer;
 
 public class ShowHistoryOfOrders implements IAction{
 	private final String MSG_HISTORY_OF_ORDERS = "History of orders: ";
-	private Service service = new Service();
-	private Printer printer = new Printer();
+	private Service service;
 	
 	@Override
 	public void execute() {
-		printer.println(MSG_HISTORY_OF_ORDERS);
-		printer.printList(service.getListOfFreeGarages());
+		Printer.println(MSG_HISTORY_OF_ORDERS);
+		Printer.printList(service.getListOfFreeGarages());
 
 	}
 }

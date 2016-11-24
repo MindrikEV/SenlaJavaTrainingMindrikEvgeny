@@ -14,23 +14,22 @@ public class MoveOrder implements IAction{
 	private final String MSG_ENTER_ID = "Enter ID: ";
 	private final String MSG_ENTER_NEW_PLAN_DATE = "Enter new plan start date (yyyy-mm-dd): ";
 	private final String MSG_ENTER_NEW_COMPLETE_DATE = "Enter new complete day: ";
-	private Service service = new Service();
-	private Printer printer;
+	private Service service;
 	
 	@Override
 	public void execute() {
 		try (Scanner sc = new Scanner(System.in)){
-			printer.println(MSG_ENTER_ID);
+			Printer.println(MSG_ENTER_ID);
 			Integer tmpId = sc.nextInt();
 			
-			printer.println(MSG_ENTER_NEW_PLAN_DATE);
+			Printer.println(MSG_ENTER_NEW_PLAN_DATE);
 			String tmpStartDate = sc.nextLine();
 			
-			printer.println(MSG_ENTER_NEW_COMPLETE_DATE);
+			Printer.println(MSG_ENTER_NEW_COMPLETE_DATE);
 			String tmpCompleteDate = sc.nextLine();
 			
 			service.moveOrderDateComplete(tmpId, tmpStartDate, tmpCompleteDate);
-			printer.print(MSG_WAS + Messeges.Moved);
+			Printer.print(MSG_WAS + Messeges.Moved);
 		} catch(Exception e){
 			log.error(e);
 			throw(e);

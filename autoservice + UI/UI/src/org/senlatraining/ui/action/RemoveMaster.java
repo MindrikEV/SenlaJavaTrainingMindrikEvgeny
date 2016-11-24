@@ -12,18 +12,17 @@ public class RemoveMaster implements IAction{
 	private static final Logger log = Logger.getLogger(RemoveGarage.class);
 	private final String MSG_NOT_FOUND_MASTER = "Master with this surname not found. Try another!";
 	private final String MSG_ENTER_SURNAME = "Enter surname of master -> ";
-	private Service service = new Service();
-	private Printer printer = new Printer(); 
+	private Service service;
 	
 	@Override
 	public void execute() {
-		printer.print(MSG_ENTER_SURNAME);
+		Printer.print(MSG_ENTER_SURNAME);
 		try (Scanner sc = new Scanner(System.in)){
 			Boolean f = service.removeMaster(sc.nextLine());
 			if(!f){
 				System.out.print(MSG_NOT_FOUND_MASTER);
 			} else {
-				printer.print(sc.nextLine() + Messeges.Removed.toString());
+				Printer.print(sc.nextLine() + Messeges.Removed.toString());
 			}
 		} catch(NullPointerException ne){
 			log.error(ne);

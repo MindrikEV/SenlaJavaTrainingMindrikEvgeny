@@ -9,15 +9,16 @@ import org.apache.log4j.Logger;
 
 public class GarageManager implements IGarageManager, ICommonManagers {
 	private static final Logger log = Logger.getLogger(GarageManager.class);
+	
 	private static Boolean addebleOfGarage = true;
 	private static Boolean removebleOfGarage = true;
+	
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
 	private final String MSG_GARAGE_IS_NOT_ADDEBLE = "Sorry, but add-function is disabled for Garages!";
 	private final String MSG_GARAGE_IS_NOT_REMOVEBLE = "Sorry, but remove-function is disabled for Garages!";
 	private List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
-	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
 	
 	public void setAddebleOfGarage(Boolean addebleOfGarage){
@@ -80,7 +81,6 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 				tmp.add(listOfGarages.get(i));
 			}
 		}
-		//printer.printList(tmp);
 		return tmp;
 	}
 //------------------------------------------------------------------

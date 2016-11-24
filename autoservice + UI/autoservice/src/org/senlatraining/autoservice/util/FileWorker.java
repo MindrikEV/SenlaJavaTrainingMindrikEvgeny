@@ -10,25 +10,31 @@ public class FileWorker {
 	private static final Logger log = Logger.getLogger(FileWorker.class);
 	private TextFileWorker fileWorker;
 	
-	public FileWorker(String path){												// Constructor
+	public FileWorker(String path){											
 		fileWorker = new TextFileWorker(path);
 	}
 //--------------------------------------------------------------------------------	
 	public <T> void pushListToFile(List<T> array){								 	// Write to file
-		String[] list = new String[array.size()];
+		try{
+			String[] list = new String[array.size()];
 		
-		for(int i = 0; i < array.size(); i++){
-			list[i] = array.get(i).toString();
+			for(int i = 0; i < array.size(); i++){
+				list[i] = array.get(i).toString();
+			}
+				fileWorker.writeToFile(list);
+		} catch (Exception e){
+			log.error(e);
+			throw(e);
 		}
-			fileWorker.writeToFile(list);	
 	}	
 //--------------------------------------------------------------------------------	
 	public String[] pullFromFile(){ 											// Read from file
-		
-		//for(int i=0; i < fileWorker.readFromFile().length;i++){
-		//	System.out.println(fileWorker.readFromFile()[i]);	
-		//}
-		return fileWorker.readFromFile();
+		try{
+			return fileWorker.readFromFile();
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
 	}
 }
 

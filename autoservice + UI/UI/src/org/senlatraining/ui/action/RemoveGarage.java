@@ -16,12 +16,11 @@ public class RemoveGarage implements IAction{
 	private final String MSG_NOT_FOUND_GARAGE = "Garage with this number not found. Try another!";
 	private final String MSG_ENTER_NUM = "Type number -> ";
 	private final String MSG_GARAGE = "Garage number - ";
-	private Service service = new Service();
-	private Printer printer = new Printer(); 
+	private Service service;
 		
 	@Override
 	public void execute() {
-		printer.print(MSG_ENTER_NUM);
+		Printer.print(MSG_ENTER_NUM);
 		try (Scanner sc = new Scanner(System.in)){
 			Integer number = Integer.valueOf(sc.nextLine());
 		
@@ -29,7 +28,7 @@ public class RemoveGarage implements IAction{
 			if(!f){
 				System.out.print(MSG_NOT_FOUND_GARAGE);
 			} else {
-				printer.print(MSG_GARAGE + number + Messeges.Removed.toString());
+				Printer.print(MSG_GARAGE + number + Messeges.Removed.toString());
 			}
 		} catch(NullPointerException ne){
 			log.error(ne);

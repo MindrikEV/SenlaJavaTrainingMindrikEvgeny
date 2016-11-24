@@ -12,7 +12,6 @@ public class Navigator {
 	private final String MSG_MENU = "Menu: ";
 	private final String MSG_ENT_NUM_ITEM = "Enter the number of item > ";
 	private Menu currentMenu = new Menu();
-	private Printer printer = new Printer();
 	
 	public void setCurrenMenu(Menu currentMenu){
 		this.currentMenu = currentMenu;
@@ -24,12 +23,12 @@ public class Navigator {
 //---------------------------------------------------------------	
 	public void printMenu(){ 
 		try {
-			printer.println(Titles.A_U_T_O_S_E_R_V_I_C_E.toString());
-			printer.println(MSG_MENU + currentMenu.getMenuName());
-			printer.printStick();
-			printer.printMenu(currentMenu.getMenuItems());
-			printer.printStick();
-			printer.print(MSG_ENT_NUM_ITEM);
+			Printer.println(Titles.A_U_T_O_S_E_R_V_I_C_E.toString());
+			Printer.println(MSG_MENU + currentMenu.getMenuName());
+			Printer.printStick();
+			Printer.printMenu(currentMenu.getMenuItems());
+			Printer.printStick();
+			Printer.print(MSG_ENT_NUM_ITEM);
 			
 			scanItemNumber();
 		} catch (NullPointerException e){

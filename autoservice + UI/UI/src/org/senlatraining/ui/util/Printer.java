@@ -7,15 +7,15 @@ import org.apache.log4j.Logger;
 public class Printer {
 	private static final Logger log = Logger.getLogger(Printer.class);
 		
-	public void print(String message){
+	public static void print(Object message){
 		System.out.print(message);
 	}
 //----------------------------------------------------------
-	public void println(String message){
+	public static void println(Object message){
 		System.out.println(message);
 	}
 //----------------------------------------------------------
-	public <T> void printList(List<T> array){
+	public static <T> void printList(List<T> array){
 		try {
 			for(T a : array){
 				System.out.println(a.toString());
@@ -25,7 +25,7 @@ public class Printer {
 		}	
 	}
 //----------------------------------------------------------
-	public <T> void printMenu(List<T> array){
+	public static <T> void printMenu(List<T> array){
 		StringBuilder s = new StringBuilder();
 		try {
 			for(int i=0; i < array.size();i++)
@@ -41,7 +41,7 @@ public class Printer {
 		}	
 	}
 //----------------------------------------------------------
-	public void printStick(){
+	public static void printStick(){
 		System.out.println("---------------------");
 	}
 }

@@ -156,3 +156,4 @@
 23-11-2016 19:43:25 ERROR Builder:49 - java.lang.NullPointerException
 23-11-2016 19:44:03 ERROR AddOrder:37 - java.lang.NullPointerException
 23-11-2016 19:44:03 ERROR Builder:49 - java.lang.NullPointerException
+24-11-2016 01:19:19 ERROR Builder:49 - java.lang.NullPointerException

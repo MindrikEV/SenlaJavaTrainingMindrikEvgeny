@@ -17,8 +17,6 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	private static final Logger log = Logger.getLogger(OrderManager.class);
 	private static Boolean movableOfOrder = true;
 	private static Boolean removebleOfOrder = true;
-	private final String STATUS_CLOSE = "closed";
-	private final String STATUS_REVOKE = "revoked";
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";
 	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
@@ -27,7 +25,6 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	private final String MSG_ORDER_IS_NOT_REMOVEBLE = "Sorry, but remove-function is disabled for Orders!";
 	private List<Order> listOfOrders = new ArrayList<Order>();
 	private Path path = new Path();
-	private Printer printer = new Printer();
 	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
@@ -96,28 +93,14 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 				listOfOrders.get(i).setDateOfComplete(completeDate);
 			}
 		}
-			printer.print(MSG_ORDER_IS_NOT_MOVABLE);
+			Printer.print(MSG_ORDER_IS_NOT_MOVABLE);
 		//}
 	}		
-//------------------------------------------------------------------
-	@Override
-	public void showListOfOrders() {
-		printer.printList(listOfOrders);
-	}
 //------------------------------------------------------------------	
 	@Override
 	public List<Order> getListOfOrders() {
 		return listOfOrders;
 	}	
-//------------------------------------------------------------------
-	@Override
-	public void showListOfExecutableOrders(){
-		for(int i = 0; i < listOfOrders.size(); i++){
-			if(listOfOrders.get(i).getStatus().equals(STATUS_AT_WORK)){
-				printer.print(listOfOrders.get(i).toString());
-			}
-		}
-	}
 //------------------------------------------------------------------
 	@Override
 	public List<Order> getListOfExecutableOrders(){
@@ -133,30 +116,20 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	@Override
 	public void showMasterByOrder(Order order){
 		if(order.getMaster() != null){
-			printer.print(order.getMaster().toString());
+			Printer.print(order.getMaster().toString());
 		} else {
-			printer.print(ERROR_ORDER_DONT_HAVE_MASTER);
+			Printer.print(ERROR_ORDER_DONT_HAVE_MASTER);
 		}
 	}
 //------------------------------------------------------------------
 	@Override
 	public void showGarageByOrder(Order order){
 		if(order.getMaster() != null){
-			printer.print(order.getGarage().toString());
+			Printer.print(order.getGarage().toString());
 		} else {
-			printer.print(ERROR_ORDER_DONT_HAVE_GARAGE);
+			Printer.print(ERROR_ORDER_DONT_HAVE_GARAGE);
 		}
 	}
-//------------------------------------------------------------------
-	@Override
-	public void showOrdersInInterval(String startDate, String endDate){
-		for(int i = 0; i < listOfOrders.size(); i++){
-			if((listOfOrders.get(i).getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
-			&& (listOfOrders.get(i).getDateOfComplete().isBefore(LocalDate.parse(endDate)))){
-				printer.print(listOfOrders.get(i).toString());
-			}	
-		}	
-	}	
 //------------------------------------------------------------------
 	@Override
 	public List<Order> getOrdersInInterval(String startDate, String endDate){
@@ -207,7 +180,7 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	@Override
 	public void sort(List<Order> listOfOrders, Comparator comparator){
 		Collections.sort(listOfOrders, comparator);	
-		printer.printList(listOfOrders);
+		//Printer.printList(listOfOrders);
 	}
 //------------------------------------------------------------------
 	@Override

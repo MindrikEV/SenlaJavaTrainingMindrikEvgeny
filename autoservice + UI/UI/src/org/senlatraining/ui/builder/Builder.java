@@ -26,17 +26,18 @@ public class Builder {
 			garagesMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			garagesMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			//mastersMenu.addMenuItem(new MenuItem(Titles.ShowSorted.toString(), new new ShowMastersSortedByAlphabet()));
-			//mastersMenu.addMenuItem(new MenuItem(Titles.ShowOrder.toString(), new ShowMastersSortedByStatus()));
+			mastersMenu.addMenuItem(new MenuItem(Titles.ShowSorted.toString(), new ShowMastersSortedByAlphabet()));
+			mastersMenu.addMenuItem(new MenuItem(Titles.ShowOrder.toString(), new ShowMastersSortedByStatus()));
 			mastersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddMaster()));
 			mastersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
-			//ordersMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new ShowListOfFreeGarages()));
+			//ordersMenu.addMenuItem(new MenuItem(Titles.ShowList.toString(), new JumpMenu(sortMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
+			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));			
 		} catch (RuntimeException e) {

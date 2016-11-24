@@ -24,16 +24,16 @@ public interface IService {
 	public void showOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate);
 	public void showOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate);
 	public void showOrdersInDateIntervalSortedByPrice(String startDate, String endDate);
-	public void showAmountOfFreePlacesOnDate(String date);
+	public Integer getAmountOfFreePlacesOnDate(String date);
 	public void showNearestFreeDate();
 	public void addNewOrder(String description, Double price, String planStartDay, String completeDay);
 	public Boolean removeOrder(Integer id);
 	public Boolean changeStatusOrder(Integer id, String status);
 	public void moveOrderDateComplete(Integer id, String startDate, String completeDate);
 //-----------------------------------------------------------------------------
-	public List<Master> getListOfMasters();
-	public void sortListOfMastersByAlphabet();
-	public void sortListOfMastersByStatus();
+	//public List<Master> getListOfMasters();
+	public List<Master> sortListOfMastersByAlphabet();
+	public List<Master> sortListOfMastersByStatus();
 	//public String getOrderOfMaster(String surName);
 	public void addNewMaster(String name, String surName);
 	public Boolean removeMaster(String surname);

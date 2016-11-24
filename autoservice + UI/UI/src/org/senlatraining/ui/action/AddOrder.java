@@ -15,26 +15,25 @@ public class AddOrder implements IAction{
 	private final String MSG_ENTER_PRICE = "Enter price: ";
 	private final String MSG_ENTER_START_DAY = "Enter start day: ";
 	private final String MSG_ENTER_COMPLETE_DAY = "Enter complete day: ";
-	private Service service = new Service();
-	private Printer printer;
+	private Service service;
 	
 	@Override
 	public void execute() {
 		try (Scanner sc = new Scanner(System.in)){
-			printer.println(MSG_ENTER_DESCRIPTION);
+			Printer.println(MSG_ENTER_DESCRIPTION);
 			String description = sc.nextLine();
 			
-			printer.println(MSG_ENTER_PRICE);
+			Printer.println(MSG_ENTER_PRICE);
 			Double price = Double.valueOf(sc.nextLine());
 			
-			printer.println(MSG_ENTER_START_DAY);
+			Printer.println(MSG_ENTER_START_DAY);
 			String planStartDay = sc.nextLine();
 
-			printer.println(MSG_ENTER_COMPLETE_DAY);
+			Printer.println(MSG_ENTER_COMPLETE_DAY);
 			String completeDay = sc.nextLine();
 			
 			service.addNewOrder(description, price, planStartDay, completeDay);
-			printer.print(MSG_WAS_ADDED + Messeges.Added);
+			Printer.print(MSG_WAS_ADDED + Messeges.Added);
 		} catch(Exception e){
 			log.error(e);
 			throw(e);

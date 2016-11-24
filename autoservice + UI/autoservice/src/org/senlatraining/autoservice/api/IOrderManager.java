@@ -13,12 +13,9 @@ public interface IOrderManager {
 	public Boolean changeStatusOrder(Integer id, String status);
 	public void moveOrder(Integer id, String startDate, String completeDate);
 	public void showMasterByOrder(Order order);
-	public void showListOfExecutableOrders();
 	public List<Order> getListOfExecutableOrders();
-	public void showListOfOrders();
 	public List<Order> getListOfOrders();
 	public void showGarageByOrder(Order order);
-	public void showOrdersInInterval(String startDate, String endDate);
 	public List<Order> getOrdersInInterval(String startDate, String endDate);
 	public void setMasterForOrder(Order order);
 	public void setGarageForOrder(Order order, Garage garage);

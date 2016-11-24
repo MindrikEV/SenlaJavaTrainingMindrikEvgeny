@@ -18,5 +18,6 @@ public enum Titles {
 	Move,
 	ShowList,
 	ShowSorted,
-	ShowOrder
+	ShowOrder,
+	ShowAmountOfFreePlacesOnDate
 }
