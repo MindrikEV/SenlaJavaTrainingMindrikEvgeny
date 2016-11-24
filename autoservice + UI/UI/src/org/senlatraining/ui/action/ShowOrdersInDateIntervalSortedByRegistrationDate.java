@@ -7,8 +7,8 @@ import org.senlatraining.autoservice.frontage.Service;
 import org.senlatraining.ui.api.IAction;
 import org.senlatraining.ui.util.Printer;
 
-public class showOrdersInDateIntervalSortedByRegistrationDate implements IAction{
-	private static final Logger log = Logger.getLogger(showOrdersInDateIntervalSortedByRegistrationDate.class);
+public class ShowOrdersInDateIntervalSortedByRegistrationDate implements IAction{
+	private static final Logger log = Logger.getLogger(ShowOrdersInDateIntervalSortedByRegistrationDate.class);
 	private final String MSG_ORDERS_IN_INTERVAL_SORT_BY_DATE_REG = "Orders in date-interval sorted by date of registration: ";
 	private final String MSG_ENTER_START_DATE = "Please, enter start-date of interval (yyyy-mm-dd): ";
 	private final String MSG_ENTER_END_DATE = "Please, enter end-date of interval (yyyy-mm-dd): ";
@@ -30,5 +30,4 @@ public class showOrdersInDateIntervalSortedByRegistrationDate implements IAction
 			throw(npe);
 		}
 	}
-	
 }

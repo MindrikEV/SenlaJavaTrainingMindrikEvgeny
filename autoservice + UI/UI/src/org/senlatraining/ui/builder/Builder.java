@@ -36,6 +36,7 @@ public class Builder {
 		//--------------------------------------------------------------------------------------------
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListOfOrders.toString(), new JumpMenu(sortOrdersMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListOfExecutableOrders.toString(), new JumpMenu(sortExecutableOrdersMenu)));
+			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListInInterval.toString(), new JumpMenu(sortOrdersInIntervalMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
@@ -47,14 +48,15 @@ public class Builder {
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowOrdersSortedByDateRegistration()));
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowOrdersSortedByDateComplete()));
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowOrdersSortedByDatePlanStart()));
-			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePrice.toString(), new ShowListOfOrdersSortedByPrice()));
+			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByPrice.toString(), new ShowListOfOrdersSortedByPrice()));
 		//--------------------------------------------------------------------------------------------
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowExecutableOrdersSortedByDateRegistration()));
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowExecutableOrdersSortedByDateComplete()));
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowExecutableOrdersSortedByPrice()));
 		//--------------------------------------------------------------------------------------------
-			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new showOrdersInDateIntervalSortedByRegistrationDate()));
-			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new showOrdersInDateIntervalSortedByRegistrationDate()));
+			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowOrdersInDateIntervalSortedByRegistrationDate()));
+			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowOrdersInDateIntervalSortedByCompleteDate()));
+			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByPrice.toString(), new ShowOrdersInDateIntervalSortedByPrice()));
 		} catch (RuntimeException e) {
 			log.error(e);
 		}	

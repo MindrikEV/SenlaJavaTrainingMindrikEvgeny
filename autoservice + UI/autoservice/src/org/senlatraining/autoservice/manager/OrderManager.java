@@ -70,8 +70,6 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 			for(int i=0; i<listOfOrders.size(); i++){
 				if(listOfOrders.get(i).getId().equals(id)){
 					listOfOrders.get(i).setStatus(status);
-					//listOfOrders.get(i).getMaster().setStatus(false);
-					//listOfOrders.get(i).getGarage().setStatus(false);
 					flag = true;
 				}
 			}	
@@ -180,7 +178,6 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 	@Override
 	public void sort(List<Order> listOfOrders, Comparator comparator){
 		Collections.sort(listOfOrders, comparator);	
-		//Printer.printList(listOfOrders);
 	}
 //------------------------------------------------------------------
 	@Override

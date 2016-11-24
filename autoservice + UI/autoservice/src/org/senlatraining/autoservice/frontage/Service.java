@@ -143,7 +143,6 @@ public class Service implements IService{
 	@Override
 	public List<Order> getOrdersInDateIntervalSortedByRegistrationDate(String startDate, String endDate){
 		try{
-			//orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateRegistration());
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateRegistration());
 			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){
@@ -155,7 +154,6 @@ public class Service implements IService{
 	@Override
 	public List<Order> getOrdersInDateIntervalSortedByByCompleteDate(String startDate, String endDate){
 		try{
-			//orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByDateComplete());
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByDateComplete());
 			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){
@@ -167,7 +165,6 @@ public class Service implements IService{
 	@Override
 	public List<Order> getOrdersInDateIntervalSortedByPrice(String startDate, String endDate){
 		try{
-			//orderManager.sort(orderManager.getOrdersInInterval(startDate, endDate), new ComparateOrdersByPrice());
 			orderManager.sort(orderManager.getListOfOrders(), new ComparateOrdersByPrice());
 			return orderManager.getOrdersInInterval(startDate, endDate);
 		} catch (NullPointerException npe){

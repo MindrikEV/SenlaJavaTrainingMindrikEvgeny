@@ -158,3 +158,6 @@
 23-11-2016 19:44:03 ERROR Builder:49 - java.lang.NullPointerException
 24-11-2016 01:19:19 ERROR Builder:49 - java.lang.NullPointerException
 24-11-2016 03:15:53 ERROR Builder:48 - java.lang.NullPointerException
+24-11-2016 18:40:24 ERROR Builder:48 - java.lang.NullPointerException
+24-11-2016 18:40:53 ERROR ShowExecutableOrdersSortedByDateRegistration:19 - java.lang.NullPointerException
+24-11-2016 18:40:53 ERROR Builder:48 - java.lang.NullPointerException

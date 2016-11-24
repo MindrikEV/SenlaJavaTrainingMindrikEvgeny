@@ -12,11 +12,10 @@ public enum Titles {
 	SortByDateRegistration,
 	SortByDateComplete,
 	SortByDatePlanStart,
-	SortByDatePrice,
+	SortByPrice,
 	SortOrders,
 	SortExecutableOrders,
 	SortOrdersInDateInterval,
-	SortByPrice,
 	Add,
 	Remove,
 	Close,
@@ -26,6 +25,7 @@ public enum Titles {
 	ShowSorted,
 	ShowListOfOrders,
 	ShowListOfExecutableOrders,
+	ShowListInInterval,
 	ShowOrder,
 	ShowAmountOfFreePlacesOnDate
 }
