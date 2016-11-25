@@ -6,13 +6,10 @@ import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.*;
 import org.apache.log4j.Logger;
+import org.senlatraining.property.worker.ConfigWorker;
 
 public class GarageManager implements IGarageManager, ICommonManagers {
 	private static final Logger log = Logger.getLogger(GarageManager.class);
-	
-	private static Boolean addebleOfGarage = true;
-	private static Boolean removebleOfGarage = true;
-	
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";
 	private final String MSG_GARAGE_IS_NOT_ADDEBLE = "Sorry, but add-function is disabled for Garages!";
@@ -20,18 +17,20 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 	private List<Garage> listOfGarages = new ArrayList<Garage>();
 	private Path path = new Path();
 	private FileWorker fileOperator = new FileWorker(path.getPathForGarage());
+	private Properties properties;
+	private Printer printer;
 	
-	public void setAddebleOfGarage(Boolean addebleOfGarage){
+/*	public void setAddebleOfGarage(Boolean addebleOfGarage){
 		this.addebleOfGarage = addebleOfGarage;
 	}
 //-------------------------------------------------------------------
 	public void setRemovebleOfGarage(Boolean removebleOfGarage){
 		this.removebleOfGarage = removebleOfGarage;
-	}	
+	}	*/
 //-------------------------------------------------------------------	
 	@Override
 	public void add(){
-		//if(addebleOfGarage){
+		if(properties.getAddebleOfGarage()){
 			try{	
 				Garage garage = new Garage();
 				listOfGarages.add(garage);
@@ -39,26 +38,25 @@ public class GarageManager implements IGarageManager, ICommonManagers {
 				log.error(e.getMessage());		
 			}
 			saveArray();
-		//} else {
-			//printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
-		//}
+		} else {
+			printer.print(MSG_GARAGE_IS_NOT_ADDEBLE);
+		}
 	}
 //-------------------------------------------------------------------
 	@Override
 	public Boolean remove(Integer number){
-		//if(removebleOfGarage){
 		Boolean flag = false;
+		
+		if(properties.getRemovebleOfGarage()){
 			for(int i=0; i < listOfGarages.size(); i++){
 				if(listOfGarages.get(i).getNumberOfGarage().equals(number)){
 					listOfGarages.remove(i);
 					flag = true;
 				}	
 			}
-		saveArray();
+			saveArray();
+		}
 		return flag;
-		//} else {
-			//printer.print(MSG_GARAGE_IS_NOT_REMOVEBLE);	
-		//}
 	}
 // -----------------------------------------------------------------
 	@Override

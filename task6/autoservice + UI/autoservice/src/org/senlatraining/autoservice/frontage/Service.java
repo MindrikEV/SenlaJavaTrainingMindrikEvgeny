@@ -7,11 +7,13 @@ import org.senlatraining.autoservice.api.IService;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.manager.*;
 import org.senlatraining.autoservice.util.comparators.*;
+import org.senlatraining.property.worker.ConfigWorker;
 import org.senlatraining.autoservice.util.Recover;
 
 public class Service implements IService{	
 	private static final Logger log = Logger.getLogger(Service.class);
 	private static Service instance;
+	private ConfigWorker cw = new ConfigWorker();
 	private static GarageManager garageManager  = new GarageManager();
 	private static MasterManager masterManager = new MasterManager();
 	private static OrderManager orderManager = new OrderManager();
@@ -20,9 +22,11 @@ public class Service implements IService{
 		try{
 			Recover recover = new Recover();
 			recover.initRecover();
+			
+			cw.initProperties();
 		} catch(Exception e) {
 			log.error(e);
-			throw(e);
+			//throw(e);
 		}
 	}
 	

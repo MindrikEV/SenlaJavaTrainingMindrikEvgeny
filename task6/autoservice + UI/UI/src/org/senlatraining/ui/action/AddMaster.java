@@ -13,8 +13,6 @@ public class AddMaster implements IAction{
 	private static final Logger log = Logger.getLogger(AddGarage.class);
 	private final String MSG_ENTER_NAME = "Please, enter name -> ";
 	private final String MSG_ENTER_SURNAME = "Please, enter surname -> ";
-	//private final String ERR_NOT_ADDED = "Master didn't add. Try again!";
-	//private final String MSG_MASTER = "Master is ";
 	private Service service;
 
 	@Override
@@ -26,11 +24,7 @@ public class AddMaster implements IAction{
 			String tmpSurName = sc.nextLine();
 		
 			service.addNewMaster(tmpName, tmpSurName);
-			//if(!f){
-			//	printer.print(ERR_NOT_ADDED);
-			//} else {
 				Printer.print(tmpSurName + Messeges.Added);
-			//}
 		} catch (Exception e){
 			log.error(e);
 			throw(e);

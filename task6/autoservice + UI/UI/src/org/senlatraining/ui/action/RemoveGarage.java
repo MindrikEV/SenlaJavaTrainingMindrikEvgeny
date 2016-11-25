@@ -13,7 +13,7 @@ import org.senlatraining.ui.util.Printer;
 
 public class RemoveGarage implements IAction{
 	private static final Logger log = Logger.getLogger(RemoveGarage.class);
-	private final String MSG_NOT_FOUND_GARAGE = "Garage with this number not found. Try another!";
+	private final String MSG_NOT_FOUND_GARAGE = "Garage with this number not found or remove-function is disabled in config! Try another!";
 	private final String MSG_ENTER_NUM = "Type number -> ";
 	private final String MSG_GARAGE = "Garage number - ";
 	private Service service;

@@ -10,7 +10,7 @@ import org.senlatraining.ui.util.Printer;
 
 public class RemoveOrder implements IAction{
 	private static final Logger log = Logger.getLogger(RemoveOrder.class);
-	private final String MSG_NOT_FOUND_ORDER = "Order with this ID not found. Try another!";
+	private final String MSG_NOT_FOUND_ORDER = "Order with this ID not found or remove-function is disabled in config! Try another!";
 	private final String MSG_ENTER_ID = "Enter ID of order -> ";
 	private Service service;
 	
