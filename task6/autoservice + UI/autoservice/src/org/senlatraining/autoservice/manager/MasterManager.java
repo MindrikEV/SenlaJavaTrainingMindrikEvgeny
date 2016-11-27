@@ -3,6 +3,7 @@ package org.senlatraining.autoservice.manager;
 import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.entity.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,11 @@ import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.util.Printer;
 import org.senlatraining.autoservice.util.comparators.*;
 
-public class MasterManager implements IMasterManager, ICommonManagers{  
+public class MasterManager implements IMasterManager, ICommonManagers, Serializable{  
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(MasterManager.class);
 	private List<Master> listOfMasters = new ArrayList<Master>();
 	private Path path = new Path();

@@ -1,5 +1,6 @@
 package org.senlatraining.autoservice.manager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.senlatraining.autoservice.api.*;
@@ -8,7 +9,11 @@ import org.senlatraining.autoservice.util.*;
 import org.apache.log4j.Logger;
 import org.senlatraining.property.worker.ConfigWorker;
 
-public class GarageManager implements IGarageManager, ICommonManagers {
+public class GarageManager implements IGarageManager, ICommonManagers, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(GarageManager.class);
 	private final String GARAGE = "Garage ";
 	private final String STATUS_FREE_MESSEGE = " is FREE";

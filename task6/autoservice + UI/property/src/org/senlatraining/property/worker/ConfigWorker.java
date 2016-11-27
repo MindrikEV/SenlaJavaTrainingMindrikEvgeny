@@ -23,7 +23,12 @@ public class ConfigWorker {
 			properties.setRemovebleOfGarage(Boolean.valueOf(property.getProperty("removebleOfGarage")));
 			properties.setMovableOfOrder(Boolean.valueOf(property.getProperty("movableOfOrder")));
 			properties.setRemovebleOfOrder(Boolean.valueOf(property.getProperty("removebleOfOrder")));
-			path.(Boolean.valueOf(property.getProperty("removebleOfOrder")));
+			path.setPathForMaster(property.getProperty("pathForMaster"));
+			path.setPathForGarage(property.getProperty("pathForGarage"));
+			path.setPathForOrder(property.getProperty("pathForOrder"));
+			path.setPathForMasterManager(property.getProperty("pathForMasterManager"));
+			path.setPathForGarageManager(property.getProperty("pathForGarageManager"));
+			path.setPathForOrderManager(property.getProperty("pathForOrderManager"));
 		} catch (FileNotFoundException fnfe){
 			log.error(fnfe);
 		}

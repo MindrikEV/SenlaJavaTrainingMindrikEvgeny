@@ -1,8 +1,14 @@
 package org.senlatraining.autoservice.entity;
 
+import java.io.Serializable;
+
 import org.senlatraining.autoservice.util.IdMaker;
 
-public class Garage {
+public class Garage implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer numberOfGarage;
 	private Boolean isBusy = false;
 	private IdMaker idMaker = new IdMaker();

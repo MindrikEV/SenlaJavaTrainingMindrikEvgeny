@@ -1,5 +1,6 @@
 package org.senlatraining.autoservice.manager;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +14,11 @@ import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.comparators.*;
 
-public class OrderManager implements IOrderManager, ICommonManagers{
+public class OrderManager implements IOrderManager, ICommonManagers, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(OrderManager.class);
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";

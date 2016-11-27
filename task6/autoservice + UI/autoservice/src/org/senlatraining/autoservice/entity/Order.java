@@ -1,5 +1,6 @@
 package org.senlatraining.autoservice.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -7,7 +8,11 @@ import org.apache.log4j.Logger;
 import org.senlatraining.autoservice.manager.OrderManager;
 import org.senlatraining.autoservice.util.IdMaker;
 
-public class Order implements Cloneable{
+public class Order implements Cloneable, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(Order.class);
 	private Integer idOfOrder;
 	private Double price;
