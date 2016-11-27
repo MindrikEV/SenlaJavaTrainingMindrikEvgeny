@@ -1,13 +1,12 @@
 package org.senlatraining.autoservice.util;
 
-import org.senlatraining.autoservice.frontage.Service;
-
 public class Properties {
 	private static Properties instance;
 	private static Boolean addebleOfGarage = false;
 	private static Boolean removebleOfGarage = false;
 	private static Boolean movableOfOrder = false;
 	private static Boolean removebleOfOrder = false;
+	
 	
 	private Properties(){	
 	}

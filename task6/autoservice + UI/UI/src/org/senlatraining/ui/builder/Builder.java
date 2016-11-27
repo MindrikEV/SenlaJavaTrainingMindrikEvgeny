@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.senlatraining.ui.action.*;
 import org.senlatraining.ui.constants.Titles;
 import org.senlatraining.ui.menu.*;
-//import org.senlatraining.ui.api.*;
+
 
 public class Builder {
 	private static final Logger log = Logger.getLogger(Builder.class);
@@ -15,6 +15,7 @@ public class Builder {
 	private Menu  sortOrdersMenu = new Menu(Titles.SortOrders.toString());
 	private Menu  sortExecutableOrdersMenu = new Menu(Titles.SortExecutableOrders.toString());
 	private Menu  sortOrdersInIntervalMenu = new Menu(Titles.SortOrdersInDateInterval.toString());
+	private Menu  orderManageMenu = new Menu(Titles.GarageManage.toString());
 	
 	public void buildMenu(){	
 		try{
@@ -34,14 +35,10 @@ public class Builder {
 			mastersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveGarage()));
 			mastersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
+			ordersMenu.addMenuItem(new MenuItem(Titles.GarageManage.toString(), new JumpMenu(orderManageMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListOfOrders.toString(), new JumpMenu(sortOrdersMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListOfExecutableOrders.toString(), new JumpMenu(sortExecutableOrdersMenu)));
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowListInInterval.toString(), new JumpMenu(sortOrdersInIntervalMenu)));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
-			ordersMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
 			ordersMenu.addMenuItem(new MenuItem(Titles.ShowAmountOfFreePlacesOnDate.toString(), new ShowAmountOfFreePlacesOnDate()));
 			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));		
 		//--------------------------------------------------------------------------------------------
@@ -49,14 +46,26 @@ public class Builder {
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowOrdersSortedByDateComplete()));
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowOrdersSortedByDatePlanStart()));
 			sortOrdersMenu.addMenuItem(new MenuItem(Titles.SortByPrice.toString(), new ShowListOfOrdersSortedByPrice()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowExecutableOrdersSortedByDateRegistration()));
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowExecutableOrdersSortedByDateComplete()));
 			sortExecutableOrdersMenu.addMenuItem(new MenuItem(Titles.SortByDatePlanStart.toString(), new ShowExecutableOrdersSortedByPrice()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
 		//--------------------------------------------------------------------------------------------
 			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateRegistration.toString(), new ShowOrdersInDateIntervalSortedByRegistrationDate()));
 			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByDateComplete.toString(), new ShowOrdersInDateIntervalSortedByCompleteDate()));
 			sortOrdersInIntervalMenu.addMenuItem(new MenuItem(Titles.SortByPrice.toString(), new ShowOrdersInDateIntervalSortedByPrice()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
+		//--------------------------------------------------------------------------------------------
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Add.toString(), new AddOrder()));
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Remove.toString(), new RemoveOrder()));
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Copy.toString(), new CopyOrder()));
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Close.toString(), new CloseOrder()));
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Revoke.toString(), new RevokeOrder()));
+			orderManageMenu.addMenuItem(new MenuItem(Titles.Move.toString(), new MoveOrder()));
+			ordersMenu.addMenuItem(new MenuItem("Exit", new Exit()));
+			
 		} catch (RuntimeException e) {
 			log.error(e);
 		}	

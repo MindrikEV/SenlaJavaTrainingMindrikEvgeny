@@ -17,7 +17,7 @@ public class AddGarage implements IAction{
 		} catch(NullPointerException ne){
 			log.error(ne);
 		}
-		Printer.print(MSG_WAS_ADDED);
+		//Printer.print(MSG_WAS_ADDED);
 	}
 	
 }

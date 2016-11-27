@@ -9,6 +9,7 @@ import java.util.Comparator;
 public interface IOrderManager {
 	
 	public void add(String description, Double price, String planStartDay, String completeDay);
+	public void copyOrder(Integer index);
 	public Boolean remove(Integer id);
 	public Boolean changeStatusOrder(Integer id, String status);
 	public void moveOrder(Integer id, String startDate, String completeDate);

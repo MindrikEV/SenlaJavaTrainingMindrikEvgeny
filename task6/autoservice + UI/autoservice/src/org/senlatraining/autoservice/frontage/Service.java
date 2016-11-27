@@ -22,7 +22,6 @@ public class Service implements IService{
 		try{
 			Recover recover = new Recover();
 			recover.initRecover();
-			
 			cw.initProperties();
 		} catch(Exception e) {
 			log.error(e);
@@ -67,6 +66,16 @@ public class Service implements IService{
 		}
 	}
 //-----------------------------------------------------------------------------------------------------------  ORDERS  --------------------
+	@Override
+	public void copyOrder(Integer index){
+		try{
+			orderManager.copyOrder(index);
+		} catch (NullPointerException npe){
+			log.error(npe);
+			throw(npe);
+		}
+	}
+//------------------------------------------------------------------	
 	@Override
 	public List<Order> getListOfOrdersSortedByRegistrationDate(){
 		try{

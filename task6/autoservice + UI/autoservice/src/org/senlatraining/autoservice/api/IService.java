@@ -9,6 +9,7 @@ public interface IService {
 	public void addNewGarage();
 	public Boolean removeGarage(Integer number);
 //---------------------------------------------------------------------------
+	public void copyOrder(Integer index);
 	public List<Order> getListOfOrdersSortedByRegistrationDate();
 	public List<Order> getListOfOrdersSortedByCompleteDate();
 	public List<Order> getListOfOrdersSortedByPlanStartDate();

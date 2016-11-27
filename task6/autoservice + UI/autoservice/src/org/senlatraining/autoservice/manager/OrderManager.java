@@ -13,7 +13,7 @@ import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.comparators.*;
 
-public class OrderManager implements IOrderManager, ICommonManagers {
+public class OrderManager implements IOrderManager, ICommonManagers{
 	private static final Logger log = Logger.getLogger(OrderManager.class);
 	private final String STATUS_ACTIVE = "active";
 	private final String STATUS_AT_WORK = "at work";
@@ -32,6 +32,17 @@ public class OrderManager implements IOrderManager, ICommonManagers {
 		Order order = new Order(description, price, planStartDay, completeDay);
 		
 		listOfOrders.add(order);
+		saveArray();
+	}
+//------------------------------------------------------------------
+	public void copyOrder(Integer index){
+		Order tmpOrder = null;
+		for(Order o: listOfOrders){
+			if(o.getId() == index){
+				tmpOrder = o.clone();
+			}
+		}
+		listOfOrders.add(tmpOrder);
 		saveArray();
 	}
 //------------------------------------------------------------------

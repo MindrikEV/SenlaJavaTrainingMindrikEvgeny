@@ -5,13 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.log4j.Logger;
+import org.senlatraining.autoservice.util.Path;
 
 public class ConfigWorker {
 	private static final Logger log = Logger.getLogger(ConfigWorker.class);
 	private final String PATH_TO_PROPERTIES = "config.properties";
 	private org.senlatraining.autoservice.util.Properties properties;
 	
-	private Properties property = new Properties();
+	private Properties property;
+	private Path path;
 	
 	public void initProperties() throws IOException{
 		try {
@@ -21,6 +23,7 @@ public class ConfigWorker {
 			properties.setRemovebleOfGarage(Boolean.valueOf(property.getProperty("removebleOfGarage")));
 			properties.setMovableOfOrder(Boolean.valueOf(property.getProperty("movableOfOrder")));
 			properties.setRemovebleOfOrder(Boolean.valueOf(property.getProperty("removebleOfOrder")));
+			path.(Boolean.valueOf(property.getProperty("removebleOfOrder")));
 		} catch (FileNotFoundException fnfe){
 			log.error(fnfe);
 		}

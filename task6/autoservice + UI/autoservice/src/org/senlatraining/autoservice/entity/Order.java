@@ -3,9 +3,12 @@ package org.senlatraining.autoservice.entity;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.apache.log4j.Logger;
+import org.senlatraining.autoservice.manager.OrderManager;
 import org.senlatraining.autoservice.util.IdMaker;
 
-public class Order {
+public class Order implements Cloneable{
+	private static final Logger log = Logger.getLogger(Order.class);
 	private Integer idOfOrder;
 	private Double price;
 	private String description;
@@ -27,6 +30,17 @@ public class Order {
 		setDateOfComplete(completeDay);
 		
 	}
+
+	@Override 
+	public Order clone(){
+		Order order = null;
+		try{
+			order = (Order) super.clone(); 
+		} catch (CloneNotSupportedException cnse){
+			log.error(cnse);
+		}
+		return order;
+	}		
 //-----------------------------------------------------------------
 	public void setDateOfRegistration(String date){
 		this.dateOfRegistration = LocalDate.parse(date);
