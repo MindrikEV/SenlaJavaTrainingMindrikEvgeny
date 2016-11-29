@@ -25,13 +25,6 @@ public class GarageManager implements IGarageManager, ICommonManagers, Serializa
 	private Properties properties;
 	private Printer printer;
 	
-/*	public void setAddebleOfGarage(Boolean addebleOfGarage){
-		this.addebleOfGarage = addebleOfGarage;
-	}
-//-------------------------------------------------------------------
-	public void setRemovebleOfGarage(Boolean removebleOfGarage){
-		this.removebleOfGarage = removebleOfGarage;
-	}	*/
 //-------------------------------------------------------------------	
 	@Override
 	public void add(){

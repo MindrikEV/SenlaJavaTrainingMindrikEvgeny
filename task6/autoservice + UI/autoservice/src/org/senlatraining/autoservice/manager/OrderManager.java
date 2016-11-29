@@ -15,9 +15,7 @@ import org.senlatraining.autoservice.entity.*;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class OrderManager implements IOrderManager, ICommonManagers, Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(OrderManager.class);
 	private final String STATUS_ACTIVE = "active";

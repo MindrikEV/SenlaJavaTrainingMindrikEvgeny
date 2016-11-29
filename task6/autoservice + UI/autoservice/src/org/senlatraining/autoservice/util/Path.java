@@ -56,5 +56,15 @@ public class Path {
 //---------------------------------------------------------------
 	public String getPathForOrderManager(){
 		return this.pathForOrderManager;
-	}	
+	}
+//---------------------------------------------------------------
+/*	@Override
+	public String toString(){
+		StringBuilder s = new StringBuilder();	
+		s.append(getNumberOfGarage());
+		s.append("|");
+		s.append(getStatus());
+		
+		return s.toString();
+	}*/
 }

@@ -14,9 +14,7 @@ import org.senlatraining.autoservice.util.Printer;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class MasterManager implements IMasterManager, ICommonManagers, Serializable{  
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(MasterManager.class);
 	private List<Master> listOfMasters = new ArrayList<Master>();
