@@ -2,6 +2,7 @@ package org.senlatraining.autoservice.manager;
 
 import org.senlatraining.autoservice.util.*;
 import org.senlatraining.autoservice.entity.*;
+import org.senlatraining.autoservice.storage.Storage;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,15 +18,15 @@ public class MasterManager implements IMasterManager, ICommonManagers, Serializa
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(MasterManager.class);
-	private List<Master> listOfMasters = new ArrayList<Master>();
 	private Path path = new Path();
 	private FileWorker fileOperator = new FileWorker(path.getPathForMaster());
+	private Storage storage;
 		
 	@Override
 	public void add(String name, String surName){
 		try{
 			Master master = new Master(name, surName);
-			listOfMasters.add(master);
+			storage.listOfMasters.add(master);
 			saveArray();
 		} catch (NullPointerException npe){
 			log.error(npe);
@@ -37,9 +38,9 @@ public class MasterManager implements IMasterManager, ICommonManagers, Serializa
 	public Boolean remove(String surName){
 		Boolean flag = false;
 		
-		for(int i=0; i < listOfMasters.size(); i++){
-			if(listOfMasters.get(i).equals(surName)){
-				listOfMasters.remove(i);
+		for(int i=0; i < storage.listOfMasters.size(); i++){
+			if(storage.listOfMasters.get(i).equals(surName)){
+				storage.listOfMasters.remove(i);
 				flag = true;
 			}
 		}
@@ -49,17 +50,17 @@ public class MasterManager implements IMasterManager, ICommonManagers, Serializa
 //------------------------------------------------------------------------------	
 	@Override
 	public List<Master> getListOfMasters(){
-		return listOfMasters;	
+		return storage.listOfMasters;	
 	}	
 //------------------------------------------------------------------------------
 	@Override
 	public Master getFreeMaster(){
 		Integer position = 0;
-		position = listOfMasters.indexOf(false);
-		listOfMasters.get(position).setStatus(true);
+		position = storage.listOfMasters.indexOf(false);
+		storage.listOfMasters.get(position).setStatus(true);
 		
 		saveArray();
-		return	listOfMasters.get(position);
+		return	storage.listOfMasters.get(position);
 	}
 //------------------------------------------------------------------------------
 /*	@Override
@@ -75,11 +76,10 @@ public class MasterManager implements IMasterManager, ICommonManagers, Serializa
 	@Override
 	public void sort(List<Master> listOfMasters, Comparator comparator){
 		Collections.sort(listOfMasters, comparator);	
-		//Printer.printList(listOfMasters);
 	}
 //------------------------------------------------------------------------------
 	@Override
 	public void saveArray(){
-		fileOperator.pushListToFile(listOfMasters);
+		fileOperator.pushListToFile(storage.listOfMasters);
 	}
 }

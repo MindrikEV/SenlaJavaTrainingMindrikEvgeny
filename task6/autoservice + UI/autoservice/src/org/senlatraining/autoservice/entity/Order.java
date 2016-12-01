@@ -9,12 +9,10 @@ import org.senlatraining.autoservice.manager.OrderManager;
 import org.senlatraining.autoservice.util.IdMaker;
 
 public class Order implements Cloneable, Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(Order.class);
-	private Integer idOfOrder;
+	private Integer id;
 	private Double price;
 	private String description;
 	private String status;
@@ -28,7 +26,7 @@ public class Order implements Cloneable, Serializable{
 	public Order(String description, Double price, String planStartDay, String completeDay){
 		this.description = description;
 		this.price = price;
-		this.idOfOrder = idMaker.getId();
+		this.id = idMaker.getIdOfOrders();
 		this.status = "active";
 		this.dateOfRegistration = LocalDate.now();
 		setDateOfPlanStart(planStartDay);
@@ -45,7 +43,7 @@ public class Order implements Cloneable, Serializable{
 			log.error(cnse);
 		}
 		return order;
-	}		
+	}
 //-----------------------------------------------------------------
 	public void setDateOfRegistration(String date){
 		this.dateOfRegistration = LocalDate.parse(date);
@@ -68,8 +66,12 @@ public class Order implements Cloneable, Serializable{
 	}
 //-----------------------------------------------------------------
 	public Integer getId(){
-		return idOfOrder;
+		return id;
 	}
+//-----------------------------------------------------------------
+	public void setId(Integer id){
+		this.id = id;
+	}	
 //-----------------------------------------------------------------
 	public void setStatus(String status){
 		this.status = status;

@@ -12,6 +12,7 @@ import org.senlatraining.autoservice.util.*;
 import org.apache.log4j.Logger;
 import org.senlatraining.autoservice.api.*;
 import org.senlatraining.autoservice.entity.*;
+import org.senlatraining.autoservice.storage.Storage;
 import org.senlatraining.autoservice.util.comparators.*;
 
 public class OrderManager implements IOrderManager, ICommonManagers, Serializable{
@@ -23,29 +24,29 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 	private final String ERROR_ORDER_DONT_HAVE_GARAGE = "This order don't have garage";
 	private final String ERROR_ORDER_DONT_HAVE_MASTER = "This order don't have master";
 	private final String MSG_ORDER_IS_NOT_MOVABLE = "Sorry, but move-function is disabled for Orders!";
-	private List<Order> listOfOrders = new ArrayList<Order>();
 	private Path path = new Path();
 	private FileWorker fileOperator = new FileWorker(path.getPathForOrder());
 	private MasterManager masterManager = new MasterManager();
 	private GarageManager garageManager = new GarageManager();
 	private Properties properties;
+	private Storage storage;
 
 	@Override
 	public void add(String description, Double price, String planStartDay, String completeDay) {
 		Order order = new Order(description, price, planStartDay, completeDay);
 		
-		listOfOrders.add(order);
+		storage.listOfOrders.add(order);
 		saveArray();
 	}
 //------------------------------------------------------------------
 	public void copyOrder(Integer index){
 		Order tmpOrder = null;
-		for(Order o: listOfOrders){
+		for(Order o: storage.listOfOrders){
 			if(o.getId() == index){
 				tmpOrder = o.clone();
 			}
 		}
-		listOfOrders.add(tmpOrder);
+		storage.listOfOrders.add(tmpOrder);
 		saveArray();
 	}
 //------------------------------------------------------------------
@@ -54,9 +55,9 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 		Boolean flag = false;
 		
 		if(properties.getRemovebleOfOrder()){
-			for(int i=0; i<listOfOrders.size(); i++){
-				if(listOfOrders.get(i).getId().equals(id)){
-					listOfOrders.remove(i);
+			for(int i=0; i<storage.listOfOrders.size(); i++){
+				if(storage.listOfOrders.get(i).getId().equals(id)){
+					storage.listOfOrders.remove(i);
 					flag = true;
 				}
 			}	
@@ -69,9 +70,9 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 	public Boolean changeStatusOrder(Integer id, String status) {
 		Boolean flag = false;
 		try{
-			for(int i=0; i<listOfOrders.size(); i++){
-				if(listOfOrders.get(i).getId().equals(id)){
-					listOfOrders.get(i).setStatus(status);
+			for(int i=0; i<storage.listOfOrders.size(); i++){
+				if(storage.listOfOrders.get(i).getId().equals(id)){
+					storage.listOfOrders.get(i).setStatus(status);
 					flag = true;
 				}
 			}	
@@ -86,10 +87,10 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 	@Override
 	public void moveOrder(Integer id, String startDate, String completeDate) {
 		if(properties.getMovableOfOrder()){
-			for(int i=0; i<listOfOrders.size(); i++){
-				if(listOfOrders.get(i).getId().equals(id)){
-					listOfOrders.get(i).setDateOfPlanStart(startDate);
-					listOfOrders.get(i).setDateOfComplete(completeDate);
+			for(int i=0; i<storage.listOfOrders.size(); i++){
+				if(storage.listOfOrders.get(i).getId().equals(id)){
+					storage.listOfOrders.get(i).setDateOfPlanStart(startDate);
+					storage.listOfOrders.get(i).setDateOfComplete(completeDate);
 				}
 			} 
 		} else {
@@ -99,15 +100,15 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 //------------------------------------------------------------------	
 	@Override
 	public List<Order> getListOfOrders() {
-		return listOfOrders;
+		return storage.listOfOrders;
 	}	
 //------------------------------------------------------------------
 	@Override
 	public List<Order> getListOfExecutableOrders(){
 		List<Order> array = new ArrayList<Order>();
-		for(int i = 0; i < listOfOrders.size(); i++){
-			if(listOfOrders.get(i).getStatus().equals(STATUS_AT_WORK)){
-				array.add(listOfOrders.get(i));
+		for(int i = 0; i < storage.listOfOrders.size(); i++){
+			if(storage.listOfOrders.get(i).getStatus().equals(STATUS_AT_WORK)){
+				array.add(storage.listOfOrders.get(i));
 			}
 		}
 		return array;	
@@ -135,10 +136,10 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 	public List<Order> getOrdersInInterval(String startDate, String endDate){
 		List<Order> array = new ArrayList<Order>();
 		
-		for(int i = 0; i < listOfOrders.size(); i++){
-			if((listOfOrders.get(i).getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
-			&& (listOfOrders.get(i).getDateOfComplete().isBefore(LocalDate.parse(endDate)))){
-				array.add(listOfOrders.get(i));
+		for(int i = 0; i < storage.listOfOrders.size(); i++){
+			if((storage.listOfOrders.get(i).getDateOfComplete().isAfter(LocalDate.parse(startDate))) 
+			&& (storage.listOfOrders.get(i).getDateOfComplete().isBefore(LocalDate.parse(endDate)))){
+				array.add(storage.listOfOrders.get(i));
 			}	
 		}
 		return array;
@@ -166,11 +167,11 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 	public Integer getAmountOfFreeByDate(String date){
 		Integer count = 0;
 		
-		for(int i = 0; i < listOfOrders.size(); i++){
-			if(LocalDate.parse(date).isAfter(listOfOrders.get(i).getDateOfRegistration())
-			&& (LocalDate.parse(date).isBefore(listOfOrders.get(i).getDateOfComplete())) 
-			&& (!listOfOrders.get(i).getGarage().getStatus())
-			&& (!listOfOrders.get(i).getMaster().getStatus())){
+		for(int i = 0; i < storage.listOfOrders.size(); i++){
+			if(LocalDate.parse(date).isAfter(storage.listOfOrders.get(i).getDateOfRegistration())
+			&& (LocalDate.parse(date).isBefore(storage.listOfOrders.get(i).getDateOfComplete())) 
+			&& (!storage.listOfOrders.get(i).getGarage().getStatus())
+			&& (!storage.listOfOrders.get(i).getMaster().getStatus())){
 				count++;	
 			}
 		}
@@ -184,6 +185,6 @@ public class OrderManager implements IOrderManager, ICommonManagers, Serializabl
 //------------------------------------------------------------------
 	@Override
 	public void saveArray(){										
-		fileOperator.pushListToFile(listOfOrders);
+		fileOperator.pushListToFile(storage.listOfOrders);
 	}
 }

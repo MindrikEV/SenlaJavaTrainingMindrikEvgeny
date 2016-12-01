@@ -5,16 +5,14 @@ import java.io.Serializable;
 import org.senlatraining.autoservice.util.IdMaker;
 
 public class Garage implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	private Integer numberOfGarage;
+	private Integer id;
 	private Boolean isBusy = false;
 	private IdMaker idMaker = new IdMaker();
 	
 	public Garage(){
-		this.numberOfGarage = idMaker.getNumber();		
+		this.id = idMaker.getIdOfGarage();		
 	}
 //----------------------------------------------------------------
 	public void setStatus(Boolean isBusy){									
@@ -25,12 +23,16 @@ public class Garage implements Serializable{
 		return this.isBusy;
 	}
 //----------------------------------------------------------------
-	public void setNumberOfGarage(Integer numberOfGarage){							
-		this.numberOfGarage = numberOfGarage;
+	public void setId(Integer id){							
+		this.id = id;
+	}
+//----------------------------------------------------------------
+	public Integer getId(){							
+		return this.id;
 	}
 //----------------------------------------------------------------
 	public Integer getNumberOfGarage(){							
-		return this.numberOfGarage;
+		return this.id;
 	}
 //----------------------------------------------------------------
 	@Override
