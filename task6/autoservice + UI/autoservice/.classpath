@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/mindrik_ev/Documents/SenlaJavaTrainingMindrikEvgeny_BACKUP/task5/autoservice/lib/textFileWorker.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mindrik_ev/Documents/SenlaJavaTrainingMindrikEvgeny/task6/autoservice + UI/property/lib/log4j.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/property"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UI"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

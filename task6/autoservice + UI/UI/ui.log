@@ -178,3 +178,5 @@
 27-11-2016 15:43:21 ERROR ShowListOfOrdersSortedByPrice:19 - java.lang.NullPointerException
 27-11-2016 15:43:21 ERROR Builder:48 - java.lang.NullPointerException
 01-12-2016 19:15:47 ERROR Builder:48 - java.lang.NullPointerException
+01-12-2016 19:21:29 ERROR Builder:48 - java.lang.NullPointerException
+01-12-2016 19:24:03 ERROR Builder:48 - java.lang.NullPointerException
